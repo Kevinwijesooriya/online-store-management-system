@@ -46,9 +46,7 @@ router.route("/update/:personid").put(async(req,res)=>{
     
 })
 
-/*npx create-react-app front-end
-cd front-end
-npm start*/
+
 router.route("/delete/:id").delete(async(req,res)=>{
     let personID = req.params.id;
     await Person.findByIdAndDelete(personID).then(()=>{
