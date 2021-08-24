@@ -37,3 +37,10 @@ const personRouter= require("./routes/persons");
 app.use("/person",personRouter);
 
 
+const customerRouter = require("./routes/customer.js");
+app.use("/customer",customerRouter)
+
+const adminSchema = require("./routes/admin.js");
+app.use("/admin",adminSchema)
+
+
