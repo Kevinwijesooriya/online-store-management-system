@@ -43,4 +43,7 @@ app.use("/customer",customerRouter)
 const adminSchema = require("./routes/admin.js");
 app.use("/admin",adminSchema)
 
+const budgetSchema = require("./routes/budget.js");
+app.use("/budget",budgetSchema)
+
 
