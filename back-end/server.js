@@ -50,3 +50,5 @@ const budgetSchema = require("./routes/budget.js");
 app.use("/budget",budgetSchema)
 
 
+const itemRouter = require("./routes/items.js");
+app.use("/item",itemRouter);
