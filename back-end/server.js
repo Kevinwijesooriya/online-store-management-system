@@ -36,4 +36,7 @@ app.listen(PORT, () => {
 const personRouter= require("./routes/persons");
 app.use("/person",personRouter);
 
+const onlinestoreRouter = require("./routes/carts.js");
+app.use("/cart",onlinestoreRouter);
+
 
