@@ -40,3 +40,13 @@ const onlinestoreRouter = require("./routes/carts.js");
 app.use("/cart",onlinestoreRouter);
 
 
+const customerRouter = require("./routes/customer.js");
+app.use("/customer",customerRouter)
+
+const adminSchema = require("./routes/admin.js");
+app.use("/admin",adminSchema)
+
+const budgetSchema = require("./routes/budget.js");
+app.use("/budget",budgetSchema)
+
+
