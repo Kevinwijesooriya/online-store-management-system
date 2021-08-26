@@ -64,3 +64,6 @@ app.use("/salaryplan",salaryplanSchema)
 
 const deliveryRouter = require("./routes/deliveries.js");
 app.use("/delivery",deliveryRouter);
+
+const orderRouter = require("./routes/orders.js");
+app.use("/order" , orderRouter);
