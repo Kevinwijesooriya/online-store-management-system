@@ -61,3 +61,6 @@ app.use("/feedback",feedbackRouter);
 
 const salaryplanSchema = require("./routes/salaryplan.js");
 app.use("/salaryplan",salaryplanSchema)
+
+const orderRouter = require("./routes/orders.js");
+app.use("/order" , orderRouter);
