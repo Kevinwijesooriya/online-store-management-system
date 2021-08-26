@@ -58,3 +58,6 @@ app.use("/inquiry",inquiryRouter);
 
 const feedbackRouter = require("./routes/feedbacks.js");
 app.use("/feedback",feedbackRouter);
+
+const salaryplanSchema = require("./routes/salaryplan.js");
+app.use("/salaryplan",salaryplanSchema)
