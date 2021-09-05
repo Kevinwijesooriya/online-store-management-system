@@ -30,7 +30,7 @@ connction.once("open", () =>{
     console.log("Mongodb Connection success");
 })
 app.listen(PORT, () => {
-    console.log('Server running on port : ${PORT}');
+    console.log(`Server running on port : ${PORT}`);
 })
 
 const personRouter= require("./routes/persons");
@@ -50,3 +50,23 @@ const budgetSchema = require("./routes/budget.js");
 app.use("/budget",budgetSchema)
 
 
+const itemRouter = require("./routes/items.js");
+app.use("/item",itemRouter);
+
+const inquiryRouter = require("./routes/inquirys.js");
+app.use("/inquiry",inquiryRouter);
+
+const feedbackRouter = require("./routes/feedbacks.js");
+app.use("/feedback",feedbackRouter);
+
+const salaryplanSchema = require("./routes/salaryplan.js");
+app.use("/salaryplan",salaryplanSchema)
+
+const deliveryRouter = require("./routes/deliveries.js");
+app.use("/delivery",deliveryRouter);
+
+const orderRouter = require("./routes/orders.js");
+app.use("/order" , orderRouter);
+
+const productRouter = require("./routes/Products.js");
+app.use("/product", productRouter);
