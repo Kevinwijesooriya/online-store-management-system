@@ -12,7 +12,6 @@ import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
 import SideDrawer from './components/SideDrawer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router} from 'react-router-dom'
 import SalaryPlanApp from './components/SalaryPlanApp';
 
 function App() {
@@ -38,8 +37,7 @@ function App() {
 
       </main>
       </div>
-    </Router>
- 
+    </Router> 
 
   );
 }
