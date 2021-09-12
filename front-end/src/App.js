@@ -11,6 +11,9 @@ import CartScreen from './screens/CartScreen';
 import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
 import SideDrawer from './components/SideDrawer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router} from 'react-router-dom'
+import SalaryPlanApp from './components/SalaryPlanApp';
 
 function App() {
 
@@ -18,6 +21,11 @@ function App() {
 
   return (
       <Router>
+        <div className = "App">
+      <SalaryPlanApp />     
+    
+    
+
         <Navbar click={() => setSideToggle(true)} />
       <SideDrawer show={sideToggle} click={() => setSideToggle(false)}/>
       <Backdrop show={sideToggle} click={() => setSideToggle(false)}/>
@@ -27,8 +35,12 @@ function App() {
           <Route exact path="/product/:id" component={ProductScreen}/>
           <Route exact path="/cart" component={CartScreen}/>
          </Switch> 
+
       </main>
+      </div>
     </Router>
+ 
+
   );
 }
 

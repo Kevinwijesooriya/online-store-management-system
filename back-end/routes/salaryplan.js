@@ -27,7 +27,7 @@ router.route("/").get((req, res) => {
 
 router.route("/update/:id").put(async (req, res) => {
     let salaryplanID = req.params.id;
-    const { month, monthly_income, monthly_expences, monthly_profit, date } = req.body;
+    const { role_name, salary, date } = req.body;
 
     const updateSalaryplan = {
         role_name,
