@@ -11,6 +11,8 @@ import CartScreen from '../screens/CartScreen';
 import Navbar from './Navbar';
 import Backdrop from './Backdrop';
 import SideDrawer from './SideDrawer';
+import AllCart from './AllCart';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -28,6 +30,7 @@ function CartApp() {
                     <Route exact path="/cart/" component={HomeScreen} />
                     <Route exact path="/cart/product/:id" component={ProductScreen} />
                     <Route exact path="/cart/cart" component={CartScreen} />
+                    <Route exact path="/cart/allcart" component={AllCart} />
                 </Switch>
 
             </main>
