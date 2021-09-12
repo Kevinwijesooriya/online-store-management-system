@@ -18,6 +18,7 @@ function AllSalaryPlans() {
         getSalaryplans();
         
     }, []); 
+    const [id,onDelete,getSalaryplans] = useState([]);
 
     
     useEffect(() => {

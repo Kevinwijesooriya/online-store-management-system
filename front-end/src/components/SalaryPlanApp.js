@@ -16,9 +16,9 @@ function SalaryPlanApp() {
           <Header />
         </div>
         <Sidebar />
-        <Route path="/add" exact component={AddSalaryPlan} />
-        <Route path="/" exact component={AllSalaryPlans} />
-        <Route path="/salaryplan" exact component={AllSalaryPlans} />
+        <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
+        <Route path="/salaryplan/" exact component={AllSalaryPlans} />
+        <Route path="/salaryplan/salaryplan" exact component={AllSalaryPlans} />
 
       </div>
     </Router>
