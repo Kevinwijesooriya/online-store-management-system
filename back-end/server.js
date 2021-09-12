@@ -67,3 +67,6 @@ app.use("/delivery",deliveryRouter);
 
 const orderRouter = require("./routes/orders.js");
 app.use("/order" , orderRouter);
+
+const productRouter = require("./routes/Products.js");
+app.use("/product", productRouter);

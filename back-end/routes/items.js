@@ -6,7 +6,7 @@ let Item = require("../models/item");
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, "./images/");
+        callback(null, "./../frontend/public/");
     },
     filename: (req, file, callback) => {
         callback(null, file.originalname);

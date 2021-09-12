@@ -34,7 +34,7 @@ router.route("/").get((req,res)=>{
 
 router.route("/update/:id").put(async (req, res)=>{
     let userId = req.params.id;
-    const  {customerID, productID,price, quantity} = req.body;
+    const  {customerID, productID, price, quantity} = req.body;
 
     const updateOnlineStore = {
         customerID,
@@ -43,7 +43,7 @@ router.route("/update/:id").put(async (req, res)=>{
         quantity
     }
     const update = await OnlineStore.findByIdAndUpdate(userId, updateOnlineStore).then(()=>{
-        res.status(200).send({status: "user updated", user: update})
+        res.status(200).send({status: "user updated"})
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status: "Error with updating data", error: err.message});
