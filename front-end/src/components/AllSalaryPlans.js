@@ -1,9 +1,10 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 import axios from 'axios';
 
 
 function AllSalaryPlans() {
-  
+
     const [salaryplans, setSalaryplans] = useState([]);
 
     useEffect(() => {
@@ -16,22 +17,13 @@ function AllSalaryPlans() {
                 .catch(err => { alert(err) });
         }
         getSalaryplans();
-        
-    }, []); 
-    const [id,onDelete,getSalaryplans] = useState([]);
-
-    
-    useEffect(() => {
-        function onDelete(id) {
-        axios.delete(`http://localhost:5000/salaryplan/delete/${id}`).then((res) => {
-            alert("Salary plan Details Delete SuccessFully")
-            getSalaryplans();
-        }).catch(err => { alert(err) });
-        
-    }  onDelete(id);
     }, []);
 
-    
+    function Delete(id) {
+        axios.delete(`http://localhost:5000/salaryplan/delete/${id}`).then((res) => {
+            alert("Salary plan Details Delete SuccessFully")
+        }).catch(err => { alert(err) });
+    }
 
     // filterData(salaryplan,searchkey){
     //   const result = salaryplan.filter((salaryplan) =>
@@ -51,44 +43,40 @@ function AllSalaryPlans() {
     //   });
     // }
 
+    return (<div className="container" >
+        <table className="table table-bordered border-primary">
+            <thead className="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Role Name</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
 
-
-    
-        return (<div className="container" >
-            <table className="table table-bordered border-primary">
-                <thead className="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Role Name</th>
-                        <th scope="col">Salary</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Action</th>
-
+                </tr>
+            </thead>
+            <tbody>
+                {salaryplans.map((salaryplan, index) => (
+                    <tr key={index}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{salaryplan.role_name}</td>
+                        <td>{salaryplan.salary}</td>
+                        <td>{salaryplan.date}</td>
+                        <td>
+                            <Link className="btn btn-success" to={"/salaryplan/update/" + salaryplan._id}>Edit</Link>
+                            {/* <a type="button" className="btn btn-success" href={`/salaryplan/update/${salaryplan._id}`}>
+                                Edit
+                            </a> */}
+                            <a type="button" className="btn btn-success" onClick={() => Delete(salaryplan._id)} >
+                                Delete
+                            </a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {salaryplans.map((salaryplan, index) => (
-                        <tr key={index}>
-                            <th scope="row">{index + 1}</th>
-                            <td>{salaryplan.role_name}</td>
-                            <td>{salaryplan.salary}</td>
-                            <td>{salaryplan.date}</td>
-                            <td>
-                                <a type="button" className="btn btn-success" href={`/salaryplan/update/${salaryplan._id}`}>
-                                    Edit
-                                </a>
-                                <a type="button" className="btn btn-success" onClick={()=>onDelete(salaryplan._id)} >
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    ))}
+                ))}
+            </tbody>
+        </table>
+        <br /><br /><br />
+    </div>);
 
-                </tbody>
-            </table>
-
-            <br /><br /><br />
-        </div>);
-    
-                    }
-export default  AllSalaryPlans;
+}
+export default AllSalaryPlans;
