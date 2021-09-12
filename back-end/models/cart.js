@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const onlinestoreSchema = new Schema({
+const CartSchema = new Schema({
 
     customerID : {
         type : String,
@@ -23,6 +23,6 @@ const onlinestoreSchema = new Schema({
   
 })
 
-const OnlineStore = mongoose.model("OnlineStore", onlinestoreSchema);
+const Cart = mongoose.model("Cart", CartSchema);
 
-module.exports = OnlineStore;
+module.exports = Cart;

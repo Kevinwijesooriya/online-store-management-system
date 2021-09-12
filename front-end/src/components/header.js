@@ -15,13 +15,13 @@ function Header() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link"  to="/add">Add Salary Plan</Link>
+                            <Link className="nav-link"  to="/salaryplan/add">Add Salary Plan</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/update">Update</Link>
+                            <Link className="nav-link" to="/salaryplan/update">Update</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">View Salary Plans</Link>
+                            <Link className="nav-link" to="/salaryplan/">View Salary Plans</Link>
                         </li>                    
                     </ul>
                     <form className="d-flex">

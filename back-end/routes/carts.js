@@ -1,5 +1,5 @@
 const router = require("express").Router();
-let OnlineStore = require("../models/cart");
+let Cart = require("../models/cart");
 
 router.route("/add").post((req,res)=>{
     const customerID = req.body.customerID;
@@ -7,14 +7,14 @@ router.route("/add").post((req,res)=>{
     const price = Number(req.body.price);
     const quantity = Number(req.body.quantity);
 
-    const newOnlineStore = new OnlineStore({
+    const newCart = new Cart({
         customerID,
         productID,
         price,
         quantity
     })
 
-    newOnlineStore.save().then(()=>{
+    newCart.save().then(()=>{
         res.json("Details Added")
     }).catch((err)=>{
         console.log(err);
@@ -24,8 +24,8 @@ router.route("/add").post((req,res)=>{
 
 router.route("/").get((req,res)=>{
 
-    OnlineStore.find().then((onlinestores)=>{
-        res.json(onlinestores)
+    Cart.find().then((cart)=>{
+        res.json(cart)
     }).catch((err)=>{
         console.log(err)
     })
@@ -36,13 +36,13 @@ router.route("/update/:id").put(async (req, res)=>{
     let userId = req.params.id;
     const  {customerID, productID, price, quantity} = req.body;
 
-    const updateOnlineStore = {
+    const updateCart = {
         customerID,
         productID,
         price,
         quantity
     }
-    const update = await OnlineStore.findByIdAndUpdate(userId, updateOnlineStore).then(()=>{
+    const update = await Cart.findByIdAndUpdate(userId, updateCart).then(()=>{
         res.status(200).send({status: "user updated"})
     }).catch((err)=>{
         console.log(err);
@@ -53,21 +53,21 @@ router.route("/update/:id").put(async (req, res)=>{
 router.route("/delete/:id").delete(async (req, res)=>{
     let userId = req.params.id;
 
-    await OnlineStore.findByIdAndDelete(userId).then(()=>{
+    await Cart.findByIdAndDelete(userId).then(()=>{
         res.status(200).send({status: "user deleted"})
     }).catch((err)=>{
         console.log(err.message);
-        res.status(500).send({status: "Error with delet user", error: err.message});
+        res.status(500).send({status: "Error with delete cart", error: err.message});
     })
 })
 
 router.route("/get/:id").get(async (req, res)=>{
     let userId = req.params.id;
-    const user = await OnlineStore.findById(userId).then((onlinestore)=>{
-        res.status(200).send({status: "user fetched", onlinestore})
+    const user = await Cart.findById(userId).then((cart)=>{
+        res.status(200).send({status: "cart fetched", cart})
     }).catch(()=>{
         console.log(err.message);
-        res.status(500).send({status: "Error with get user", error: err.message})
+        res.status(500).send({status: "Error with get cart", error: err.message})
     });
 })
 
