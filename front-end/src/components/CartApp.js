@@ -12,6 +12,7 @@ import Navbar from './Navbar';
 import Backdrop from './Backdrop';
 import SideDrawer from './SideDrawer';
 import AllCart from './AllCart';
+import ProductApp from './ProductApp';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,10 +28,11 @@ function CartApp() {
             <Backdrop show={sideToggle} click={() => setSideToggle(false)} />
             <main>
                 <Switch>
-                    <Route exact path="/cart/" component={HomeScreen} />
+                    {/* <Route exact path="/cart/" component={HomeScreen} /> */}
                     <Route exact path="/cart/product/:id" component={ProductScreen} />
                     <Route exact path="/cart/cart" component={CartScreen} />
                     <Route exact path="/cart/allcart" component={AllCart} />
+                    <Route exact path="/cart/" component={ProductApp} />
                 </Switch>
 
             </main>
