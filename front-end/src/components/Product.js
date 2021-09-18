@@ -12,7 +12,7 @@ const Product = () => {
                  lorem ipsum dolor sit nkdjnskjnan
                  </p>
                  <p className="info__price">$499.99</p>
-                   <Link to={'/product/${1111}'} className="info__button">View</Link>
+                   <Link to={'/cart/product/${1111}'} className="info__button">View</Link>
             </div>
         </div>
     )

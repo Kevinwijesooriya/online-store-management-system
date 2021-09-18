@@ -12,7 +12,7 @@ const ProductScreen = ({match, history}) => {
 
 const addToCartHandler = () => {
     dispatch(addToCart(Product._id, qty));
-    history.push("/cart");
+    history.push("/cart/cart");
 };
     return (
     <div className="productscreen">
