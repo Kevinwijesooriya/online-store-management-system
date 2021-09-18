@@ -47,9 +47,10 @@ function AllCart() {
             <thead className="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Role Name</th>
-                    <th scope="col">Salary</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -57,13 +58,13 @@ function AllCart() {
                 {Cart.map((cart, index) => (
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
-                        <td>{cart.role_name}</td>
-                        <td>{cart.salary}</td>
-                        <td>{cart.date}</td>
+                        <td>{cart.customerID}</td>
+                        <td>{cart.productID}</td>
+                        <td>{cart.price}</td>
+                        <td>{cart.quantity}</td>
                         <td>
-                            <a type="button" className="btn btn-success" href={`/cart/update/${cart._id}`}>
-                                Edit
-                            </a>
+                            {/* <Link className="btn btn-success" to={"/cart/update/" + cart._id}>Edit</Link> */}
+
                             <a type="button" className="btn btn-success" onClick={() => onDelete(cart._id)} >
                                 Delete
                             </a>
