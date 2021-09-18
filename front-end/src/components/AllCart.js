@@ -1,9 +1,9 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 
 function AllCart() {
-  
+
     const [Cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -16,22 +16,13 @@ function AllCart() {
                 .catch(err => { alert(err) });
         }
         getCart();
-        
-    }, []); 
-    const [id,onDelete,getCart] = useState([]);
-
-    
-    useEffect(() => {
-        function onDelete(id) {
-        axios.delete(`http://localhost:5000/cart/delete/${id}`).then((res) => {
-            alert("Salary plan Details Delete SuccessFully")
-            getCart();
-        }).catch(err => { alert(err) });
-        
-    }  onDelete(id);
     }, []);
 
-    
+    function onDelete(id) {
+        axios.delete(`http://localhost:5000/cart/delete/${id}`).then((res) => {
+            alert("Cart Details Deleted SuccessFully")
+        }).catch(err => { alert(err) });
+    }
 
     // filterData(cart,searchkey){
     //   const result = cart.filter((cart) =>
@@ -51,44 +42,39 @@ function AllCart() {
     //   });
     // }
 
+    return (<div className="container" >
+        <table className="table table-bordered border-primary">
+            <thead className="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {Cart.map((cart, index) => (
+                    <tr key={index}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{cart.customerID}</td>
+                        <td>{cart.productID}</td>
+                        <td>{cart.price}</td>
+                        <td>{cart.quantity}</td>
+                        <td>
+                            {/* <Link className="btn btn-success" to={"/cart/update/" + cart._id}>Edit</Link> */}
 
-
-    
-        return (<div className="container" >
-            <table className="table table-bordered border-primary">
-                <thead className="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Role Name</th>
-                        <th scope="col">Salary</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Action</th>
-
+                            <a type="button" className="btn btn-success" onClick={() => onDelete(cart._id)} >
+                                Delete
+                            </a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {Cart.map((cart, index) => (
-                        <tr key={index}>
-                            <th scope="row">{index + 1}</th>
-                            <td>{cart.role_name}</td>
-                            <td>{cart.salary}</td>
-                            <td>{cart.date}</td>
-                            <td>
-                                <a type="button" className="btn btn-success" href={`/cart/update/${cart._id}`}>
-                                    Edit
-                                </a>
-                                <a type="button" className="btn btn-success" onClick={()=>onDelete(cart._id)} >
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    ))}
+                ))}
+            </tbody>
+        </table>
+        <br /><br /><br />
+    </div>);
 
-                </tbody>
-            </table>
-
-            <br /><br /><br />
-        </div>);
-    
-                    }
-export default  AllCart;
+}
+export default AllCart;
