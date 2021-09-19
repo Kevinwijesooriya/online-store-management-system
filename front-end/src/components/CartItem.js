@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom';
 const CartItem = ({item, qtyChangeHandler, removeHandler}) => {
     return <div className="cartitem">
             <div className="cartitem__image">
-                <img width="60%" height="70%" src={item.imageUrl} alt={item.name}/>
+                <img width="60%" height="70%" src={`/images/${item.imageUrl}`} alt={item.name}/>
             </div>
             <Link to={`/product/${item.product}`} className="cartitem__name">
-                <p>{}item.name</p>
+                <p>{item.name}</p>
             </Link>
 
             <p className="cartitem__price">${item.price}</p>
@@ -18,11 +18,7 @@ const CartItem = ({item, qtyChangeHandler, removeHandler}) => {
             >
                 {[...Array(item.countInStock).keys()].map(x => (
                     <option key={x+1} value={x+1}>{x+1}</option>
-                ))}
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                ))}                
             </select>
 
             <button className="cartitem__deleteBtn" onClick={() => removeHandler(item.product)}>
