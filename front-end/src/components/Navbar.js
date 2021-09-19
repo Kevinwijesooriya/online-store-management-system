@@ -10,7 +10,7 @@ const Navbar = ({click}) => {
 
         <ul className="navbar__links">
             <li>
-              <Link to="/cart" className="cart__link">
+              <Link to="/cart/cart" className="cart__link">
                   <i className="fas fa-shopping-cart"></i>
                   <span>
                   Cart
@@ -19,7 +19,7 @@ const Navbar = ({click}) => {
               </Link>  
             </li>
             <li>
-              <Link to="/">
+              <Link to="/cart">
                   Shop
               </Link>  
             </li>
