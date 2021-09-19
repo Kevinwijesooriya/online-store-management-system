@@ -7,9 +7,11 @@ function Sidebar() {
 
     return (
         <div className="Sidebar">
+            <h3>Financial Managment</h3>
             <ul className="SidebarList">
                 {SidebarData.map((val, key) => {
                     return (
+                        
                         <li key={key}
                             className="row"
                             id={window.location.pathname === val.link ? "active" : ""}

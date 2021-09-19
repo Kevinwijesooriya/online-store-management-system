@@ -3,40 +3,40 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import {MdDelete} from "react-icons/md"
 
-function AllSalaryPlans() {
+function AllBudget() {
 
-    const [salaryplans, setSalaryplans] = useState([]);
+    const [budget, setBudget] = useState([]);
 
     useEffect(() => {
-        function getSalaryplans() {
+        function getBudget() {
             axios
-                .get("http://localhost:5000/salaryplan/")
+                .get("http://localhost:5000/budget/")
                 .then(res => {
-                    setSalaryplans(res.data);
+                    setBudget(res.data);
                 })
                 .catch(err => { alert(err) });
         }
-        getSalaryplans();
+        getBudget();
     }, []);
 
     function Delete(id) {
-        axios.delete(`http://localhost:5000/salaryplan/delete/${id}`).then((res) => {
-            alert("Salary plan Details Delete SuccessFully")
+        axios.delete(`http://localhost:5000/budget/delete/${id}`).then((res) => {
+            alert("Budget Details Delete SuccessFully")
         }).catch(err => { alert(err) });
     }
 
-    // filterData(salaryplan,searchkey){
-    //   const result = salaryplan.filter((salaryplan) =>
-    //  salaryplan.firstName.toLowerCase().includes(searchkey)||
-    //  salaryplan.lastName.toLowerCase().includes(searchkey)
+    // filterData(budget,searchkey){
+    //   const result = budget.filter((budget) =>
+    //  budget.firstName.toLowerCase().includes(searchkey)||
+    //  budget.lastName.toLowerCase().includes(searchkey)
     //   )
-    //   this.setState({salaryplan:result})
+    //   this.setState({budget:result})
     // }
 
     // handleSearchArea=(e)=>{
     //   const searchkey = e.currentTarget.value;
 
-    //   axios.get("http://localhost:5000/salaryplan").then(res =>{
+    //   axios.get("http://localhost:5000/budget").then(res =>{
     //     if(res.data.success){
     //       this.filterData(res.data.existingsalaryplan,searchkey)
     //     }
@@ -56,15 +56,15 @@ function AllSalaryPlans() {
                 </tr>
             </thead>
             <tbody>
-                {salaryplans.map((salaryplan, index) => (
+                {budget.map((budget, index) => (
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
-                        <td>{salaryplan.role_name}</td>
-                        <td>{salaryplan.salary}</td>
-                        <td>{salaryplan.date.substring(0,10)}</td>
+                        <td>{budget.role_name}</td>
+                        <td>{budget.salary}</td>
+                        <td>{budget.date.substring(0,10)}</td>
                         <td>
-                            <Link className="btn btn-success" to={"/salaryplan/update/" + salaryplan._id}>Edit</Link>
-                            <button className="btn btn-danger" onClick={() => Delete(salaryplan._id)} >
+                            <Link className="btn btn-success" to={"/budget/update/" + budget._id}>Edit</Link>
+                            <button className="btn btn-danger" onClick={() => Delete(budget._id)} >
                             <MdDelete/>Delete
                             </button>
                         </td>
@@ -76,4 +76,4 @@ function AllSalaryPlans() {
     </div>);
 
 }
-export default AllSalaryPlans;
+export default AllBudget;

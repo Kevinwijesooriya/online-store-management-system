@@ -65,9 +65,9 @@ function AllCart() {
                         <td>
                             {/* <Link className="btn btn-success" to={"/cart/update/" + cart._id}>Edit</Link> */}
 
-                            <a type="button" className="btn btn-success" onClick={() => onDelete(cart._id)} >
+                            <button className="btn btn-success" onClick={() => onDelete(cart._id)} >
                                 Delete
-                            </a>
+                            </button>
                         </td>
                     </tr>
                 ))}
