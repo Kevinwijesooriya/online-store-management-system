@@ -1,14 +1,13 @@
 import React from "react";
-import '../styles/Sidebar.css';
-import { SidebarData } from '../Helpers/SidebarData'
-
+import './Sidebar.css';
+import { CartSidebarData } from '../../Helpers/CartSidebarData';
 
 function Sidebar() {
-
     return (
         <div className="Sidebar">
+            <h3>Cart Managment</h3>
             <ul className="SidebarList">
-                {SidebarData.map((val, key) => {
+                {CartSidebarData.map((val, key) => {
                     return (
                         <li key={key}
                             className="row"

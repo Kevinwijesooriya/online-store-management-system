@@ -1,57 +1,81 @@
-import './ProductScreen.css';
+
+import "./ProductScreen.css";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { addToCart } from '../redux/actions/cartActions';
-import Product from '../components/Product';
+// Actions
+import { getProductDetails } from "../redux/actions/productActions";
+import { addToCart } from "../redux/actions/cartActions";
 
+const ProductScreen = ({ match, history }) => {
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
 
-const ProductScreen = ({match, history}) => {
-    const [qty, setQty] = useState(1);
-    const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { loading, error, product } = productDetails;
 
-const addToCartHandler = () => {
-    dispatch(addToCart(Product._id, qty));
-    history.push("/cart/cart");
-};
-    return (
+  useEffect(() => {
+    if (product && match.params.id !== product._id) {
+      dispatch(getProductDetails(match.params.id));
+    }
+  }, [dispatch, match, product]);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id, qty));
+    history.push(`/cart/cart`);
+  };
+
+  return (
     <div className="productscreen">
-        <div className="productscreen__left">
-          <div className="left__image">
-              <img src="https://www.asus.com/media/odin/websites/global/News/6lp6uepkp4p10fxd/ROGphone5series.png"
-               alt="product name"/>
-              </div>  
-
-              <div className="left__info">
-                  <p className="left__name">Product 1</p>
-                  <p>Price: $499.99</p>
-                  <p>Description: welcome to the shop</p>
-              </div>
-        </div>
-        <div className="productscreen__right">
-          <div className="right__info">
-            <p>
-               Price: <span>$499.99</span> 
-            </p>
-            <p>
-                Status: <span>{Product.countInStock > 0 ? "In Stock" : "Out Of Stock"}</span>
-            </p>
-            <p>
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
+        <>
+          <div className="productscreen__left">
+            <div className="left__image">
+              <img src={`/images/${product.itemimage}`} alt={product.itemname} />
+            </div>
+            <div className="left__info">
+              <p className="left__name">{product.itemname}</p>
+              <p>Price: ${product.itemprice}</p>
+              <p>Description: {product.itemdescription}</p>
+            </div>
+          </div>
+          <div className="productscreen__right">
+            <div className="right__info">
+              <p>
+                Price:
+                <span>${product.itemprice}</span>
+              </p>
+              <p>
+                Status:
+                <span>
+                  {product.itemqty > 0 ? "In Stock" : "Out of Stock"}
+                </span>
+              </p>
+              <p>
                 Qty
-                <select>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                <select value={qty} onChange={(e) => setQty(e.target.value)}>
+                  {[...Array(product.itemqty).keys()].map((x) => (
+                    <option key={x + 1} value={x + 1}>
+                      {x + 1}
+                    </option>
+                  ))}
                 </select>
-            </p>
-            <p>
-                <button type="button" onClick={addToCartHandler}>Add to Cart</button>
-            </p>
-          </div>  
-        </div>
+              </p>
+              <p>
+                <button type="button" onClick={addToCartHandler}>
+                  Add To Cart
+                </button>
+              </p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
-    )
-}
+  );
+};
 
-export default ProductScreen
+export default ProductScreen;

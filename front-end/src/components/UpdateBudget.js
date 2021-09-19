@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
 
-function UpdateSalaryPlan() {
+function UpdateBudget() {
 
     let history = useHistory();
     const { id } = useParams();
 
-    const [salaryplan, updateSalaryplan] = useState({
+    const [budget, updateBudget] = useState({
         role_name: "",
         salary: "",
         date: ""
@@ -15,29 +15,29 @@ function UpdateSalaryPlan() {
 
     const { role_name,
         salary,
-        date } = salaryplan;
+        date } = budget;
 
     const onInputChange = (e, input_field) => {
-        updateSalaryplan({ ...salaryplan, [input_field]: e.target.value });
+        updateBudget({ ...budget, [input_field]: e.target.value });
     }
 
     async function onSubmit(e) {
         e.preventDefault();
-        await axios.put(`http://localhost:5000/salaryplan/update/${id}`, salaryplan)
+        await axios.put(`http://localhost:5000/budget/update/${id}`, budget)
             .then(res => {
-                alert("Successfully Updated salaryplan Details");
-                history.push("/salaryplan");
+                alert("Successfully Updated budget Details");
+                history.push("/budget");
             })
             .catch(err => { alert(err) });
     }
 
-    const loadsalaryplan = async () => {
+    const loadbudget = async () => {
         const res = await axios.get
-            (`http://localhost:5000/salaryplan/get/${id}`)
-        updateSalaryplan(res.data.salaryplan)
+            (`http://localhost:5000/budget/get/${id}`)
+        updateBudget(res.data.budget)
     };
     useEffect(() => {
-        loadsalaryplan();
+        loadbudget();
     }, []);
 
     return (
@@ -64,5 +64,5 @@ function UpdateSalaryPlan() {
         </div>
     )
 }
-export default UpdateSalaryPlan;
+export default UpdateBudget;
 

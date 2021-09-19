@@ -21,6 +21,7 @@ export default class Newitem extends Component {
        alert(err.massage);
    })
 }
+
   
 render(){
  
