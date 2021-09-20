@@ -20,10 +20,7 @@ function BudgetApp() {
           <Header />
         </div>
         <Sidebar />
-        <Route path="/budget/add" exact component={AddBudget} />
-        <Route path="/budget/" exact component={AllBudget} />
-        <Route path="/budget/budget" exact component={AllBudget} />
-        <Route path="/budget/update/:id" exact component={UpdateBudget} />
+        
 
       </div>
     </Router>

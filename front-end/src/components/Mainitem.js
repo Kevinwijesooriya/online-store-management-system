@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react"
 import axios from "axios";
 
+
 import { Link } from "react-router-dom";
 
 function DisplayItems(){
@@ -32,20 +33,40 @@ function DisplayItems(){
     
     return(
         <div>
+
+
+            <div class="Topic"><h3>V-TECH </h3></div>
             {items.map( item =>
             <div>
+              
+                
 
-                <img  src={`/images/${item.itemimage}`}  alt="" />
-                <p >{item.itemname}</p>
+              <div class="container">
+                 
+                <div class="row">
+                <div class="col-12">
+
+                <table class="table table-image">
+                <thead>
+                <td>
+                <th scope="col" width="450"><img  src={`/images/${item.itemimage}`}  alt="" width="350" height="250" /></th>
+                <th scope="col" width="600"><h2>{item.itemname}</h2>
                 <p>{item.itemcategory}</p>
-                <p>{item.itembrand}</p>
-                <p>{item.itemprice}</p>
-                
+                <p >{item.itembrand}</p>
+                <p >Rs {item.itemprice}</p>
                
-                <Link className="btn btn-success" to={"/product/display/" + item._id}>Item Details</Link>
+                <button>
+                <Link className="btn btn-success" to={"/display/" + item._id}>Item Details</Link></button>
+                <button><Link className="btn btn-success" to={"/update/" + item._id}>Item Update</Link></button></th>
+                </td>
                 
-                  
-            </div>
+                </thead>
+                </table>  
+                </div>
+                </div>
+                </div>
+                </div>
+           
 
                 )}
 
