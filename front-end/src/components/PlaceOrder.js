@@ -11,6 +11,7 @@ export default class PlaceOrder extends Component {
     this.onChangeBankName = this.onChangeBankName.bind(this);
     this.onChangeAmount = this.onChangeAmount.bind(this);
     this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeQty = this.onChangeQty.bind(this);
     this.onChangeItemPrice = this.onChangeItemPrice.bind(this);
@@ -23,6 +24,7 @@ export default class PlaceOrder extends Component {
       username: '',
       amount: '',
       orderDate: new Date(),
+      phone:'',
       itemName: '',
       qty : '',
       itemPrice:'',
@@ -87,6 +89,12 @@ export default class PlaceOrder extends Component {
     })
   }
   
+  onChangePhone(e) {
+    this.setState({
+      phone: e.target.value
+    })
+  }
+
   onChangeItemName(e) {
     this.setState({
       itemName: e.target.value
@@ -131,6 +139,7 @@ export default class PlaceOrder extends Component {
       bankName: this.state.bankName,
       amount: this.state.amount,
       orderDate: this.state.orderDate,
+      phone: this.state.phone,
       itemName: this.state.itemName,
       qty: this.state.qty,
       itemPrice: this.state.itemPrice,
@@ -149,7 +158,7 @@ export default class PlaceOrder extends Component {
 
   render() {
     return (
-    <div>
+    <div class="container">
       <h3>Place Order</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
@@ -168,7 +177,7 @@ export default class PlaceOrder extends Component {
                 })
               }
           </select>
-        </div>
+        </div><br/>
         <div className="form-group"> 
           <label>Bank Name: </label>
           <input  type="text"
@@ -178,7 +187,7 @@ export default class PlaceOrder extends Component {
               onChange={this.onChangeBankName}
               />
         </div>
-        <div className="form-group">
+        <div className="form-group"><br/>
           <label>Amount: </label>
           <input 
               type="text" 
@@ -187,7 +196,7 @@ export default class PlaceOrder extends Component {
               onChange={this.onChangeAmount}
               />
         </div>
-        <div className="form-group">
+        <div className="form-group"><br/>
           <label>Order Date: </label>
           <div>
             <DatePicker
@@ -196,7 +205,16 @@ export default class PlaceOrder extends Component {
             />
           </div>
         </div>
-        <div className="form-group">
+        <div className="form-group"><br/>
+          <label>Phone Number: </label>
+          <input 
+              type="text" 
+              className="form-control"
+              value={this.state.phone}
+              onChange={this.onChangePhone}
+              />
+        </div>
+        <div className="form-group"><br/>
           <label>Item Name: </label>
           <input 
               type="text" 
@@ -205,7 +223,7 @@ export default class PlaceOrder extends Component {
               onChange={this.onChangeItemName}
               />
         </div>
-        <div className="form-group">
+        <div className="form-group"><br/>
           <label>Qty: </label>
           <input 
               type="text" 
@@ -214,7 +232,7 @@ export default class PlaceOrder extends Component {
               onChange={this.onChangeQty}
               />
         </div>
-        <div className="form-group">
+        <div className="form-group"><br/>
           <label>Item Price: </label>
           <input 
               type="text" 
@@ -223,7 +241,7 @@ export default class PlaceOrder extends Component {
               onChange={this.onChangeItemPrice}
               />
         </div>
-        <div className="form-group">
+        <div className="form-group"><br/>
           <label>Courier Service: </label>
           <input 
               type="text" 
@@ -232,7 +250,7 @@ export default class PlaceOrder extends Component {
               onChange={this.onChangeCourierService}
               />
         </div>
-        <div className="form-group"> 
+        <div className="form-group"> <br/>
           <label>Address: </label>
           <select ref="addressInput"
               required
@@ -249,12 +267,13 @@ export default class PlaceOrder extends Component {
               }
           </select>
         </div>
-
-        <div className="form-group">
-          <input type="submit" value="Place Order" className="btn btn-primary" />
+        <br/>
+        <div className="form-group"><center>
+          <input type="submit" value="Place Order" className="btn btn-primary" /></center>
         </div>
       </form>
     </div>
+
     )
   }
 }

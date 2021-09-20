@@ -50,7 +50,7 @@ return(
 
 
 <div>
-<Link to ="/#" className = "nav-link">
+<Link to ="/inquriyM" className = "nav-link">
 <button type="button" className="btn btn-warning">Inquary managment Section</button>
 </Link>
 </div>

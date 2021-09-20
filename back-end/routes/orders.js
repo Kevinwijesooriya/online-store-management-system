@@ -11,7 +11,8 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const bankName = req.body.bankName;
   const amount = req.body.amount;
-  const orderDate = Date.parse(req.body.orderDate);
+  const orderDate = req.body.orderDate;
+  const phone = req.body.phone;
   const itemName = req.body.itemName;
   const qty = Number(req.body.qty);
   const itemPrice = Number(req.body.itemPrice);
@@ -24,6 +25,7 @@ router.route('/add').post((req, res) => {
     bankName ,
     amount,
     orderDate,
+    phone,
     itemName,
     qty,
     itemPrice,
@@ -36,6 +38,15 @@ router.route('/add').post((req, res) => {
   .then(() => res.json('Order added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.route("/confirmOrder").get((req , res) => {
+  Order.find().then((order) => {
+      res.json(order)
+  }).catch((err) =>{
+      console.log(err)
+  })
+}) 
+
 
 router.route('/:id').get((req, res) => {
   Order.findById(req.params.id)
