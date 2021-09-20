@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { MdDelete } from "react-icons/md"
 import '../styles/Sidebar.css';
-import Header from "./header";
+import Header from "./headerSalary";
 import Sidebar from "./Sidebar";
 
 function AllSalaryPlans() {
