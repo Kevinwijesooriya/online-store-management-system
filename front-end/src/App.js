@@ -24,6 +24,10 @@ import Footer from './components/Footer';
 import Addinquiry from './components/Addinquiry';
 import Rating from './components/Rating';
 import inquriyM from './components/inquriyM';
+import OrderList from "./components/OrderList";
+import UpdateOrder from "./components/UpdateOrder";
+import PlaceOrder from "./components/PlaceOrder";
+import ConfirmOrder from "./components/ConfirmOrder";
 
 
 function App() {
@@ -46,6 +50,12 @@ function App() {
         <Route path="/budget/budget" exact component={AllBudget} />
         <Route path="/budget/update/:id" exact component={UpdateBudget} />
 
+        {/*order routes*/}  
+        <Route path="/orderlist" exact component={OrderList} />
+        <Route path="/updateorder/:id" component={UpdateOrder} />
+        <Route path="/placeorder" component={PlaceOrder} />
+        <Route path="/confirmorder" component={ConfirmOrder} />  
+              
         {/* Salary Plan function */}
         <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
         <Route path="/salaryplan/" exact component={AllSalaryPlans} />
