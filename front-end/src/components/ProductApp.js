@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Mainitem from './Mainitem';
 import Newitem from"./Newitem";
 import Navbar from"./Navbar";
+import Additem from"./Additem";
 
 
 function productApp() {
@@ -11,7 +12,7 @@ function productApp() {
     <Router>
       <div className="App">
         {/* <Navbar/> */}
-        <Route path="/cart" exact component={Mainitem} />
+        <Route path="/product" exact component={Additem} />
         <Route path="/product/display/:id" exact component={Newitem} />
       </div>
     </Router>
