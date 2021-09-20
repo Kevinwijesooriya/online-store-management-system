@@ -2,6 +2,7 @@
 import "./ProductScreen.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {Link} from "react-router-dom";
 
 // Actions
 import { getProductDetails } from "../redux/actions/productActions";
@@ -69,6 +70,8 @@ const ProductScreen = ({ match, history }) => {
                 <button type="button" onClick={addToCartHandler}>
                   Add To Cart
                 </button>
+                <Link type="button" to={"/paymant/pay/" + product._id}>Buy Now</Link>
+                
               </p>
             </div>
           </div>

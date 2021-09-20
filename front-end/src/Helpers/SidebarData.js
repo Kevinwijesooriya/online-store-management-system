@@ -14,7 +14,7 @@ export const SidebarData = [
 {
     title:"Monthly Budget",
     icon:<FaMoneyCheckAlt/>,
-    link:"/monthlybudget"
+    link:"/budget"
  },
  {
     title:"Create Report",
