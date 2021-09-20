@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Reactstars from "react-rating-stars-component";
-import { useHistory } from "react-router-dom";
-
+// import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from 'react-router-dom';
 
 export default function Rating() {
     const [customID, set_custom_ID] = useState("");
@@ -12,6 +12,14 @@ export default function Rating() {
     const [rate, set_rate] = useState("");
     const [comment, set_comment] = useState("");
     let history = useHistory();
+    const { id } = useParams();
+    const[item,setItem]=useState({
+        itemname: ""
+       
+    });
+
+    const { itemname
+         } = item;
 
 
     function sendData(e) {
@@ -27,8 +35,8 @@ export default function Rating() {
 
         const newrating = {
             custom_ID: "6139e6e813ebc16dec25059",
-            item_name: "testitem",
-            itemcode: "test code",
+            item_name: `${item.itemname}`,
+            itemcode: `${id}`,
             custom_name: "test name",
             rate,
             comment,
@@ -43,6 +51,23 @@ export default function Rating() {
 
 
     }
+
+    useEffect(()=>{
+        
+        function getitem(){
+            axios.get(`http://localhost:5000/item/get/${id}`).then((res)=>{
+                 console.log(res);
+                 setItem(res.data.item);
+            }).catch((err)=>{
+                alert(err.massage);
+            })
+        }
+        getitem();
+    },[id]);
+
+    
+
+
     //  const ratingChanged = (e)=>{
     //   alert(`you have given ${e} star rating for us.`);
     //   // setrating(e.target.value);

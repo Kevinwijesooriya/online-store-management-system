@@ -111,7 +111,7 @@ const ProductScreen = ({ match, history }) => {
                   Add To Cart
                 </button>
                 <br />
-                <button type="button" onClick={handleOpen}><a href="/product/" style={{textDecoration:'none',color:'white'}}>
+                <button type="button" onClick={handleOpen}><a href={`/product/${product._id}`} style={{textDecoration:'none',color:'white'}}>
                           Add comment</a>
                  </button>
 
