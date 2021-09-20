@@ -20,10 +20,15 @@ const orderSchema = new Schema ({
     },
     
     orderDate : {
-        type : Date ,
+        type : String ,
         required : true
     },
     
+    phone :{
+        type :String ,
+        required : true
+    },
+
     itemName :{
         type : String ,
         required : true 

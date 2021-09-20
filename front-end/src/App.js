@@ -9,6 +9,10 @@ import Footer from './components/Footer';
 import Addinquiry from './components/Addinquiry';
 import Rating from './components/Rating';
 import inquriyM from './components/inquriyM';
+import OrderList from "./components/OrderList";
+import UpdateOrder from "./components/UpdateOrder";
+import PlaceOrder from "./components/PlaceOrder";
+import ConfirmOrder from "./components/ConfirmOrder";
 
 function App() {
   return (
@@ -25,6 +29,11 @@ function App() {
          {/* <Route  path="/Rating"   component={Rating}/> */}
          <Route  path="/inquriyM"   component={inquriyM}/>
 
+        {/*order routes*/}  
+        <Route path="/orderlist" exact component={OrderList} />
+        <Route path="/updateorder/:id" component={UpdateOrder} />
+        <Route path="/placeorder" component={PlaceOrder} />
+        <Route path="/confirmorder" component={ConfirmOrder} />        
 
          {/* appiction footer */}
          <Route  path="/"   component={Footer}/>
