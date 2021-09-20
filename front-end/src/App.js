@@ -1,3 +1,11 @@
+
+
+import LoginANDregister from './loginANDregisterApp';
+
+
+
+
+
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,10 +27,12 @@ import inquriyM from './components/inquriyM';
 
 
 function App() {
+
   return (
     <Router>
       <div className="App">
 
+      <LoginANDregister/>
 
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
         <Route path="/cart" component={CartApp} />
@@ -53,6 +63,9 @@ function App() {
 
 
   );
+
+
+  
 }
 
 export default App;

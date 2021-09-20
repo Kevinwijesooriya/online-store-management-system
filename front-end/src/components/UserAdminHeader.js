@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {Link , useHistory} from 'react-router-dom';
 import {logout} from "../actions/Cusations";
 
-function Header(){
+function UserAdminHeader(){
   const history = useHistory();
 
   const dispatch = useDispatch()
@@ -28,10 +28,15 @@ return(
     <div className="collapse navbar-collapse"  id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-        <Link to ="/#" className = "nav-link">Notes</Link>
+        <Link to ="AdminRegister"  className = "nav-link">Register an admin</Link>
         </li>
+
         <li className="nav-item">
-        <Link to ="/#"  className = "nav-link">My Profile</Link>
+        <Link to="/noteList" className="nav-link"> Notes</Link>
+        </li>
+
+        <li className="nav-item">
+        <Link to="/CreateNotes" className="nav-link">Craete Notes</Link>
         </li>
         
         <li class="nav-item">
@@ -51,4 +56,4 @@ return(
 
 }
 
-export default  Header;
+export default  UserAdminHeader;
