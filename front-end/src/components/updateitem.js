@@ -42,7 +42,7 @@ function Updateitem() {
         await axios.put(`http://localhost:5000/item/update/${id}`, item)
             .then(res => {
                 alert("Successfully Updated item Details");
-                history.push("/item");
+                history.push("/product");
             })
             .catch(err => { alert(err) });
 

@@ -11,6 +11,8 @@ import Rating from './components/Rating';
 import inquriyM from './components/inquriyM';
 
 
+
+
 function App() {
   return (
     <Router>
@@ -18,10 +20,10 @@ function App() {
         <Route path="/salaryplan" exact component={SalaryPlanApp} />
         <Route path="/cart" exact component={CartApp} />
         <Route path="/cartadmin" exact component={CartAdminApp} />
-         <Route path="/product" exact component={ProductApp} />  
+        <Route path="/product/" exact component={ProductApp} />  
+        
          
-         
-         
+               
 
 
         {/* inquriy and feedback routes */}
