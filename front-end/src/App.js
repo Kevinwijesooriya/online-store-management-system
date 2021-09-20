@@ -28,7 +28,8 @@ import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
-
+import myProfile from "./components/myProfile";
+import Editinquiry from './components/Editinquiry';
 
 function App() {
 
@@ -66,6 +67,8 @@ function App() {
         <Route path="/Addinquiry" component={Addinquiry} />
         {/* <Route  path="/Rating"   component={Rating}/> */}
         <Route path="/inquriyM" component={inquriyM} />
+        <Route path="/myProfile" component={myProfile}/>
+        {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
         <Route path="/" component={Footer} />
       </div>
