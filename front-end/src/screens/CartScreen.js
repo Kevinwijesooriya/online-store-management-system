@@ -16,7 +16,7 @@ const CartScreen = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const qtyChangeHandler = (id, qty) => {
     dispatch(addToCart(id, qty));

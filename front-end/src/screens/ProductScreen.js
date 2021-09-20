@@ -2,17 +2,59 @@
 import "./ProductScreen.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {Link} from "react-router-dom";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Actions
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
+import Rating from "../components/Rating";
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
+
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, product } = productDetails;
+
+
+
+
+
+
 
   useEffect(() => {
     if (product && match.params.id !== product._id) {
@@ -69,12 +111,66 @@ const ProductScreen = ({ match, history }) => {
                 <button type="button" onClick={addToCartHandler}>
                   Add To Cart
                 </button>
+                <br />
+                <button type="button" onClick={handleOpen}><a href={`/product/${product._id}`} style={{textDecoration:'none',color:'white'}}>
+                          Add comment</a>
+                 </button>
+
               </p>
             </div>
           </div>
         </>
       )}
+
+      <div>
+        {/* <button type="button" onClick={handleOpen}>
+          react-transition-group
+        </button> */}
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              {/* <h2 id="transition-modal-title">Transition modal</h2> */}
+              <Router>
+             <div className="">
+                <Route path="/product/:id" exact component={Rating} ></Route>
+              </div>
+            </Router>
+            </div>
+          </Fade>
+        </Modal>
+      </div>
+
+
+
+
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
   );
 };
 

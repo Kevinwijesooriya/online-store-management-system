@@ -30,12 +30,18 @@ function DisplayItems(){
         getitems();
     }, [])
 
+    function Delete(id) {
+        axios.delete(`http://localhost:5000/item/delete/${id}`).then((res) => {
+            alert("Item Delete SuccessFully")
+        }).catch(err => { alert(err) });
+    }
+
     
     return(
         <div>
 
 
-            <div class="Topic"><h3>V-TECH </h3></div>
+            <div class="Topic"><h3>V-TECH All Product</h3></div>
             {items.map( item =>
             <div>
               
@@ -55,9 +61,10 @@ function DisplayItems(){
                 <p >{item.itembrand}</p>
                 <p >Rs {item.itemprice}</p>
                
-                <button>
-                <Link className="btn btn-success" to={"/display/" + item._id}>Item Details</Link></button>
-                <button><Link className="btn btn-success" to={"/update/" + item._id}>Item Update</Link></button></th>
+            
+                <button> <Link to ="/cart" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
+                           
+                          
                 </td>
                 
                 </thead>
@@ -78,3 +85,4 @@ function DisplayItems(){
 }
 
 export default DisplayItems
+
