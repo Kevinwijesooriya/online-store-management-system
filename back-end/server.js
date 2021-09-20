@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
+ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const express = require("express");
+//const { notFound, errorHandler} = require("./middlewares/errormiddleware");
 
 require("dotenv").config();
 const app = express();
@@ -25,6 +26,11 @@ mongoose.connect(URL,{
     useFindAndModify:false
 })
 
+//app.use(notFound);
+//app.use(errorHandler);
+
+
+
 const connction = mongoose.connection;
 connction.once("open", () =>{
     console.log("Mongodb Connection success");
@@ -40,11 +46,15 @@ const onlinestoreRouter = require("./routes/carts.js");
 app.use("/cart",onlinestoreRouter);
 
 
-const customerRouter = require("./routes/customer.js");
-app.use("/customer",customerRouter)
+const customer = require("./routes/customer.js");
+app.use("/customer",customer)
 
-const adminSchema = require("./routes/admin.js");
-app.use("/admin",adminSchema)
+const notes = require("./routes/notes.js");
+app.use("/notes",notes)
+
+const admin = require("./routes/admin.js");
+app.use("/admin",admin)
+
 
 const budgetSchema = require("./routes/budget.js");
 app.use("/budget",budgetSchema)
@@ -67,3 +77,9 @@ app.use("/delivery",deliveryRouter);
 
 const orderRouter = require("./routes/orders.js");
 app.use("/order" , orderRouter);
+
+const productRouter = require("./routes/Products.js");
+app.use("/product", productRouter);
+
+const productCartRouter = require("./routes/productRoutes.js");
+app.use("/productCart", productCartRouter);
