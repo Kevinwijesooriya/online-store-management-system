@@ -80,3 +80,6 @@ app.use("/order" , orderRouter);
 
 const productRouter = require("./routes/Products.js");
 app.use("/product", productRouter);
+
+const productCartRouter = require("./routes/productRoutes.js");
+app.use("/productCart", productCartRouter);
