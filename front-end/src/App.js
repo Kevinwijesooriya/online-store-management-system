@@ -57,7 +57,7 @@ function App() {
         {/* <Route  path="/Rating"   component={Rating}/> */}
         <Route path="/inquriyM" component={inquriyM} />
         {/* appiction footer */}
-        <Route path="/" component={Footer} />
+      
       </div>
     </Router>
 

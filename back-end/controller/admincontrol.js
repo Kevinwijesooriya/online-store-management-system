@@ -3,7 +3,7 @@ const adUser = require('../models/admin');
 const generateToken = require('../utils/generateToken');
 
 const admin = asyncHandler( async (req ,res )=> {
-    const { name,email,phone,gender,loginType,username,password,pic } = req.body;
+    const { name,email,phone,gender,loginType,password,pic } = req.body;
 
  const userExits = await adUser.findOne({email});
 
@@ -19,7 +19,6 @@ const admin = asyncHandler( async (req ,res )=> {
     phone,
     gender,
     loginType,
-    username,
     password,
     pic,
 
@@ -37,7 +36,6 @@ res.status(201).json({
     phone:User.phone,
     gender:User.gender,
     loginType:User.loginType,
-    username:User.username,
     password:User.password,
     pic:User.pic,
     token: generateToken(adUser._id), 
@@ -53,9 +51,9 @@ res.status(201).json({
 
 
 const logadmin = asyncHandler( async (req ,res )=> {
-    const {username , password} = req.body;
+    const {email , password} = req.body;
 
-    const User = await adUser .findOne({username})
+    const User = await adUser .findOne({email})
 
     if (User && (await User.matchPassword(password))){
         res.json({
@@ -66,7 +64,6 @@ const logadmin = asyncHandler( async (req ,res )=> {
             phone:User.phone,
             gender:User.gender,
             loginType:User.loginType,
-            username:User.username,
             password:User.password,
             pic:User.pic,
             token: generateToken(adUser._id)
@@ -79,4 +76,64 @@ const logadmin = asyncHandler( async (req ,res )=> {
 
 });
 
-module.exports = {admin ,logadmin};
+
+const alladmin = asyncHandler( async (req ,res )=> {
+    adUser.find()
+    .then(adUser => res.json(adUser))
+    .catch(err => res.status(400).json('Error: ' + err));
+
+ 
+});
+
+
+const oneAdmin = asyncHandler( async (req ,res )=> {
+
+    adUser.findById(req.params.id)
+    .then(adUser => res.json(adUser))
+    .catch(err => res.status(400).json('Error: ' + err));
+
+ 
+});
+
+
+const deleteAdmin = asyncHandler( async (req ,res )=> {
+
+    adUser.findByIdAndDelete(req.params.id)
+      .then(() => res.json('Admin has been removed.'))
+      .catch(err => res.status(400).json('Error: ' + err));
+
+ 
+});
+
+const updateAdmin = asyncHandler( async (req ,res )=> {
+
+    adUser.findById(req.params.id)
+      .then(adUser => {
+    
+       adUser.name = req.body.name;
+       adUser.email =  req.body.email;
+       adUser.phone =  req.body.phone;
+       adUser.gender  = req.body.gender;
+       adUser.loginType  = req.body.loginType;
+       adUser.pic  = req.body.pic ;
+     
+
+    
+  
+      adUser.save()
+          .then(() => res.json('admin details updated!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+
+ 
+});
+
+
+  
+
+
+
+
+
+module.exports = {admin ,logadmin ,alladmin,updateAdmin,deleteAdmin,oneAdmin};

@@ -6,6 +6,8 @@ import UserAdminMainHtaml from './UserAdminpage';
 import   AdminMain from './mainPage';
 import NoteList from './UserAdminpage';
 import AdminRegisterScreen from './components/AdminRegisterscreen';
+import CartApp from './components/CartApp';
+
 
 
 
@@ -27,6 +29,9 @@ function loginANDregister() {
         <Route path="/AdminMain" exact component={AdminMain}/>
         <Route path="/UserAdminMainHtaml" exact component={UserAdminMainHtaml}/>
         <Route path="/NoteList" exact component={NoteList}/>
+        
+       
+        
        
       
         

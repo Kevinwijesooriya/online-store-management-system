@@ -68,6 +68,8 @@ const CartScreen = () => {
           </div>
         </div>
       </div>
+
+
     </>
   );
 };
