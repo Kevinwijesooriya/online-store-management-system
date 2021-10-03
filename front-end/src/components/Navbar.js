@@ -13,7 +13,7 @@ const Navbar = ({ click }) => {
 
   return (
     <nav className="navbar">
-      <div className="navbar__logo">
+      <div className="navbar__logo h2">
         <h2>V-Tech</h2>
       </div>
 

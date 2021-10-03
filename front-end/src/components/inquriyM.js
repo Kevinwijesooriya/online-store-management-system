@@ -144,7 +144,10 @@ export default function PersistentDrawerLeft() {
                     <br/>
                   
                     <h2><a  href="/inquriyM/Rating" style={{textDecoration:'none',color:'black'}}>report</a></h2>
+                    <br/>
+                    <br/>
                     
+                    <h2><a href="/" style={{ textDecoration: 'none', color: 'black' }}>Log out</a></h2>
                 </List>
                 <Divider />
             </Drawer>

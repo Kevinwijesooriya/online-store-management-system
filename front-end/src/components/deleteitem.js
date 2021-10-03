@@ -80,7 +80,7 @@ function DisplayItems(){
                 <p >Rs {item.itemprice}</p>
                
             
-                <button> <Link to ="/cart" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
+                <button> <Link to ="/product" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
                            
                           
                 </td>

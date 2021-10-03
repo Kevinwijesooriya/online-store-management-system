@@ -14,11 +14,7 @@ function productApp() {
     <Router>
       <div className="App">
         {/* <Navbar/> */}
-        <Route path="/product/" exact component={itemnav} />
-        <Route path="/productadd" exact component={Additem} />
-        <Route path="/productdelete" exact component={deleteitem} />
-        <Route path="/product" exact component={Mainitem} />
-        <Route path="/update/:id" exact component={updateitem} />
+    
        
       </div>
     </Router>
