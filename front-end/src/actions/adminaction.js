@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-export const login = (username , password) => async (dispatch) => {
+export const login = (email , password) => async (dispatch) => {
 
 
 try {
@@ -24,7 +24,7 @@ try {
  
  const { data } = await axios.post("http://localhost:5000/admin/login",{
  
-   username,password,
+   email,password,
  
  },config);
  

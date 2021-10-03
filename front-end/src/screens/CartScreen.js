@@ -122,6 +122,8 @@ const  addPricceQty = (e)=> {
           </form>
         </div>
       </div>
+
+
     </>
   );
 };
