@@ -20,6 +20,11 @@ import MailIcon from '@material-ui/icons/Mail';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Allinquiry from './Allinquiry';
 import Rating from './Rating';
+import header from './header';
+import Myinquriy from './Myinquriy';
+import Myrating from './Myrating';
+import Editinquiry from './Editinquiry';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -94,6 +99,11 @@ export default function PersistentDrawerLeft() {
 
     return (
         <div className={classes.root}>
+             {/* <Router>
+                    
+                <Route  path="/myProfile"    component={header}/>
+                   
+                </Router> */}
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -112,7 +122,7 @@ export default function PersistentDrawerLeft() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        Inquriy Management
+                        MY PROFILE
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -139,14 +149,13 @@ export default function PersistentDrawerLeft() {
                             <ListItemText primary={text} />
                         </ListItem>
                     ))} */}
-                     <h2><a  href="/inquriyM/tabale" style={{textDecoration:'none',color:'black'}}>inquris</a></h2>
-                    <br/>
-                    <br/>
-                  
-                    <h2><a  href="/inquriyM/Rating" style={{textDecoration:'none',color:'black'}}>report</a></h2>
-                    <br/>
-                    <br/>
-                    
+                    <h2><a href="/myProfile/Myinquriy" style={{ textDecoration: 'none', color: 'black' }}>MY Inquris</a></h2>
+                    <br />
+                    <br />
+
+                    <h2><a href="/myProfile/Myrating" style={{ textDecoration: 'none', color: 'black' }}>MY comment</a></h2>
+                    <br />
+                    <br />
                     <h2><a href="/" style={{ textDecoration: 'none', color: 'black' }}>Log out</a></h2>
                 </List>
                 <Divider />
@@ -160,8 +169,9 @@ export default function PersistentDrawerLeft() {
                 <Typography paragraph>
                 <Router>
                     
-                <Route  path="/inquriyM/tabale"   exact component={Allinquiry}/>
-                <Route  path="/inquriyM/Rating"   exact component={Rating}/>   
+                <Route  path="/myProfile/Myinquriy"  component={Myinquriy}/>
+                <Route  path="/myProfile/Myrating"   exact component={Myrating}/>  
+                <Route path="/myProfile/EdtI/:id" component={Editinquiry}/> 
                 </Router>
                 </Typography>
                 <Typography paragraph>

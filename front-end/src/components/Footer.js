@@ -6,10 +6,10 @@ function Footer() {
             <hr></hr>
             <h1>Footer</h1>
             <a href="/Addinquiry">inquiry</a>
-            <br/>
+            {/* <br/>
             <a href="/Rating">Rating</a>
             <br/>
-            <a href="/inquriyM">inquriy management</a>
+            <a href="/inquriyM">inquriy management</a> */}
         </div>
     )
 }
