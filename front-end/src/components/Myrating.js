@@ -9,7 +9,7 @@ export default function Myrating() {
     useEffect(() => {
 
         function getrating() {
-            axios.get(`http://localhost:8050/Feedback/`).then((res) => {
+            axios.get(`http://localhost:5000/Feedback/`).then((res) => {
                 console.log(res);
                 setrating(res.data);
             }).catch((err) => {
@@ -20,7 +20,7 @@ export default function Myrating() {
     }, []);
 
     function Delete(id) {
-        axios.delete(`http://localhost:8050/Feedback/delete/${id}`).then((res) => {
+        axios.delete(`http://localhost:5000/Feedback/delete/${id}`).then((res) => {
             alert(" Delete SuccessFully")
         }).catch(err => { alert(err) });
     }

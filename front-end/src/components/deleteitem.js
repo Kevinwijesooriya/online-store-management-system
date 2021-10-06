@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react"
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 
@@ -6,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function DisplayItems(){
 
+    const [searchTerm, setSearchTerm] = useState('');
     const [items,setItems] = useState([{
         _id:'',
         itemname: '',
@@ -18,6 +20,8 @@ function DisplayItems(){
         itemdescription: ''
 
     }]);
+
+    const location = useLocation();
     
     useEffect(() => {
         function getitems(){
@@ -36,13 +40,27 @@ function DisplayItems(){
         }).catch(err => { alert(err) });
     }
 
+    const filteredCountrise = items.filter(std=>{
+        return (std.itemname.toLowerCase().includes(searchTerm.toLocaleLowerCase())||
+        std.itemimage.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+                
+     })
     
     return(
         <div>
 
 
             <div class="Topic"><h3>V-TECH All Product</h3></div>
-            {items.map( item =>
+
+            <div class="container-fluid">
+    
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+             onChange={e => setSearchTerm(e.target.value)}
+             />
+     
+    
+  </div>
+            {filteredCountrise.map( item =>
             <div>
               
                 
@@ -62,7 +80,7 @@ function DisplayItems(){
                 <p >Rs {item.itemprice}</p>
                
             
-                <button> <Link to ="/cart" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
+                <button> <Link to ="/product" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
                            
                           
                 </td>

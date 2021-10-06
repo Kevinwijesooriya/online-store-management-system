@@ -9,6 +9,7 @@ import {  adminLoginReducer } from "../reducers/adminReducers";
 // Reducers
 import { cartReducer } from './reducers/cartReducers';
 import { getProductDetailsReducer, getProductsReducer } from './reducers/productReducers';
+import { getCartItemsReducer } from './reducers/saveCartReducer';
 
 const reducer = combineReducers({
     cart: cartReducer,
@@ -17,6 +18,8 @@ const reducer = combineReducers({
     cusLogin :  cusLoginReducer,
     cusRegister : cusRegisterReducer,
     adminLogin :  adminLoginReducer,
+    getCartItems :  getCartItemsReducer,
+
 });
 
 

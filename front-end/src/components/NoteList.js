@@ -11,7 +11,7 @@ const Note = props => (
     <td>{props.note.description}</td>
     <td>{props.note.date}</td>
     <td>
-    <button>  <Link to={"/noteEdit/"+props.note._id}>edit</Link></button> | <button href ="/noteList" onClick={() => { props.deletenote(props.note._id) }}>delete</button>
+    <button  class="btn btn-warning">  <Link to={"/noteEdit/"+props.note._id}>edit</Link></button> | <button href ="/noteList" onClick={() => { props.deletenote(props.note._id) }} className="btn btn-danger">delete</button>
     </td>
   </tr>
 )

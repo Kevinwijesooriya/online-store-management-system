@@ -46,9 +46,9 @@ function AllCart() {
         <table className="table table-bordered border-primary">
             <thead className="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Product ID</th>
+                    <th scope="col"></th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Action</th>
@@ -59,7 +59,7 @@ function AllCart() {
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         <td>{cart.customerID}</td>
-                        <td>{cart.productID}</td>
+                        <td>{cart.productID[0]} , {cart.productID[1]} ....</td>
                         <td>{cart.price}</td>
                         <td>{cart.quantity}</td>
                         <td>
