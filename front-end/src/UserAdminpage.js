@@ -25,7 +25,7 @@ function UserAdminMainjs() {
   
       
          <UserAdminHeader/>
-         <Route path="/salaryplan"  component={SalaryPlanApp}/>
+         {/* <Route path="/salaryplan"  component={SalaryPlanApp}/> */}
          <Route path="/UserAdminMainHtaml" exact component={UserAdminMainHtaml}/>
          <Route path="/AdminRegister" exact component={AdminRegisterScreen}/>
          <Route path="/noteList" exact component={NoteList}/>
@@ -34,16 +34,16 @@ function UserAdminMainjs() {
 
 
         {/* Budget function */}
-        <Route path="/budget/add" exact component={AddBudget} />
+        {/* <Route path="/budget/add" exact component={AddBudget} />
         <Route path="/budget/" exact component={AllBudget} />
         <Route path="/budget/budget" exact component={AllBudget} />
-        <Route path="/budget/update/:id" exact component={UpdateBudget} />
+        <Route path="/budget/update/:id" exact component={UpdateBudget} /> */}
 
         {/* Salary Plan function */}
-        <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
+        {/* <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
         <Route path="/salaryplan/" exact component={AllSalaryPlans} />
         <Route path="/salaryplan/salaryplan" exact component={AllSalaryPlans} />
-        <Route path="/salaryplan/update/:id" exact component={UpdateSalaryPlan} />
+        <Route path="/salaryplan/update/:id" exact component={UpdateSalaryPlan} /> */}
       
         
      
