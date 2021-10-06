@@ -51,45 +51,11 @@ const CartScreen = () => {
     quantity: ""
   });
 
-  // const onInputChange = (e, input_field) => {
-  //   sendCart({
-  //     ...carts, [input_field]: e.target.value,
-  //   });
-  // }
-
-  // async function onSubmit(e) {
-  //   e.preventDefault();
-
-  //   axios.post(`http://localhost:5000/cart/add`, carts)
-  //     .then(res => {
-  //       alert("Successfully added cart Details");
-  //       //history.push("/cart");
-  //     })
-  //     .catch(err => { alert(err) });
-  // }
-  // const addPricceQty = (e) => {
-  //   e.preventDefault();
-  //   const price = cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
-  //   const quantity = cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
-  //   sendCart({
-  //     ...carts, price: price, quantity: quantity,
-  //   });
-  // }
   const setCart = () =>{
-    // const {
-    //   customerID,
-    //   key,
-    //   price,
-    //   quantity
-    // } = sendCart;
-    
-    // const customerID = 2442 ;
-    // const key = 2442 ;
+  
     const price = cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
     const quantity = cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
-    // cartItems.map((item) => (
-    //   key = item.product
-    // ));
+    
 
     sendCart({
       ...carts, customerID: customerID, productID: key, price: price, quantity: quantity,
