@@ -18,6 +18,11 @@ const Navbar = ({ click }) => {
       </div>
 
       <ul className="navbar__links">
+
+      <li>
+          <Link to="/home">Log out</Link>
+        </li>
+
         <li>
           <Link to="/cart/cart" className="cart__link">
             <i className="fas fa-shopping-cart"></i>
