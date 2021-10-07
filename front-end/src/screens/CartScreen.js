@@ -11,7 +11,7 @@ import CartItem from "../components/CartItem";
 // Actions
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 
-const CartScreen = () => {
+const CartScreen = ({history}) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
@@ -68,7 +68,7 @@ const CartScreen = () => {
     axios.post(`http://localhost:5000/cart/add`, carts)
       .then(res => {
         alert("Successfully added cart Details");
-        //history.push("/cart");
+        history.push(`/placeorder`);
       })
       .catch(err => { alert(err) });
   }

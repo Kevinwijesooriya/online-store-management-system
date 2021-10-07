@@ -27,7 +27,7 @@ const HomeScreen = () => {
         ) : error ? (
           <h2>{error}</h2>
         ) : (
-          products.map((product) => (
+            products.map((product) => (
             <Product
               key={product._id}
               itemname={product.itemname}

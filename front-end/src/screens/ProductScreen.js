@@ -45,16 +45,8 @@ const ProductScreen = ({ match, history }) => {
     setOpen(false);
   };
 
-
-
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, product } = productDetails;
-
-
-
-
-
-
 
   useEffect(() => {
     if (product && match.params.id !== product._id) {
@@ -64,7 +56,7 @@ const ProductScreen = ({ match, history }) => {
 
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, qty));
-    history.push(`/cart/cart`);
+    //history.push(`/cart/cart`);
   };
 
   return (
@@ -150,27 +142,7 @@ const ProductScreen = ({ match, history }) => {
           </Fade>
         </Modal>
       </div>
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
   );
 };
 

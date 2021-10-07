@@ -4,6 +4,8 @@ import axios from 'axios';
 
 function AllCart() {
 
+    const [searchTerm, setSearchTerm] = useState('');
+
     const [Cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -23,6 +25,18 @@ function AllCart() {
             alert("Cart Details Deleted SuccessFully")
         }).catch(err => { alert(err) });
     }
+    ///////////////////
+
+    const filteredCountrise = Cart.filter(std => {
+
+        return (
+
+            std.customerID.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+
+
+
+    })
+
 
     // filterData(cart,searchkey){
     //   const result = cart.filter((cart) =>
@@ -41,8 +55,28 @@ function AllCart() {
     //     }
     //   });
     // }
+    return (<div className="container" > <h2 align="center">Issue Cart</h2>
+{/*  */}
 
-    return (<div className="container" >
+        <nav class="navbar navbar-light bg-light">
+
+            <div class="container-fluid">
+
+                <form class="d-flex">
+
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+
+                        onChange={e => setSearchTerm(e.target.value)}
+
+                    />
+
+                </form>
+
+            </div>
+
+        </nav>
+
+{/*  */}
         <table className="table table-bordered border-primary">
             <thead className="thead-dark">
                 <tr>
@@ -55,12 +89,12 @@ function AllCart() {
                 </tr>
             </thead>
             <tbody>
-                {Cart.map((cart, index) => (
+                {filteredCountrise.map((cart, index) => (
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         <td>{cart.customerID}</td>
                         <td>{cart.productID[0]} , {cart.productID[1]} ....</td>
-                        <td>{cart.price}</td>
+                        <td>${cart.price}</td>
                         <td>{cart.quantity}</td>
                         <td>
                             {/* <Link className="btn btn-success" to={"/cart/update/" + cart._id}>Edit</Link> */}

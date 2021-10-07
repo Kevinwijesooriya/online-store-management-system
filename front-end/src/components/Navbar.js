@@ -1,7 +1,9 @@
 
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {logout} from "../actions/Cusations";
+
 
 const Navbar = ({ click }) => {
   const cart = useSelector((state) => state.cart);
@@ -9,6 +11,20 @@ const Navbar = ({ click }) => {
 
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+  };
+//////////////////////////////////////////////////////
+
+
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+  const cusLogin= useSelector((state) => state.cusLogin);
+  const { userInfo } = cusLogin;
+
+  const logoutHandler = () => {
+   dispatch(logout());
+   history.push("/");    
+
   };
 
   return (
@@ -20,7 +36,7 @@ const Navbar = ({ click }) => {
       <ul className="navbar__links">
 
       <li>
-          <Link to="/home">Log out</Link>
+          <Link><a onClick = {logoutHandler}>Log out</a></Link>
         </li>
 
         <li>
