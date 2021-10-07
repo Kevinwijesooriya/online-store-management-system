@@ -25,7 +25,7 @@ function AllCart() {
             alert("Cart Details Deleted SuccessFully")
         }).catch(err => { alert(err) });
     }
-    ///////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const filteredCountrise = Cart.filter(std => {
 
@@ -55,7 +55,7 @@ function AllCart() {
     //     }
     //   });
     // }
-    return (<div className="container" > <h2 align="center">Issue Cart</h2>
+    return (<div className="container" > <h2 align="center">Issued Cart</h2>
 {/*  */}
 
         <nav class="navbar navbar-light bg-light">
@@ -64,11 +64,15 @@ function AllCart() {
 
                 <form class="d-flex">
 
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-
-                        onChange={e => setSearchTerm(e.target.value)}
-
-                    />
+                <div class="input-group col-md-4">
+                        <input class="form-control py-2 border-right-0 border"  type="search" placeholder="Search" aria-label="Search"
+                            onChange={e => setSearchTerm(e.target.value)} />
+                     <span class="input-group-append">
+                       <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+                       </button>
+                     </span> 
+                        </div>
 
                 </form>
 
