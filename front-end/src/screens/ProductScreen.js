@@ -104,8 +104,10 @@ const ProductScreen = ({ match, history }) => {
                   Add To Cart
                 </button>
                 <br />
-                <button type="button" onClick={handleOpen}><a href={`/product/${product._id}`} style={{textDecoration:'none',color:'white'}}>
-                          Add comment</a>
+                <button type="button" onClick={handleOpen}>
+                  {/* <a href={`/product/${product._id}`} style={{textDecoration:'none',color:'white'}}>
+                          Add comment</a> */}
+                          <Link className="nav-link" to={`/product/${product._id}`}style={{textDecoration:'none',color:'white'}}>Add comment</Link>
                  </button>
 
               </p>
