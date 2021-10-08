@@ -156,6 +156,12 @@ export default function PersistentDrawerLeft() {
                     <h2><a href="/myProfile/Myrating" style={{ textDecoration: 'none', color: 'black' }}>MY comment</a></h2>
                     <br />
                     <br />
+                    <h2><a href="#" style={{ textDecoration: 'none', color: 'black' }}>MY Oders</a></h2>
+                    <br />
+                    <br />
+                    <h2><a href="#" style={{ textDecoration: 'none', color: 'black' }}>My Addersses</a></h2>
+                    <br />
+                    <br />
                     <h2><a href="/" style={{ textDecoration: 'none', color: 'black' }}>Log out</a></h2>
                 </List>
                 <Divider />
