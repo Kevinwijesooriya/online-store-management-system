@@ -23,6 +23,7 @@ const CartScreen = ({history}) => {
   console.log(userInfo);
   const { cartItems } = cart;
 
+
   useEffect(() => { }, []);
 
   const qtyChangeHandler = (id, qty) => {
@@ -83,7 +84,7 @@ const CartScreen = ({history}) => {
 
           {cartItems.length === 0 ? (
             <div>
-              Your Cart Is Empty <Link to="/cart">Go Back</Link>
+              Your Cart Is Empty <a href="/cart">Go Back</a>
             </div>
           ) : (
             cartItems.map((item) => (
@@ -103,7 +104,7 @@ const CartScreen = ({history}) => {
             <p>${getCartSubTotal()}</p>
           </div>
           <div>
-            <button onClick={e => saveCart(e)} >Proceed To Checkout</button>
+            <button onClick={e => saveCart(e)}>Proceed To Checkout</button>
           </div>
         </div>
       </div>
