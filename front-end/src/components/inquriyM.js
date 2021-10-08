@@ -20,6 +20,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Allinquiry from './Allinquiry';
 import Rating from './Rating';
+import Inquiryreport from './Reports/Inquiryreport';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -143,7 +145,7 @@ export default function PersistentDrawerLeft() {
                     <br/>
                     <br/>
                   
-                    <h2><a  href="/inquriyM/Rating" style={{textDecoration:'none',color:'black'}}>report</a></h2>
+                    <h2><a  href="/inquriyM/inquiryreport" style={{textDecoration:'none',color:'black'}}>report</a></h2>
                     <br/>
                     <br/>
                     
@@ -161,7 +163,7 @@ export default function PersistentDrawerLeft() {
                 <Router>
                     
                 <Route  path="/inquriyM/tabale"   exact component={Allinquiry}/>
-                <Route  path="/inquriyM/Rating"   exact component={Rating}/>   
+                <Route  path="/inquriyM/inquiryreport"   exact component={Inquiryreport}/>   
                 </Router>
                 </Typography>
                 <Typography paragraph>
