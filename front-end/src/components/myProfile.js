@@ -24,6 +24,7 @@ import header from './header';
 import Myinquriy from './Myinquriy';
 import Myrating from './Myrating';
 import Editinquiry from './Editinquiry';
+import AddCusDeliveryDetails from './AddCusDeliveryDetails';
 
 const drawerWidth = 240;
 
@@ -159,7 +160,7 @@ export default function PersistentDrawerLeft() {
                     <h2><a href="#" style={{ textDecoration: 'none', color: 'black' }}>MY Oders</a></h2>
                     <br />
                     <br />
-                    <h2><a href="#" style={{ textDecoration: 'none', color: 'black' }}>My Addersses</a></h2>
+                    <h2><a href="/myProfile/AddDelivery" style={{ textDecoration: 'none', color: 'black' }}>My Addersses</a></h2>
                     <br />
                     <br />
                     <h2><a href="/" style={{ textDecoration: 'none', color: 'black' }}>Log out</a></h2>
@@ -178,6 +179,7 @@ export default function PersistentDrawerLeft() {
                 <Route  path="/myProfile/Myinquriy"  component={Myinquriy}/>
                 <Route  path="/myProfile/Myrating"   exact component={Myrating}/>  
                 <Route path="/myProfile/EdtI/:id" component={Editinquiry}/> 
+                <Route path="/myProfile/AddDelivery" component={AddCusDeliveryDetails}/> 
                 </Router>
                 </Typography>
                 <Typography paragraph>
