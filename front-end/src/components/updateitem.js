@@ -42,7 +42,7 @@ function Updateitem() {
         await axios.put(`http://localhost:5000/item/update/${id}`, item)
             .then(res => {
                 alert("Successfully Updated item Details");
-                history.push("/item");
+                history.push("/product");
             })
             .catch(err => { alert(err) });
 
@@ -85,11 +85,11 @@ function Updateitem() {
                     </div>
                     <div className="mb-3">
                         <label for="formGroupExampleInput" className="form-label">Item Price</label>
-                        <input id="itemprice" type="text" className="form-control" placeholder="Role Name" defaultValue={itemprice} onChange={e => onInputChange(e, "itemprice")}></input>
+                        <input id="itemprice" type="text" className="form-control" min="20000" placeholder="Role Name" defaultValue={itemprice} onChange={e => onInputChange(e, "itemprice")}></input>
                     </div>
                     <div className="mb-3">
                         <label for="formGroupExampleInput" className="form-label">Item qty</label>
-                        <input id="itemqty" type="text" className="form-control" placeholder="Role Name" defaultValue={itemqty} onChange={e => onInputChange(e, "itemqty")}></input>
+                        <input id="itemqty" type="text" className="form-control" min="1" max="25" placeholder="Role Name" defaultValue={itemqty} onChange={e => onInputChange(e, "itemqty")}></input>
                     </div>
                     <div className="mb-3">
                         <label for="formGroupExampleInput" className="form-label">Item Description</label>

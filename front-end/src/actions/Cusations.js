@@ -11,7 +11,7 @@ import axios from "axios";
 
 
 
-export const login = (username , password) => async (dispatch) => {
+export const login = (email , password) => async (dispatch) => {
 
 
 try {
@@ -27,7 +27,7 @@ try {
  
  const { data } = await axios.post("http://localhost:5000/customer/login",{
  
-   username,password,
+   email,password,
  
  },config);
  
@@ -61,7 +61,7 @@ try {
   
 
 
- export const register = (name,email,phone,gender,loginType,username,password,pic) => async (dispatch) => {
+ export const register = (name,email,phone,gender,loginType,password,pic) => async (dispatch) => {
 
   try {
     dispatch ({ type : CUS_REGISTER_REQUEST});
@@ -81,7 +81,6 @@ const { data } = await axios.post(
   phone,
   gender,
   loginType,
-  username,
   password,
   pic} ,
   config

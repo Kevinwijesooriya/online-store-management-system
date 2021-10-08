@@ -30,6 +30,17 @@ import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
 import DeliveryApp from './components/DeliveryApp';
 import AllDeliveryDetails from './components/AllDeliveryDetails';
+import myProfile from "./components/myProfile";
+import Editinquiry from './components/Editinquiry';
+import AllAdminfeedback from './components/AllAdminfeedback';
+import Addadminfeedback from './components/AddAdminfeedback';
+import UpdateAdminfeedback from './components/UpdateAdminfeedback';
+import Additem from"./components/Additem";
+import updateitem from"./components/updateitem";
+import deleteitem from"./components/deleteitem";
+import itemnav from './components/itemnav';
+import Mainitem from './components/Mainitem';
+
 
 
 function App() {
@@ -43,7 +54,7 @@ function App() {
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
         <Route path="/cart" component={CartApp} />
         <Route path="/cartadmin" component={CartAdminApp} />
-        <Route path="/product" component={ProductApp} />
+        
         <Route path="/AdminHome" component={AdminHome} />
         <Route path="/delivery" component={DeliveryApp} />
         <Route path="/courier" component={DeliveryApp} />
@@ -66,10 +77,24 @@ function App() {
         <Route path="/salaryplan/salaryplan" exact component={AllSalaryPlans} />
         <Route path="/salaryplan/update/:id" exact component={UpdateSalaryPlan} />
 
+        {/* AdminFeedback function */}
+        <Route path="/adminfeedback/add" exact component={Addadminfeedback} />
+        <Route path="/adminfeedback/" exact component={AllAdminfeedback} />
+        <Route path="/adminfeedback/adminfeedback" exact component={AllAdminfeedback} />
+        <Route path="/adminfeedback/update/:id" exact component={UpdateAdminfeedback} />
+        {/* Item function */}
+        <Route path="/product/" exact component={itemnav} />
+        <Route path="/productadd" exact component={Additem} />
+        <Route path="/productdelete" exact component={deleteitem} />
+        <Route path="/product" exact component={Mainitem} />
+        <Route path="/update/:id" exact component={updateitem} />
+
         {/* inquriy and feedback routes */}
         <Route path="/Addinquiry" component={Addinquiry} />
         {/* <Route  path="/Rating"   component={Rating}/> */}
         <Route path="/inquriyM" component={inquriyM} />
+        <Route path="/myProfile" component={myProfile}/>
+        {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
         <Route path="/" component={Footer} />
       </div>

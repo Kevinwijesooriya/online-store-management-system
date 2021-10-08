@@ -60,7 +60,8 @@ const Additems = () => {
 
                     setItemName(e.target.value);
 
-                }}/>
+                }}
+                required/>
              </div>
         
             <div className="it-1">
@@ -69,7 +70,8 @@ const Additems = () => {
 
                     setItemCategory(e.target.value);
                     
-                }}/>
+                }}
+                required/>
             </div>
 
             <div className="it-1">
@@ -78,7 +80,8 @@ const Additems = () => {
 
                     setItemBrand(e.target.value);
 
-                }}/>
+                }}
+                required/>
             </div>
 
             <div className="it-1">
@@ -87,22 +90,25 @@ const Additems = () => {
 
                     setItemColor(e.target.value);
 
-                }}/>
-                <input type="text" className="form-control" id="itemqty" onChange={(e)=>{
+                }}
+                required/>
+                <input type="number"  className="form-control" id="itemqty"  min="10" max="25" onChange={(e)=>{
 
                     setItemQty(e.target.value);
 
-                }} />
-                <input type="text" className="form-control" id="itemprice" onChange={(e)=>{
+                }} 
+                required/>
+                <input type="number" className="form-control" id="itemprice" min="100" onChange={(e)=>{
 
                     setItemPrice(e.target.value);
 
-                }}/>
+                }}
+                required/>
             </div>
 
             <div className="it-1">
                 <label htmlfor="itemimage">Chooes Article Image</label>
-                <input type="file" className="form-control-file" fileName="itemimage" onChange= {onChangeFile}/>
+                <input type="file" className="form-control-file" fileName="itemimage" onChange= {onChangeFile} required/>
 
             </div>
 
@@ -112,7 +118,7 @@ const Additems = () => {
 
                     setItemDescription(e.target.value);
 
-                }}/>
+                }}required/>
             </div>
 
             <button type="submit" className="btn btn-primary">Add to the Store</button>

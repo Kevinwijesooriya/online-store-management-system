@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
 import '../styles/Sidebar.css';
-import Header from "./header";
+import Header from "./headerSalary";
 import Sidebar from "./Sidebar";
 
 function UpdateSalaryPlan() {

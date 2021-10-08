@@ -31,7 +31,7 @@ return(
         <Link to ="/#" className = "nav-link">Notes</Link>
         </li>
         <li className="nav-item">
-        <Link to ="/#"  className = "nav-link">My Profile</Link>
+        <Link to ="/myProfile"  className = "nav-link">My Profile</Link>
         </li>
         
         <li class="nav-item">

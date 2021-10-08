@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react"
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 
@@ -6,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function DisplayItems(){
 
+    const [searchTerm, setSearchTerm] = useState('');
     const [items,setItems] = useState([{
         _id:'',
         itemname: '',
@@ -18,8 +20,10 @@ function DisplayItems(){
         itemdescription: ''
 
     }]);
+    const location = useLocation();
     
     useEffect(() => {
+        console.log("redirected to home");
         function getitems(){
             axios.get("http://localhost:5000/item/").then((res) => {
                 setItems(res.data);
@@ -30,13 +34,28 @@ function DisplayItems(){
         getitems();
     }, [])
 
+    const filteredCountrise = items.filter(std=>{
+        return (std.itemname.toLowerCase().includes(searchTerm.toLocaleLowerCase())||
+        std.itemimage.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+                
+     })
+
     
     return(
         <div>
 
 
+        <div class="container-fluid">
+    
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+             onChange={e => setSearchTerm(e.target.value)}
+            />
+   
+  
+            </div>
+
             <div class="Topic"><h3>V-TECH </h3></div>
-            {items.map( item =>
+            {filteredCountrise.map( item =>
             <div>
               
                 
@@ -53,10 +72,9 @@ function DisplayItems(){
                 <th scope="col" width="600"><h2>{item.itemname}</h2>
                 <p>{item.itemcategory}</p>
                 <p >{item.itembrand}</p>
-                <p >Rs {item.itemprice}</p>
+                <p >$ {item.itemprice}</p>
                
-                <button>
-                <Link className="btn btn-success" to={"/display/" + item._id}>Item Details</Link></button>
+                
                 <button><Link className="btn btn-success" to={"/update/" + item._id}>Item Update</Link></button></th>
                 </td>
                 

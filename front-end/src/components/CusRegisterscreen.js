@@ -21,7 +21,6 @@ export default function (){
   const  [phone,setPhone] = useState("");
   const  [gender,setGender] = useState("");
   const  [loginType,setLogin] = useState("");
-  const  [username,setusername] = useState("");
   const  [password,setpassword] = useState("");
   const  [repassword,setrepassword] = useState("");
   const  [pic,setpic] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuDoisN_XW3IVsEn4qXXTiqfTFBCCQOWqDFg&usqp=CAU");
@@ -55,7 +54,7 @@ const SubmiHandler = async (e) =>{
     setMessage("passwords do not match");
 
   }else{
-    dispatch(register(name,email,phone,gender,loginType,username,password,pic));
+    dispatch(register(name,email,phone,gender,loginType,password,pic));
   }
  
 
@@ -125,22 +124,11 @@ return (
     <div id="invalidCheck3Feedback" className="invalid-feedback"> </div>
   </div>
   
-  <div className="mb-3">
-    <label htmlFor="email" className="form-label">E-mail</label>
-    <input type="email" className="form-control" id="email"  placeholder="Enter your E-mail" required
-     onChange = {(e)=>{
-   
-      setmail(e.target.value);
-
-    }
-    } />
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-  </div>
 
 
   <div className="mb-3">
     <label htmlFor="phone" className="form-label">Phone Number</label>
-    <input type="text" className="form-control" id="phone" placeholder="Enter your Phone Number" required
+    <input type="text" className="form-control" id="phone" placeholder="775477541" pattern="[0-9]{9}" required
      onChange = {(e)=>{
    
       setPhone(e.target.value);
@@ -203,20 +191,21 @@ return (
 
 <h2> Enter your Credentials</h2><br></br>
 
-  <div className="mb-3">
-    <label htmlFor="userName" className="form-label" >UserName</label>
-    <input type="text" className="form-control" id="userName"  placeholder="Enter your Phone Number"   required
+<div className="mb-3">
+    <label htmlFor="email" className="form-label">User name</label>
+    <input type="email" className="form-control" id="email" autocomplete="off" placeholder="Enter your E-mail" required
      onChange = {(e)=>{
    
-      setusername(e.target.value);
-   
+      setmail(e.target.value);
+
     }
-    }/>
+    } />
+    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
 
   <div className="mb-3">
     <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" className="form-control" id="password"    placeholder="Enter your password" required
+    <input type="password" className="form-control" id="password"    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#+!%*?&])[A-Za-z\d@$#+!%*?&]{8,}$" placeholder="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" required
     onChange = {(e)=>{
    
       setpassword(e.target.value);
