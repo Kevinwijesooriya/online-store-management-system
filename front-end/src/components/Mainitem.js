@@ -72,7 +72,7 @@ function DisplayItems(){
                 <th scope="col" width="600"><h2>{item.itemname}</h2>
                 <p>{item.itemcategory}</p>
                 <p >{item.itembrand}</p>
-                <p >Rs {item.itemprice}</p>
+                <p >$ {item.itemprice}</p>
                
                 
                 <button><Link className="btn btn-success" to={"/update/" + item._id}>Item Update</Link></button></th>
