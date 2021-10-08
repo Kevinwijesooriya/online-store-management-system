@@ -84,7 +84,7 @@ function App() {
         <Route path="/myProfile" component={myProfile}/>
         {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
-      
+        <Route path="/" component={Footer} />
       </div>
     </Router>
 

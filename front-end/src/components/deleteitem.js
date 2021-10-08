@@ -77,7 +77,7 @@ function DisplayItems(){
                 <th scope="col" width="600"><h2>{item.itemname}</h2>
                 <p>{item.itemcategory}</p>
                 <p >{item.itembrand}</p>
-                <p >Rs {item.itemprice}</p>
+                <p >$ {item.itemprice}</p>
                
             
                 <button> <Link to ="/product" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
