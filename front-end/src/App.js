@@ -28,6 +28,8 @@ import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
+import DeliveryApp from './components/DeliveryApp';
+import AllDeliveryDetails from './components/AllDeliveryDetails';
 
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
         <Route path="/cartadmin" component={CartAdminApp} />
         <Route path="/product" component={ProductApp} />
         <Route path="/AdminHome" component={AdminHome} />
+        <Route path="/delivery" component={DeliveryApp} />
+        <Route path="/courier" component={DeliveryApp} />
 
         {/* Budget function */}
         <Route path="/budget/add" exact component={AddBudget} />

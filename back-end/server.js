@@ -83,3 +83,6 @@ app.use("/product", productRouter);
 
 const productCartRouter = require("./routes/productRoutes.js");
 app.use("/productCart", productCartRouter);
+
+const courierRouter = require("./routes/couriers.js");
+app.use("/courier",courierRouter);

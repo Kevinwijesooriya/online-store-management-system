@@ -19,6 +19,10 @@ const courierSchema = new Schema({
     contact_no : {
         type: Number,
         required: true
+    },
+    date_ob : {
+        type: Date,
+        required: true
     }
 
 })

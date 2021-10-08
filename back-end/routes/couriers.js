@@ -5,13 +5,15 @@ router.route("/add").post((req,res)=>{
     const name = req.body.name;
     const address = req.body.address;
     const e_mail = req.body.e_mail;
-    const contact_no = Number(req.body.contact_no)
+    const contact_no = Number(req.body.contact_no);
+    let date_ob = new Date();
 
     const newCourier = new Courier({
         name,
         address,
         e_mail,
-        contact_no
+        contact_no,
+        date_ob
     })
 
     newCourier.save().then(()=>{
@@ -36,12 +38,14 @@ router.route("/").get((req,res)=>{
 router.route("/update/:id").put(async (req,res) =>{
     let CourierUserId = req.params.id;
     const {name, address, e_mail, contact_no } = req.body;
+    let date_ob = new Date();
 
     const updateCourierDetails = {
         name,
         address,
         e_mail,
-        contact_no
+        contact_no,
+        date_ob
     }
 
     const update = await Courier.findByIdAndUpdate(CourierUserId, updateCourierDetails)
