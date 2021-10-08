@@ -84,5 +84,8 @@ app.use("/product", productRouter);
 const productCartRouter = require("./routes/productRoutes.js");
 app.use("/productCart", productCartRouter);
 
+const instockRouter = require("./routes/InStock.js");
+app.use("/instock", instockRouter);
+
 const adminfeedbackRouter = require("./routes/Adminfeedbacks.js");
 app.use("/adminfeedback",adminfeedbackRouter);
