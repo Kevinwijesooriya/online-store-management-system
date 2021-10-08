@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 import Rating from "../components/Rating";
+import Allcomment from "../components/Allcomment";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -113,6 +114,12 @@ const ProductScreen = ({ match, history }) => {
               </p>
             </div>
           </div>
+
+          <div>
+      <Route path="/product/:id">
+        <Allcomment itemname={`${product.itemname}`}/>
+      </Route>
+      </div>
         </>
       )}
 
@@ -144,6 +151,11 @@ const ProductScreen = ({ match, history }) => {
           </Fade>
         </Modal>
       </div>
+      {/* <div>
+      <Route path="/product/:id">
+        <Allcomment/>
+      </Route>
+      </div> */}
     </div>
   );
 };
