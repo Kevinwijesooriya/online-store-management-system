@@ -54,6 +54,7 @@ export default function Addadminfeedback() {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+            <img src="https://pmtips.net/Portals/0/EasyDNNnews/1981/img-3-critical-items-for-your-issues-log.jpg" width="400" height="400" />
         </div>
     )
 }
