@@ -34,7 +34,7 @@ const Navbar = ({ click }) => {
       </div>
       <ul className="navbar__links">
       <li>
-          <a href="#">My profile</a>
+          <a href="/myProfile">My profile</a>
         </li>
       <li>
           <a href="/" onClick = {logoutHandler}>Log out</a>

@@ -36,7 +36,7 @@ const SideDrawer = ({ show, click }) => {
       <ul className="sidedrawer__links" onClick={click}>
 
       <li>
-          <a href="#">My profile</a>
+          <a href="/myProfile">My profile</a>
         </li>
 
         <li>
