@@ -2,7 +2,7 @@
 import "./ProductScreen.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -105,21 +105,21 @@ const ProductScreen = ({ match, history }) => {
                   Add To Cart
                 </button>
                 <br />
-                <button type="button" onClick={handleOpen}>
-                  {/* <a href={`/product/${product._id}`} style={{textDecoration:'none',color:'white'}}>
-                          Add comment</a> */}
-                          <Link className="nav-link" to={`/product/${product._id}`}style={{textDecoration:'none',color:'white'}}>Add comment</Link>
-                 </button>
+                <button type="button" style={{height:'40px' }}onClick={handleOpen}>
+                  <div>
+                  <Link  to={`/product/${product._id}`} style={{ textDecoration: 'none', color: 'white'}}>Add comment</Link>
+                  </div>
+                </button>
 
               </p>
             </div>
           </div>
 
-          <div>
-      <Route path="/product/:id">
-        <Allcomment itemname={`${product.itemname}`}/>
-      </Route>
-      </div>
+          <div className='comments'>
+            <Route path="/product/:id">
+              <Allcomment itemname={`${product.itemname}`} />
+            </Route>
+          </div>
         </>
       )}
 
@@ -143,10 +143,10 @@ const ProductScreen = ({ match, history }) => {
             <div className={classes.paper}>
               {/* <h2 id="transition-modal-title">Transition modal</h2> */}
               <Router>
-             <div className="">
-                <Route path="/product/:id" exact component={Rating} ></Route>
-              </div>
-            </Router>
+                <div className="">
+                  <Route path="/product/:id" exact component={Rating} ></Route>
+                </div>
+              </Router>
             </div>
           </Fade>
         </Modal>

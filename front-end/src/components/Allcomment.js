@@ -61,7 +61,7 @@ export default function Allcomment(props){
                     </form>
                 </div>
             </nav> */}
-
+    <div className='container'>
 
             {rating.map((rtd) => (
                 <div>
@@ -72,14 +72,14 @@ export default function Allcomment(props){
                         <p>{rtd.comment}</p></a>
                     <p>{rtd.date_ob.substring(0,10)} &nbsp; {rtd.date_ob.substring(11,19)}</p>
 
-                    <hr></hr>
+                    
                 </div>
 
 
             ))}
               
         
-
+              </div>
 
 {/* <table  className="table table-success table-striped">
   <thead>
