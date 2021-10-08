@@ -50,6 +50,7 @@ const Navbar = ({ click }) => {
         <li>
           <Link to="/cart">Shop</Link>
         </li>
+        
       </ul>
 
       <div className="hamburger__menu" onClick={click}>
