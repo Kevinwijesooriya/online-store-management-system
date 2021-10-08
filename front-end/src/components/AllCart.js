@@ -4,6 +4,8 @@ import axios from 'axios';
 
 function AllCart() {
 
+    const [searchTerm, setSearchTerm] = useState('');
+
     const [Cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -23,6 +25,18 @@ function AllCart() {
             alert("Cart Details Deleted SuccessFully")
         }).catch(err => { alert(err) });
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    const filteredCountrise = Cart.filter(std => {
+
+        return (
+
+            std.customerID.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+
+
+
+    })
+
 
     // filterData(cart,searchkey){
     //   const result = cart.filter((cart) =>
@@ -41,26 +55,50 @@ function AllCart() {
     //     }
     //   });
     // }
+    return (<div className="container" > <h2 align="center">Issued Cart</h2>
+{/*  */}
 
-    return (<div className="container" >
+        <nav class="navbar navbar-light bg-light">
+
+            <div class="container-fluid">
+
+                <form class="d-flex">
+
+                <div class="input-group col-md-4">
+                        <input class="form-control py-2 border-right-0 border"  type="search" placeholder="Search" aria-label="Search"
+                            onChange={e => setSearchTerm(e.target.value)} />
+                     <span class="input-group-append">
+                       <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+                       </button>
+                     </span> 
+                        </div>
+
+                </form>
+
+            </div>
+
+        </nav>
+
+{/*  */}
         <table className="table table-bordered border-primary">
             <thead className="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Product ID</th>
+                    <th scope="col"></th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                {Cart.map((cart, index) => (
+                {filteredCountrise.map((cart, index) => (
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         <td>{cart.customerID}</td>
-                        <td>{cart.productID}</td>
-                        <td>{cart.price}</td>
+                        <td>{cart.productID[0]} , {cart.productID[1]} ....</td>
+                        <td>${cart.price}</td>
                         <td>{cart.quantity}</td>
                         <td>
                             {/* <Link className="btn btn-success" to={"/cart/update/" + cart._id}>Edit</Link> */}

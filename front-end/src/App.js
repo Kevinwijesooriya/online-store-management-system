@@ -30,6 +30,9 @@ import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
 import myProfile from "./components/myProfile";
 import Editinquiry from './components/Editinquiry';
+import AllAdminfeedback from './components/AllAdminfeedback';
+import Addadminfeedback from './components/AddAdminfeedback';
+import UpdateAdminfeedback from './components/UpdateAdminfeedback';
 import Additem from"./components/Additem";
 import updateitem from"./components/updateitem";
 import deleteitem from"./components/deleteitem";
@@ -70,6 +73,11 @@ function App() {
         <Route path="/salaryplan/salaryplan" exact component={AllSalaryPlans} />
         <Route path="/salaryplan/update/:id" exact component={UpdateSalaryPlan} />
 
+        {/* AdminFeedback function */}
+        <Route path="/adminfeedback/add" exact component={Addadminfeedback} />
+        <Route path="/adminfeedback/" exact component={AllAdminfeedback} />
+        <Route path="/adminfeedback/adminfeedback" exact component={AllAdminfeedback} />
+        <Route path="/adminfeedback/update/:id" exact component={UpdateAdminfeedback} />
         {/* Item function */}
         <Route path="/product/" exact component={itemnav} />
         <Route path="/productadd" exact component={Additem} />
