@@ -93,7 +93,7 @@
     }
 }
 .comments{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     width: 250px;
     height: auto;
     margin:10px;
