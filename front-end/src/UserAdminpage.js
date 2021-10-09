@@ -4,6 +4,7 @@ import AdminRegisterScreen from './components/AdminRegisterscreen';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import NoteList from './components/NoteList';
+import StockApp from './components/StockApp';
 import SalaryPlanApp from './components/SalaryPlanApp';
 
 
@@ -31,6 +32,7 @@ function UserAdminMainjs() {
          <Route path="/noteList" exact component={NoteList}/>
         <Route path="/noteEdit/:id" exact component={EditNote}/>
         <Route path="/CreateNotes" exact component={CreateNote}/>
+        <Route path="/Stock" component={StockApp} />
 
 
         {/* Budget function */}

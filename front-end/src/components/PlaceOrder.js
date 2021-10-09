@@ -1,279 +1,227 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import DatePicker from 'react-datepicker';
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
+import "./OrderStyles.css";
+import axios from "axios";
+// import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import OrderItem from "./OrderItem";
 
-export default class PlaceOrder extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeBankName = this.onChangeBankName.bind(this);
-    this.onChangeAmount = this.onChangeAmount.bind(this);
-    this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
-    this.onChangePhone = this.onChangePhone.bind(this);
-    this.onChangeItemName = this.onChangeItemName.bind(this);
-    this.onChangeQty = this.onChangeQty.bind(this);
-    this.onChangeItemPrice = this.onChangeItemPrice.bind(this);
-    this.onChangeCourierService = this.onChangeCourierService.bind(this);
-    this.onChangeAddress = this.onChangeAddress.bind(this);
-    this.onChangeOrderStatus = this.onChangeOrderStatus.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-    this.state = {
-      username: '',
-      amount: '',
-      orderDate: new Date(),
-      phone:'',
-      itemName: '',
-      qty : '',
-      itemPrice:'',
-      courierService:'',
-      address:'',
-      orderStatus:'Not Confirmed',
-      users: [],
-      deliveries:[]
-    }
-  }
-
-  componentDidMount() {
-    axios.get('http://localhost:5000/users/')
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            users: response.data.map(user => user.username),
-            username: response.data[0].username
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-
-    axios.get('http://localhost:5000/delivery/')
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            deliveries: response.data.map(delivery => delivery.address),
-            address: response.data[0].address
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-
-  }
-
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value
-    })
-  }
-
-  onChangeBankName(e) {
-    this.setState({
-      bankName: e.target.value
-    })
-  }
-
-  onChangeAmount(e) {
-    this.setState({
-      amount: e.target.value
-    })
-  }
-
-  onChangeOrderDate(date) {
-    this.setState({
-      orderDate: date
-    })
-  }
+export default function PlaceOrder() {
+  let history = useHistory();
   
-  onChangePhone(e) {
-    this.setState({
-      phone: e.target.value
-    })
-  }
+  const cart = useSelector((state) => state.cart);
+  const customerID = useSelector((state) => state.cusLogin.userInfo.name);
+  const key = useSelector(state => state.cart.cartItems.map(ele => ele.name))
+  const { cartItems } = cart;
+  const itemName = useSelector(state => state.cart.cartItems[0].name);
+  const itemImage = useSelector(state => state.cart.cartItems[0].imageUrl);
+  const [bankName, setBankName] = useState("");
+  // const [amount, setAmount] = useState("");
+  const [orderDate, setOrderDate] = useState("");
+  const [phone, setPhone] = useState("");
+  // const [itemName, setItemName] = useState("");
+  // const [qty, setQty] = useState("");
+  // const [itemPrice, setItemPrice] = useState("");
+  const [courierService, setCourierService] = useState("");
+  const [address, setAddress] = useState("");
+  const [orderStatus, setOrderStatus] = useState("Not Confirmed");
+  const [deliveries, setDeliveries] = useState([]);
+  const [couriers, setCouriers] = useState([]);
 
-  onChangeItemName(e) {
-    this.setState({
-      itemName: e.target.value
-    })
-  }
+  const itemPrice = cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
+  const qty = cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
 
-  onChangeQty(e) {
-    this.setState({
-      qty: e.target.value
-    })
-  }
-
-  onChangeItemPrice(e) {
-    this.setState({
-      itemPrice: e.target.value
-    })
-  }
-
-  onChangeCourierService(e) {
-    this.setState({
-      courierService: e.target.value
-    })
-  }
-
-  onChangeAddress(e) {
-    this.setState({
-      address: e.target.value
-    })
-  }
-
-  onChangeOrderStatus(e) {
-    this.setState({
-      orderStatus: e.target.value
-    })
-  }
-
-  onSubmit(e) {
+  function sendData(e) {
     e.preventDefault();
-
+    setOrderStatus("Not Confirmed");
     const order = {
-      username: this.state.username,
-      bankName: this.state.bankName,
-      amount: this.state.amount,
-      orderDate: this.state.orderDate,
-      phone: this.state.phone,
-      itemName: this.state.itemName,
-      qty: this.state.qty,
-      itemPrice: this.state.itemPrice,
-      courierService: this.state.courierService,
-      address: this.state.address,
-      orderStatus: this.state.orderStatus,
+      userName : customerID,
+      bankName,
+      amount :itemPrice,
+      orderDate,
+      phone,
+      itemName,
+      qty,
+      itemPrice,
+      courierService,
+      address,
+      orderStatus,
     }
-
-    console.log(order);
 
     axios.post('http://localhost:5000/order/add', order)
-      .then(res => console.log(res.data));
-
-    window.location = '/';
+      .then(()=>{
+        alert("Successfully Placed the order!")
+        window.location = '/order/';
+        })
+      .catch(err => { alert(err) });
   }
+  useEffect(() => {
+      axios.get('http://localhost:5000/delivery/')
+        .then(response => {
+          if (response.data.length > 0) {
+            setDeliveries(response.data.map(delivery => delivery.address))
+            setAddress(response.data[0].address)
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
 
-  render() {
-    return (
-    <div class="container">
-      <h3>Place Order</h3>
-      <form onSubmit={this.onSubmit}>
-        <div className="form-group"> 
-          <label>Username: </label>
-          <select ref="userInput"
+      axios.get('http://localhost:5000/courier/')
+      .then(response => {
+        if (response.data.length > 0) {
+          setCouriers(response.data.map(courier => courier.name))
+          setCourierService(response.data[0].name)
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [] );
+
+  return (
+  
+  // <div className="App" >
+  //   <div className="content">
+
+      <div className="container">
+        <h3>Place Order</h3>
+        <form onSubmit={sendData}>
+
+          <div className="form-group">
+            <label>Bank Name: </label>
+            <input type="text"
               required
               className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}>
-              {
-                this.state.users.map(function(user) {
-                  return <option 
-                    key={user}
-                    value={user}>{user}
-                    </option>;
-                })
-              }
-          </select>
-        </div><br/>
-        <div className="form-group"> 
-          <label>Bank Name: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.bankName}
-              onChange={this.onChangeBankName}
-              />
-        </div>
-        <div className="form-group"><br/>
-          <label>Amount: </label>
-          <input 
-              type="text" 
-              className="form-control"
-              value={this.state.amount}
-              onChange={this.onChangeAmount}
-              />
-        </div>
-        <div className="form-group"><br/>
-          <label>Order Date: </label>
-          <div>
-            <DatePicker
-              selected={this.state.orderDate}
-              onChange={this.onChangeOrderDate}
+              value={bankName}
+              onChange={(e) => {
+                setBankName(e.target.value);
+              }}
             />
           </div>
-        </div>
-        <div className="form-group"><br/>
-          <label>Phone Number: </label>
-          <input 
-              type="text" 
+          <div className="form-group"><br />
+            <label>Amount: </label>
+            <input
+              type="text"
               className="form-control"
-              value={this.state.phone}
-              onChange={this.onChangePhone}
+              value={itemPrice}
+              // onChange={(e) => {
+              //   setAmount(e.target.value);
+              // }}
+            />
+          </div>
+          <div className="form-group"><br />
+            <label>Order Date: </label>
+            <div>
+            <input
+                type="date"
+                className="form-control"
+                value={orderDate}
+                onChange={(e) => {
+                  setOrderDate(e.target.value);
+                }}
               />
-        </div>
-        <div className="form-group"><br/>
-          <label>Item Name: </label>
-          <input 
-              type="text" 
+            </div>
+          </div>
+          <div className="form-group"><br />
+            <label>Phone Number: </label>
+            <input
+              type="text"
               className="form-control"
-              value={this.state.itemName}
-              onChange={this.onChangeItemName}
+              value={phone}
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+            />
+          </div>
+          <div className="form-group"><br />
+            <label>Item Name: </label>
+            {cartItems.map((item) => (
+              <OrderItem
+                key={item.product}
+                item={item}                
               />
-        </div>
-        <div className="form-group"><br/>
-          <label>Qty: </label>
-          <input 
-              type="text" 
+            ))}
+            {/* <input
+              type="text"
               className="form-control"
-              value={this.state.qty}
-              onChange={this.onChangeQty}
-              />
-        </div>
-        <div className="form-group"><br/>
-          <label>Item Price: </label>
-          <input 
-              type="text" 
+              value={itemName}
+              // onChange={(e) => {
+              //   setItemName(e.target.value);
+              // }}
+            /> */}
+          </div>
+          <div className="form-group"><br />
+            <label>Total Qty: </label>
+            <input
+              type="text"
               className="form-control"
-              value={this.state.itemPrice}
-              onChange={this.onChangeItemPrice}
-              />
-        </div>
-        <div className="form-group"><br/>
-          <label>Courier Service: </label>
-          <input 
-              type="text" 
+              value={qty}
+              // onChange={(e) => {
+              //   setQty(e.target.value);
+              // }}
+            />
+          </div>
+          <div className="form-group"><br />
+            <label>Total Price: </label>
+            <input
+              type="text"
               className="form-control"
-              value={this.state.courierService}
-              onChange={this.onChangeCourierService}
-              />
-        </div>
-        <div className="form-group"> <br/>
-          <label>Address: </label>
-          <select ref="addressInput"
+              value={itemPrice}
+              // onChange={(e) => {
+              //   setItemPrice(e.target.value);
+              // }}
+            />
+          </div>
+          <div className="form-group"><br />
+                <label>Courier Service: </label>
+                <select
+                  required
+                  className="form-control"
+                  value={courierService}
+                  onChange={(e) => {
+                    setCourierService(e.target.value);
+                  }}
+                >
+                   {
+                    couriers.map(function (courier) {
+                      return <option
+                        key={courier}
+                        value={courier}>{courier}
+                      </option>;
+                    })
+                  }
+                </select>
+              </div>
+          <div className="form-group"> <br />
+            <label>Address: </label>
+            <select
               required
               className="form-control"
-              value={this.state.address}
-              onChange={this.onChangeAddress}>
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            >
               {
-                this.state.deliveries.map(function(delivery) {
-                  return <option 
+                deliveries.map(function (delivery) {
+                  return <option
                     key={delivery}
                     value={delivery}>{delivery}
-                    </option>;
+                  </option>;
                 })
               }
-          </select>
-        </div>
-        <br/>
-        <div className="form-group"><center>
-          <input type="submit" value="Place Order" className="btn btn-primary" /></center>
-        </div>
-      </form>
-    </div>
+            </select>
+          </div>
+          <br />
+          <div className="form-group"><center>
+            <input type="submit" value="Place Order" className="btn btn-primary" /></center>
+          </div>
+        </form>
+      </div>
 
-    )
-  }
+  //   {/* </div>
+  // </div> */}
+  )
 }

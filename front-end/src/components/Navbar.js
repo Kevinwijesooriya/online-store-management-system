@@ -32,13 +32,13 @@ const Navbar = ({ click }) => {
       <div className="navbar__logo h2">
         <h2>V-Tech</h2>
       </div>
-
       <ul className="navbar__links">
-
       <li>
-          <Link><a onClick = {logoutHandler}>Log out</a></Link>
+          <a href="/myProfile">My profile</a>
         </li>
-
+      <li>
+          <a href="/" onClick = {logoutHandler}>Log out</a>
+        </li>
         <li>
           <Link to="/cart/cart" className="cart__link">
             <i className="fas fa-shopping-cart"></i>
@@ -48,7 +48,7 @@ const Navbar = ({ click }) => {
           </Link>
         </li>
         <li>
-          <Link to="/cart">Shop</Link>
+          <a href="/cart">Shop</a>
         </li>
         
       </ul>

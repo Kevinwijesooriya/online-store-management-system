@@ -4,11 +4,8 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
 
-    product_type : {
-        type : String,
-        required : true
-    },
-    brand_name : {
+    
+    product_name : {
         type : String,
         required : true
     },
@@ -16,7 +13,7 @@ const productSchema = new Schema({
         type : String,
         required : true
     },
-    model_name : {
+    category : {
         type : String,
         required : true
     },
@@ -28,7 +25,7 @@ const productSchema = new Schema({
         type : String,
         required : true
     },
-    no_of_items : {
+    quantity : {
         type : Number,
         required : true
     },
@@ -36,6 +33,8 @@ const productSchema = new Schema({
         type : Date,
         required : true
     }
+   
+
 
 })
 

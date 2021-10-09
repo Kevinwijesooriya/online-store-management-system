@@ -20,10 +20,10 @@ app.use(express.urlencoded({
 const URL = process.env.MONGOBD_URL;
 
 mongoose.connect(URL,{
-    useCreateIndex:true,
+    //useCreateIndex:true,
     useNewUrlParser:true,
     useUnifiedTopology:true,
-    useFindAndModify:false
+    //useFindAndModify:false
 })
 
 //app.use(notFound);
@@ -83,6 +83,15 @@ app.use("/product", productRouter);
 
 const productCartRouter = require("./routes/productRoutes.js");
 app.use("/productCart", productCartRouter);
+
+const issueitemRouter = require("./routes/IssueItems.js");
+app.use("/issueitem", issueitemRouter);
+
+const instockRouter = require("./routes/InStock.js");
+app.use("/instock", instockRouter);
+
+const courierRouter = require("./routes/couriers.js");
+app.use("/courier",courierRouter);
 
 const adminfeedbackRouter = require("./routes/Adminfeedbacks.js");
 app.use("/adminfeedback",adminfeedbackRouter);

@@ -1,17 +1,11 @@
 const router = require('express').Router();
 let Order = require('../models/Order');
 
-router.route('/').get((req, res) => {
-  Order.find()
-    .then(orders => res.json(orders))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
+  const userName = req.body.userName;
   const bankName = req.body.bankName;
-  const amount = req.body.amount;
-  const orderDate = req.body.orderDate;
+  const amount = Number(req.body.amount);
   const phone = req.body.phone;
   const itemName = req.body.itemName;
   const qty = Number(req.body.qty);
@@ -21,10 +15,9 @@ router.route('/add').post((req, res) => {
   const orderStatus = req.body.orderStatus;
 
   const newOrder = new Order({
-    username,
+    userName ,
     bankName ,
     amount,
-    orderDate,
     phone,
     itemName,
     qty,
@@ -34,9 +27,35 @@ router.route('/add').post((req, res) => {
     orderStatus,
   });
 
+
   newOrder.save()
   .then(() => res.json('Order added!'))
   .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+//Request get all orders
+{/*
+router.route('/').get((req, res) => {
+  Order.find()
+    .then((orders) => res.json(orders))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+*/}
+
+router.route('/').get((req , res) => {
+  Order.find().exec((err , orders) =>{
+    if(err){
+      return res.status(400).json({
+        error:err
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      existingOrders:orders
+    });
+  });
 });
 
 router.route("/confirmOrder").get((req , res) => {

@@ -15,6 +15,7 @@ import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 import Rating from "../components/Rating";
 import Allcomment from "../components/Allcomment";
+import Editrateing from "../components/Editrateing";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -105,7 +106,7 @@ const ProductScreen = ({ match, history }) => {
                   Add To Cart
                 </button>
                 <br />
-                <button type="button" style={{height:'40px' }}onClick={handleOpen}>
+                <button type="button" style={{height:'40px' }} onClick={handleOpen}>
                   <div>
                   <Link  to={`/product/${product._id}`} style={{ textDecoration: 'none', color: 'white'}}>Add comment</Link>
                   </div>
@@ -117,16 +118,52 @@ const ProductScreen = ({ match, history }) => {
 
           <div className='comments'>
             <Route path="/product/:id">
-              <Allcomment itemname={`${product.itemname}`} />
+              <Allcomment itemname={`${product.itemname}`} itemid={`${product._id}`}/>
             </Route>
           </div>
-        </>
-      )}
-
-      <div>
-        {/* <button type="button" onClick={handleOpen}>
+       {/* test modal */}
+              <div>
+                {/* <button type="button" onClick={handleOpen}>
           react-transition-group
         </button> */}
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  className={classes.modal}
+                  open={open}
+                  onClose={handleClose}
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={open}>
+                    <div className={classes.paper}>
+                      {/* <h2 id="transition-modal-title">Transition modal</h2> */}
+                      <Router>
+                        <div className="">
+                          <Route path="/product/:id" exact component={Rating} ></Route>
+                          {/* <Route path={`/product/:id/`} exact component={Editrateing} ></Route> */}
+                        </div>
+                      </Router>
+                    </div>
+                  </Fade>
+                </Modal>
+              </div>
+       
+       
+       
+        </>
+
+
+
+      )}
+
+      {/* <div>
+        <button type="button" onClick={handleOpen}>
+          react-transition-group
+        </button>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -141,16 +178,17 @@ const ProductScreen = ({ match, history }) => {
         >
           <Fade in={open}>
             <div className={classes.paper}>
-              {/* <h2 id="transition-modal-title">Transition modal</h2> */}
+              <h2 id="transition-modal-title">Transition modal</h2>
               <Router>
                 <div className="">
                   <Route path="/product/:id" exact component={Rating} ></Route>
+                  <Route path="/product/:id/test" exact component={Editrateing} ></Route>
                 </div>
               </Router>
             </div>
           </Fade>
         </Modal>
-      </div>
+      </div> */}
       {/* <div>
       <Route path="/product/:id">
         <Allcomment/>

@@ -28,6 +28,10 @@ import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
+import OrderReport from './components/OrderReport';
+import StockApp from './components/StockApp';
+import DeliveryApp from './components/DeliveryApp';
+import AllDeliveryDetails from './components/AllDeliveryDetails';
 import myProfile from "./components/myProfile";
 import Editinquiry from './components/Editinquiry';
 import AllAdminfeedback from './components/AllAdminfeedback';
@@ -40,6 +44,7 @@ import itemnav from './components/itemnav';
 import Mainitem from './components/Mainitem';
 import Itemreportpre from './components/Itemreportpre';
 import Itemreport from './components/Reports/Itemreport';
+
 
 
 
@@ -56,6 +61,9 @@ function App() {
         <Route path="/cartadmin" component={CartAdminApp} />
         
         <Route path="/AdminHome" component={AdminHome} />
+        <Route path="/Stock" component={StockApp} />
+        <Route path="/delivery" component={DeliveryApp} />
+        <Route path="/courier" component={DeliveryApp} />
 
         {/* Budget function */}
         <Route path="/budget/add" exact component={AddBudget} />
@@ -64,10 +72,11 @@ function App() {
         <Route path="/budget/update/:id" exact component={UpdateBudget} />
 
         {/*order routes*/}  
-        <Route path="/orderlist" exact component={OrderList} />
-        <Route path="/updateorder/:id" component={UpdateOrder} />
-        <Route path="/placeorder" component={PlaceOrder} />
-        <Route path="/confirmorder" component={ConfirmOrder} />  
+        <Route path="/order/" exact component={OrderList} />
+        <Route path="/order/update/:id" exact component={UpdateOrder} />
+        <Route path="/order/add" exact component={PlaceOrder} />
+        <Route path="/order/confirmorder" exact component={ConfirmOrder} />
+        <Route path="/order/report"  exact component={OrderReport} />
               
         {/* Salary Plan function */}
         <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
