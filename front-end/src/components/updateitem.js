@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
+import Product from "../components/itemnav";
 
 function Updateitem() {
 
@@ -59,8 +60,10 @@ function Updateitem() {
 
     return (
         <div>
+            <div><Product/></div>
             <div className="container">
                 <form className="row g-3" onSubmit={onSubmit}>
+            
                     <div className="mb-3">
                         <label for="formGroupExampleInput" className="form-label">Item Name</label>
                         <input id="itemname" type="text" className="form-control" placeholder="Role Name" defaultValue={itemname} onChange={e => onInputChange(e, "itemname")}></input>

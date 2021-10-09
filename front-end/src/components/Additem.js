@@ -1,5 +1,6 @@
 import React,{useState} from "react"
 import axios from "axios";
+import Product from "../components/itemnav";
 
 const Additems = () => {
 
@@ -52,8 +53,10 @@ const Additems = () => {
 
     return(
 
+      
         <form onSubmit={changeOnClick}>
 
+            <div><Product/></div>
             <div className="it-1">
                 <label for="itemname">Item Name</label>
                 <input type="text" className="form-control" id="itemname" onChange={(e)=>{
