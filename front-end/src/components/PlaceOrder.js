@@ -15,7 +15,7 @@ export default function PlaceOrder() {
   const key = useSelector(state => state.cart.cartItems.map(ele => ele.name))
   const { cartItems } = cart;
   const itemName = useSelector(state => state.cart.cartItems[0].name);
-
+  const itemImage = useSelector(state => state.cart.cartItems[0].imageUrl);
   const [bankName, setBankName] = useState("");
   // const [amount, setAmount] = useState("");
   const [orderDate, setOrderDate] = useState("");
@@ -36,7 +36,7 @@ export default function PlaceOrder() {
     e.preventDefault();
     setOrderStatus("Not Confirmed");
     const order = {
-      username : customerID,
+      userName : customerID,
       bankName,
       amount :itemPrice,
       orderDate,
