@@ -1,35 +1,33 @@
 const router = require("express").Router();
-let Delivery = require("../models/Delivery");
+let Courier = require("../models/Courier");
 
 router.route("/add").post((req,res)=>{
     const name = req.body.name;
     const address = req.body.address;
-    const street = req.body.street;
-    const city = req.body.city;
-    const postal_code = Number(req.body.postal_code);
+    const e_mail = req.body.e_mail;
+    const contact_no = Number(req.body.contact_no);
     let date_ob = new Date();
 
-    const newDelivery = new Delivery({
+    const newCourier = new Courier({
         name,
         address,
-        street,
-        city,
-        postal_code,
+        e_mail,
+        contact_no,
         date_ob
     })
 
-    newDelivery.save().then(()=>{
-        res.json("Delivery Details Added")
+    newCourier.save().then(()=>{
+        res.json("Courier Details Added")
     }).catch((err)=>{
         console.log(err);
     })
 
-})
+}) 
 
 router.route("/").get((req,res)=>{
     
-    Delivery.find().then((deliveries)=>{
-        res.json(deliveries)
+    Courier.find().then((couriers)=>{
+        res.json(couriers)
     }).catch((err)=>{
         console.log(err)
     })
@@ -38,22 +36,21 @@ router.route("/").get((req,res)=>{
 
 
 router.route("/update/:id").put(async (req,res) =>{
-    let DeliveryUserId = req.params.id;
-    const {name, address, street, city, postal_code } = req.body;
+    let CourierUserId = req.params.id;
+    const {name, address, e_mail, contact_no } = req.body;
     let date_ob = new Date();
 
-    const updateDeliveryDetails = {
+    const updateCourierDetails = {
         name,
         address,
-        street,
-        city,
-        postal_code,
+        e_mail,
+        contact_no,
         date_ob
     }
 
-    const update = await Delivery.findByIdAndUpdate(DeliveryUserId, updateDeliveryDetails)
+    const update = await Courier.findByIdAndUpdate(CourierUserId, updateCourierDetails)
     .then(() => {
-        res.status(200).send({status: "Delivery User Updated"})
+        res.status(200).send({status: "Courier User Updated"})
     }).catch((err) => {
         console.log(err);
         res.status(500).send({status: "Error with updating data", error: err.message});
@@ -62,11 +59,11 @@ router.route("/update/:id").put(async (req,res) =>{
 
 
 router.route("/delete/:id").delete(async (req, res) => {
-    let DeliveryUserId = req.params.id;
+    let CourierUserId = req.params.id;
 
-    await Delivery.findByIdAndDelete(DeliveryUserId)
+    await Courier.findByIdAndDelete(CourierUserId)
     .then(() => {
-        res.status(200).send({status: "Delivery User Deleted"});
+        res.status(200).send({status: "Courier User Deleted"});
     }).catch((err) => {
         console.log(err.message);
         res.status(500).send({status: "Error with delete user", error: err.message});
@@ -74,10 +71,10 @@ router.route("/delete/:id").delete(async (req, res) => {
 })
 
 router.route("/get/:id").get(async (req, res) => {
-    let DeliveryUserId = req.params.id;
-    const user = await Delivery.findById(DeliveryUserId)
-    .then((delivery) => {
-        res.status(200).send({status: "Delivery User fetched", delivery})
+    let CourierUserId = req.params.id;
+    const user = await Courier.findById(CourierUserId)
+    .then((courier) => {
+        res.status(200).send({status: "Courier User fetched", courier})
     }).catch(() => {
         console.log(err.message);
         res.status(500).send({status: "Error with get user", error: err.message});

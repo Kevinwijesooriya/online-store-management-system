@@ -34,6 +34,15 @@ const SideDrawer = ({ show, click }) => {
   return (
     <div className={sideDrawerClass.join(" ")}>
       <ul className="sidedrawer__links" onClick={click}>
+
+      <li>
+          <a href="/myProfile">My profile</a>
+        </li>
+
+        <li>
+          <a href="/" onClick = {logoutHandler}>Log out</a>
+        </li>
+
         <li>
           <Link to="/cart/cart">
             <i className="fas fa-shopping-cart"></i>
@@ -44,11 +53,9 @@ const SideDrawer = ({ show, click }) => {
           </Link>
         </li>
         <li>
-          <Link to="/cart">Shop</Link>
+          <a href="/cart">Shop</a>
         </li>
-        <li>
-          <Link><a onClick = {logoutHandler}>Log out</a></Link>
-        </li>
+        
       </ul>
     </div>
   );

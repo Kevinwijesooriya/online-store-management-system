@@ -16,6 +16,7 @@ import AllCart from './AllCart';
 //import ProductApp from './ProductApp';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CartReport from './Reports/CartReport';
 
 
 function CartApp() {
@@ -33,6 +34,7 @@ function CartApp() {
                     <Route exact path="/cart/product/:id" component={ProductScreen} />
                     <Route exact path="/cart/cart" component={CartScreen} />
                     <Route exact path="/cart/allcart" component={AllCart} />
+                    <Route exact path="/cart/cartreport" component={CartReport} />
                     {/* <Route exact path="/cart/" component={ProductApp} /> */}
                     <Route exact path="/product/:id" component={ProductScreen} />
                     {/* <Route exact path="/paymant/pay/:id" component={PaymentScreen} /> */}
