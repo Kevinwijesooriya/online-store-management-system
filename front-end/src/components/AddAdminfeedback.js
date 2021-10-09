@@ -35,7 +35,7 @@ export default function Addadminfeedback() {
 
                 <div className="mb-3">
                     <label htmlFor="set_admin_email" className="form-label">Email</label>
-                    <input type="text" className="form-control" autocomplete="off"  id="set_admin_email" placeholder="Enter your email" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" required 
+                    <input type="text" className="form-control" autocomplete="off"  id="set_admin_email" placeholder="Enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required 
                         onChange={(e) => {
                             set_admin_email(e.target.value);
                         }} required />
@@ -54,6 +54,7 @@ export default function Addadminfeedback() {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+            <img src="https://pmtips.net/Portals/0/EasyDNNnews/1981/img-3-critical-items-for-your-issues-log.jpg" width="400" height="400" />
         </div>
     )
 }

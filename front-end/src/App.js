@@ -29,6 +29,9 @@ import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
 import OrderReport from './components/OrderReport';
+import StockApp from './components/StockApp';
+import DeliveryApp from './components/DeliveryApp';
+import AllDeliveryDetails from './components/AllDeliveryDetails';
 import myProfile from "./components/myProfile";
 import Editinquiry from './components/Editinquiry';
 import AllAdminfeedback from './components/AllAdminfeedback';
@@ -56,6 +59,9 @@ function App() {
         <Route path="/cartadmin" component={CartAdminApp} />
         
         <Route path="/AdminHome" component={AdminHome} />
+        <Route path="/Stock" component={StockApp} />
+        <Route path="/delivery" component={DeliveryApp} />
+        <Route path="/courier" component={DeliveryApp} />
 
         {/* Budget function */}
         <Route path="/budget/add" exact component={AddBudget} />
@@ -95,7 +101,7 @@ function App() {
         <Route path="/myProfile" component={myProfile}/>
         {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
-      
+        <Route path="/" component={Footer} />
       </div>
     </Router>
 

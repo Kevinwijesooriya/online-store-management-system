@@ -86,7 +86,7 @@ export default function Myrating() {
                             <td>{rtd.comment}</td>
                             <td>{rtd.date_ob}</td>
                             <td>
-                                {/* <a className="btn btn-warning" href={`#`}>edit</a> &nbsp; */}
+                                <a className="btn btn-warning" href={`/myProfile/Myrating/${rtd._id}`}>edit</a> &nbsp;
                                 <a className="btn btn-danger" href="/myProfile/Myrating" onClick={() => Delete(rtd._id)}>delete</a>
                             </td>
                         </tr>
