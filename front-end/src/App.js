@@ -42,6 +42,8 @@ import updateitem from"./components/updateitem";
 import deleteitem from"./components/deleteitem";
 import itemnav from './components/itemnav';
 import Mainitem from './components/Mainitem';
+import Itemreportpre from './components/Itemreportpre';
+import Itemreport from './components/Reports/Itemreport';
 
 
 
@@ -91,8 +93,10 @@ function App() {
         <Route path="/product/" exact component={itemnav} />
         <Route path="/productadd" exact component={Additem} />
         <Route path="/productdelete" exact component={deleteitem} />
-        <Route path="/product" exact component={Mainitem} />
+        <Route path="/productupdate" exact component={Mainitem} />
         <Route path="/update/:id" exact component={updateitem} />
+        <Route path="/itemreport" exact component={Itemreport} />
+        <Route path="/itemreportpre" exact component={Itemreportpre} />
 
         {/* inquriy and feedback routes */}
         <Route path="/Addinquiry" component={Addinquiry} />

@@ -25,6 +25,7 @@ router.route("/add").post(upload.single("itemimage"),(req,res)=>{
     const itemprice = Number(req.body.itemprice);
     const itemqty = Number(req.body.itemqty);
     const itemdescription = req.body.itemdescription;
+    let date_ob = new Date();
 
     const newItem = new Item({
 
@@ -35,7 +36,8 @@ router.route("/add").post(upload.single("itemimage"),(req,res)=>{
         itemcolor,
         itemprice,
         itemqty,
-        itemdescription
+        itemdescription,
+        date_ob 
 
     })
 
@@ -58,6 +60,7 @@ router.route("/").get((req,res)=>{
 router.route("/update/:id").put(upload.single("itemimage"),async (req,res) => {
     let userId = req.params.id;
     const {itemname, itemimage, itemcategory, itembrand, itemcolor, itemprice, itemqty, itemdescription} = req.body;
+    let date_ob = new Date();
 
     const updateItem = {
         itemname,
@@ -67,7 +70,9 @@ router.route("/update/:id").put(upload.single("itemimage"),async (req,res) => {
         itemcolor,
         itemprice,
         itemqty,
-        itemdescription
+        itemdescription,
+        date_ob 
+       
     }
 
     const update = await Item.findByIdAndUpdate(userId, updateItem).then(() => {

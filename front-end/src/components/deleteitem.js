@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import Product from "../components/itemnav";
 
 
 import { Link } from "react-router-dom";
@@ -49,7 +50,7 @@ function DisplayItems(){
     return(
         <div>
 
-
+            <div><Product/></div>
             <div class="Topic"><h3>V-TECH All Product</h3></div>
 
             <div class="container-fluid">
