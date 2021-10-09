@@ -22,7 +22,7 @@ return(
    </div>
 
 <div>
-<Link to ="/#" className = "nav-link">
+<Link to ="/Stock" className = "nav-link">
 <button type="button" className="btn btn-secondary">Stock managment Section</button>
 </Link>
 </div>

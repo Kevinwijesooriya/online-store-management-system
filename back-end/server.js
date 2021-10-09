@@ -83,3 +83,9 @@ app.use("/product", productRouter);
 
 const productCartRouter = require("./routes/productRoutes.js");
 app.use("/productCart", productCartRouter);
+
+const issueitemRouter = require("./routes/IssueItems.js");
+app.use("/issueitem", issueitemRouter);
+
+const instockRouter = require("./routes/InStock.js");
+app.use("/instock", instockRouter);
