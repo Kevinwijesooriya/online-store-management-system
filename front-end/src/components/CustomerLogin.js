@@ -12,7 +12,7 @@ import { login } from "../actions/Cusations";
  const CustomerLogin = ({history}) => {
  
 
-const  [username , setusername] = useState("");
+const  [email , setmail] = useState("");
 const  [password, setpassword] = useState("");
 const  [message,setMessage] = useState(null);
 
@@ -34,7 +34,7 @@ useEffect(()=>{
 const submitHanler = async (e) => {
   
   e.preventDefault();
-  dispatch(login(username,password));
+  dispatch(login(email,password));
   
 
 };
@@ -62,13 +62,13 @@ const submitHanler = async (e) => {
 
   <Form onSubmit= {submitHanler} >
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>User nmae</Form.Label>
+    <Form.Label>User name</Form.Label>
     <Form.Control type="text" 
-    value = {username}
+    value = {email}
     placeholder="Enter your username"
     onChange = {(e)=>
    
-      setusername(e.target.value)
+      setmail(e.target.value)
 
     }
 

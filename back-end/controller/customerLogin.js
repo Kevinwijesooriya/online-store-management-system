@@ -4,7 +4,7 @@ const generateToken = require('../utils/generateToken');
 
 
 const customer = asyncHandler( async (req ,res )=> {
-    const { name,email,phone,gender,loginType,username,password,pic } = req.body;
+    const { name,email,phone,gender,loginType,password,pic } = req.body;
 
  const userExits = await cusUser.findOne({email});
 
@@ -20,7 +20,6 @@ const customer = asyncHandler( async (req ,res )=> {
     phone,
     gender,
     loginType,
-    username,
     password,
     pic,
 
@@ -38,7 +37,6 @@ res.status(201).json({
     phone:User.phone,
     gender:User.gender,
     loginType:User.loginType,
-    username:User.username,
     password:User.password,
     pic:User.pic,
     token: generateToken(cusUser._id), 
@@ -54,9 +52,9 @@ res.status(201).json({
 
 
 const logcustomer = asyncHandler( async (req ,res )=> {
-    const {username , password} = req.body;
+    const {email , password} = req.body;
 
-    const User = await cusUser.findOne({username})
+    const User = await cusUser.findOne({email})
 
     if (User && (await User.matchPassword(password))){
         res.json({
@@ -67,7 +65,6 @@ const logcustomer = asyncHandler( async (req ,res )=> {
             phone:User.phone,
             gender:User.gender,
             loginType:User.loginType,
-            username:User.username,
             password:User.password,
             pic:User.pic,
             token: generateToken(cusUser._id)
@@ -81,7 +78,7 @@ const logcustomer = asyncHandler( async (req ,res )=> {
 });
 
 const updateUserProfile = asyncHandler( async (req ,res )=> {
-    const user = await cusUser.findById(req.user.id);
+      const user = await cusUser.findById(req.user.id);
 
 if(user){
 
@@ -90,7 +87,6 @@ if(user){
     user.phone =  req.body.phone || user.phone;
     user.gender  = req.body.gender || user.gender;
     user.loginType  = req.body.loginType || user.loginType;
-    user.username  = req.body.username || user.username;
     user.pic  = req.body.pic || user.pic;
 
     if (req.body.password){
@@ -107,7 +103,6 @@ if(user){
         phone:udateUser.phone,
         gender:udateUser.gender,
         loginType:udateUser.loginType,
-        username:udateUser.username,
         password:udateUser.password,
         pic:udateUser.pic,
         token: generateToken(udateUser._id),
@@ -122,7 +117,4 @@ if(user){
 }
 
 });
-
-
-
 module.exports = {customer ,logcustomer, updateUserProfile };

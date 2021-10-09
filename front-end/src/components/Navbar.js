@@ -1,7 +1,9 @@
 
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {logout} from "../actions/Cusations";
+
 
 const Navbar = ({ click }) => {
   const cart = useSelector((state) => state.cart);
@@ -10,14 +12,33 @@ const Navbar = ({ click }) => {
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
+//////////////////////////////////////////////////////
+
+
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+  const cusLogin= useSelector((state) => state.cusLogin);
+  const { userInfo } = cusLogin;
+
+  const logoutHandler = () => {
+   dispatch(logout());
+   history.push("/");    
+
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar__logo h2">
         <h2>V-Tech</h2>
       </div>
-
       <ul className="navbar__links">
+      <li>
+          <a href="/myProfile">My profile</a>
+        </li>
+      <li>
+          <a href="/" onClick = {logoutHandler}>Log out</a>
+        </li>
         <li>
           <Link to="/cart/cart" className="cart__link">
             <i className="fas fa-shopping-cart"></i>
@@ -27,8 +48,9 @@ const Navbar = ({ click }) => {
           </Link>
         </li>
         <li>
-          <Link to="/cart">Shop</Link>
+          <a href="/cart">Shop</a>
         </li>
+        
       </ul>
 
       <div className="hamburger__menu" onClick={click}>

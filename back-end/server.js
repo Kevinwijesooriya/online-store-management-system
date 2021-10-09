@@ -89,3 +89,9 @@ app.use("/issueitem", issueitemRouter);
 
 const instockRouter = require("./routes/InStock.js");
 app.use("/instock", instockRouter);
+
+const courierRouter = require("./routes/couriers.js");
+app.use("/courier",courierRouter);
+
+const adminfeedbackRouter = require("./routes/Adminfeedbacks.js");
+app.use("/adminfeedback",adminfeedbackRouter);

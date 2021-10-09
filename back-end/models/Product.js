@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
 
+    
     product_name : {
         type : String,
         required : true
@@ -32,6 +33,8 @@ const productSchema = new Schema({
         type : Date,
         required : true
     }
+   
+
 
 })
 

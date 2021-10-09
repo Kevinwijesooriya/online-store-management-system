@@ -1,7 +1,8 @@
 import "./CartScreen.css";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 // Components
@@ -10,11 +11,18 @@ import CartItem from "../components/CartItem";
 // Actions
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 
-const CartScreen = () => {
+const CartScreen = ({history}) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
+  const userInfo = useSelector((state) => state.userInfo);
+  const customerID = useSelector((state) => state.cusLogin.userInfo.name);
+  // const key = useSelector((state) => state.cart.cartItems);
+  const key = useSelector(state => state.cart.cartItems.map(ele => ele.name))
+
+  console.log(userInfo);
   const { cartItems } = cart;
+
 
   useEffect(() => { }, []);
 
@@ -28,6 +36,7 @@ const CartScreen = () => {
 
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+
   };
 
   const getCartSubTotal = () => {
@@ -35,6 +44,37 @@ const CartScreen = () => {
       .reduce((price, item) => price + item.price * item.qty, 0)
       .toFixed(2);
   };
+
+  const [carts, sendCart] = useState({
+    customerID: "",
+    productID: [],
+    price: "",
+    quantity: ""
+  });
+
+  const setCart = () =>{
+  
+    const price = cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
+    const quantity = cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+    
+
+    sendCart({
+      ...carts, customerID: customerID, productID: key, price: price, quantity: quantity,
+    });
+  }
+
+  const saveCart= (e) => {
+    e.preventDefault();   
+    setCart();
+    axios.post(`http://localhost:5000/cart/add`, carts)
+      .then(res => {
+        alert("Successfully added cart Details");
+        history.push(`/cart/placeorder`);
+      })
+      .catch(err => { alert(err) });
+  }
+
+
 
   return (
     <>
@@ -44,7 +84,7 @@ const CartScreen = () => {
 
           {cartItems.length === 0 ? (
             <div>
-              Your Cart Is Empty <Link to="/cart">Go Back</Link>
+              Your Cart Is Empty <a href="/cart">Go Back</a>
             </div>
           ) : (
             cartItems.map((item) => (
@@ -64,12 +104,14 @@ const CartScreen = () => {
             <p>${getCartSubTotal()}</p>
           </div>
           <div>
-            <button>Proceed To Checkout</button>
+            <button onClick={e => saveCart(e)}>Proceed To Checkout</button>
           </div>
         </div>
       </div>
     </>
   );
 };
+
+
 
 export default CartScreen;
