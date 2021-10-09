@@ -64,7 +64,7 @@ function App() {
         {/*order routes*/}  
         <Route path="/orderlist" exact component={OrderList} />
         <Route path="/updateorder/:id" component={UpdateOrder} />
-        <Route path="/placeorder" component={PlaceOrder} />
+        <Route path="/cart/placeorder" component={PlaceOrder} />
         <Route path="/confirmorder" component={ConfirmOrder} />  
               
         {/* Salary Plan function */}

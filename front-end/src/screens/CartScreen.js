@@ -68,7 +68,7 @@ const CartScreen = ({history}) => {
     axios.post(`http://localhost:5000/cart/add`, carts)
       .then(res => {
         alert("Successfully added cart Details");
-        history.push(`/placeorder`);
+        history.push(`/cart/placeorder`);
       })
       .catch(err => { alert(err) });
   }
