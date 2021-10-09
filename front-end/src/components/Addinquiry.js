@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector} from "react-redux";
 import axios from "axios";
 
 
@@ -17,16 +18,16 @@ export default function Addinquiry() {
     const [billnumber, set_billnumber] = useState("");
     const [type_of_inquiry, set_type_of_inquiry] = useState("");
     const [inquriy_description, set_inquriy_description] = useState("");
+    const customerID = useSelector((state) => state.cusLogin.userInfo._id);
 
-
-
+   console.log(customerID);
 
 
     function sendData(e) {
         e.preventDefault();
 
         const newinquiry = {
-            custom_ID: "6139e6e813ebc16dec25059",
+            custom_ID:customerID,
             custom_name,
             custom_address_code,
             custom_streat_address,

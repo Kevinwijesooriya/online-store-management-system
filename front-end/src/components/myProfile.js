@@ -25,6 +25,7 @@ import Myinquriy from './Myinquriy';
 import Myrating from './Myrating';
 import Editinquiry from './Editinquiry';
 import AddCusDeliveryDetails from './AddCusDeliveryDetails';
+import Editrateing from './Editrateing';
 
 const drawerWidth = 240;
 
@@ -180,6 +181,7 @@ export default function PersistentDrawerLeft() {
                 <Route  path="/myProfile/Myrating"   exact component={Myrating}/>  
                 <Route path="/myProfile/EdtI/:id" component={Editinquiry}/> 
                 <Route path="/myProfile/AddDelivery" component={AddCusDeliveryDetails}/> 
+                <Route path="/myProfile/Myrating/:id" component={Editrateing}/> 
                 </Router>
                 </Typography>
                 <Typography paragraph>

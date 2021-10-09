@@ -67,9 +67,8 @@ export default function Allcomment(props){
                 <div>
                     {/* <p>{rtd._id}</p>
                     <p>{rtd.item_name}</p> */}
-                    <a href={`#`} style={{ textDecoration: 'none', color: 'black' }}>
-                        <p><Reactstars size={30} value={`${rtd.rate}`} /></p>
-                        <p>{rtd.comment}</p></a>
+                        <p><Reactstars size={30} value={`${rtd.rate}`} edit={false} /></p>
+                        <p>{rtd.comment}</p>
                     <p>{rtd.date_ob.substring(0,10)} &nbsp; {rtd.date_ob.substring(11,19)}</p>
 
                     
