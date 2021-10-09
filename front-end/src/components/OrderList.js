@@ -1,97 +1,140 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import "./OrderStyles.css";
 
-const Order = props => (
-<div>
-  <div class="container" style={{border:'1px solid', borderBlockColor:'blue' , padding: 10}}>
-    <div class="row">
-      <div class="col">
-        Order #{props.order._id} <br/>
-        Placed on {props.order.orderDate}
-      </div>
-      <div class="col">
-      </div>
-      <div class="col" style={{alignContent:'right'}}>
-        <Link className = "btn btn-warning" to={"/edit/"+props.order._id}>Change Delivary Address</Link>  <a className = "btn btn-danger"  onClick={() => { props.deleteOrder(props.order._id) }}><i className="far fa-trash-alt"></i>&nbsp; Cancel Order</a>
-      </div>
-    </div>
-  <hr/>
-    <div class="row g-0">
-      <div class="col-6 col-md-4">
-        <img src='https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1518568740560-333139a27e72%3Fixid%3DMnwxMjA3fDB8MHxzZWFyY2h8MTR8fHZhbGVudGluZXxlbnwwfHwwfHw%253D%26ixlib%3Drb-1.2.1%26w%3D1000%26q%3D80&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fvalentine&tbnid=MbdDsqai50Yy4M&vet=12ahUKEwiL3K3BzffyAhUYaSsKHT-qDE4QMygAegUIARDLAQ..i&docid=SGLo61kdlZ9tCM&w=1000&h=1500&q=images&ved=2ahUKEwiL3K3BzffyAhUYaSsKHT-qDE4QMygAegUIARDLAQ' class="rounded float-start" alt="Item image"/>
-      </div>
-        <div class="col-sm-6 col-md-8">
-        <div class="row">
-          <div class="col">
-            {props.order.itemName}
-          </div>
-          <div class="col">
-            Qty: {props.order.qty}
-          </div>
-          <div class="col">
-            Order Status :{props.order.orderStatus}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col"><br/>
-            Address :{props.order.address}
-          </div>
-          <div class="col"><br/>
-            Order Amount : Rs.{props.order.amount}
-          </div> 
-        </div>
-    </div>
-  </div>
-</div><br/>
-</div>
-)
+
 
 export default class OrderList extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
 
-    this.deleteOrder = this.deleteOrder.bind(this)
-
-    this.state = {orders: []};
+    this.state={
+      orders:[]
+    };
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:5000/order/')
-      .then(response => {
-        this.setState({ orders: response.data })
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+
+
+  componentDidMount(){
+    this.retrieveOrders();
+  }
+
+  retrieveOrders(){
+    axios.get("http://localhost:5000/order/").then(res =>{
+      if(res.data.success){
+        this.setState({
+          orders:res.data.existingOrders
+        });
+        console.log(this.state.orders);
+      }
+    });
   }
 
   deleteOrder(id) {
     axios.delete('http://localhost:5000/order/'+id)
-      .then(response => { console.log(response.data)});
+      .then(response => { 
+        alert("Order Canceled Successfully");
+        console.log(response.data)
+      });
 
     this.setState({
       orders: this.state.orders.filter(el => el._id !== id)
     })
   }
 
-  orderList() {
-    return this.state.orders.map(currentorder => {
-      return <Order order={currentorder} deleteOrder={this.deleteOrder} key={currentorder._id}/>;
-    })
+
+  filterData(orders , searchKey){
+    const result = orders.filter((order) =>
+    order.itemName.toLowerCase().includes(searchKey)||
+    order.orderDate.toLowerCase().includes(searchKey)
+    )
+    this.setState({orders:result})
   }
 
-  render() {
+  handleSearchArea = (e)=>{
+    const searchKey = e.currentTarget.value ;
+
+    axios.get('http://localhost:5000/order/')
+    .then(response => {
+      if(response.data.success){
+        this.filterData(response.data.existingOrders,searchKey)
+      }
+    }); 
+  }
+
+
+
+  render(){
     return (
-      <div>
-          <span class="border">
-          
-            
-          <h3>My Orders</h3>
-          
-              { this.orderList() }<br/>
-              </span>
+      <div><br/><br/>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-9 mt-2 mb-2">
+              <h3>My Orders</h3>
+            </div>
+            <div className="col-lg-3 mt-2 mb-2">
+              <input
+              className="form-control"
+              type="search"
+              placeholder="Search Orders"
+              name="searchQuery"
+              onChange={this.handleSearchArea}>
+              </input>
+            </div>
+          </div>
         </div>
+        <br/><br/>
+        {this.state.orders.map(orders =>(
+            <div>
+                <div className="container">
+
+                <div className="oneDetail">
+                  <div class="row">
+                    <div class="col">
+                      Order #{orders._id} <br/>
+                      Placed on {orders.orderDate.substring(0,10)}
+                    </div>
+                    <div class="col">
+                    </div>
+                    <div class="col" style={{alignContent:'right'}}>
+                      <Link className = "btn btn-warning" to={"/order/update/"+orders._id}>Change Delivary Address</Link>  <a className = "btn btn-danger"  onClick={() => { this.deleteOrder(orders._id) }}><i className="far fa-trash-alt"></i>&nbsp; Cancel Order</a>
+                    </div>
+                  </div>
+                <hr/>
+                  <div class="row g-0">
+                    <div class="col-6 col-md-4">
+                      <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded float-start" alt="Item image" width="150" height="150"/>
+                    </div>
+                      <div class="col-sm-6 col-md-8">
+                      <div class="row">
+                        <div class="col">
+                          <p>Item Name : {orders.itemName}</p>
+                        </div>
+                        <div class="col">
+                          Qty: {orders.qty}
+                        </div>
+                        <div class="col">
+                          Order Status : {orders.orderStatus}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col"><br/>
+                          Address : {orders.address}
+                        </div>
+                        <div class="col"><br/>
+                          Total Price : Rs.{orders.amount}
+                        </div> 
+                      </div>
+                  </div>
+                </div>
+                </div><br/>
+                </div>
+                              
+            </div>
+        ))}
+      </div>
     )
   }
 }
+
