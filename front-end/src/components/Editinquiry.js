@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
+import "./OrderStyles.css";
 
 export default function Editinquiry(props) {
 
@@ -93,7 +94,7 @@ export default function Editinquiry(props) {
     return (
 
         <div className="container">
-
+            <div className="oneDetail">
             {/* inquiry form */}
             <form onSubmit={sendData}>
 
@@ -207,10 +208,14 @@ export default function Editinquiry(props) {
                 </div>
 
 
+                <div class="d-grid gap-2">
+                        <button type="submit" className="btn btn-outline-primary">Submit</button>
+                    </div>
 
-
-                <button type="submit" className="btn btn-primary">Submit</button>
+                {/* <button type="submit" className="btn btn-primary">Submit</button> */}
             </form>
+
+            </div>
         </div>
     )
 

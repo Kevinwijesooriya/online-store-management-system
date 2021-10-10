@@ -5,7 +5,7 @@ import LoginANDregister from './loginANDregisterApp';
 
 
 
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,6 +34,9 @@ import DeliveryApp from './components/DeliveryApp';
 import AllDeliveryDetails from './components/AllDeliveryDetails';
 import myProfile from "./components/myProfile";
 import Editinquiry from './components/Editinquiry';
+import AdminReport from './components/Reports/AdminReport';
+import ProfileScreen from './components/MyprofilePage';
+import UpdateProfile from './components/UpdateProfile';
 import AllAdminfeedback from './components/AllAdminfeedback';
 import Addadminfeedback from './components/AddAdminfeedback';
 import UpdateAdminfeedback from './components/UpdateAdminfeedback';
@@ -55,6 +58,7 @@ function App() {
       <div className="App">
 
       <LoginANDregister/>
+    
 
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
         <Route path="/cart" component={CartApp} />
@@ -105,6 +109,11 @@ function App() {
         <Route path="/myProfile" component={myProfile}/>
         {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
+
+        <Route path="/AdminReport" exact component={AdminReport}/>
+        <Route path="/ProfileScreen" exact component={ProfileScreen}/>
+        <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
+      
         <Route path="/" component={Footer} />
       </div>
     </Router>
