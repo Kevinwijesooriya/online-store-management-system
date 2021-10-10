@@ -105,9 +105,16 @@ export default function Admin() {
             <Route path="/admin/Cuslogin" exact component={CustomerLogin} />
             <Route path="/admin/CusRegister" exact component={CusRegisterscreen} />
 
-            <Redirect from="/admin" to="/admin/dashboard" />
+            
 
             {/* ================= P R O D U C T == M A N A G E M E N T ============================================*/}
+
+
+
+            {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
+
+
+            <Redirect from="/admin" to="/admin/dashboard" />
 
           </Switch>
           <FooterAdmin />
