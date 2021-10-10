@@ -83,7 +83,7 @@ const Additems = () => {
 
                     setItemName(e.target.value);
 
-                }}/>
+                }} required/>
              </div>
         
             <div className="relative w-full mb-3">
@@ -94,7 +94,7 @@ const Additems = () => {
 
                     setItemCategory(e.target.value);
                     
-                }}/>
+                }} required/>
             </div>
 
             <div className="relative w-full mb-3">
@@ -105,7 +105,7 @@ const Additems = () => {
 
                     setItemBrand(e.target.value);
 
-                }}/>
+                }} required/>
             </div>
 
             <div className="relative w-full mb-3">
@@ -116,36 +116,36 @@ const Additems = () => {
 
                     setItemColor(e.target.value);
 
-                }}/>
+                }} required/>
                 </div>
                 
                 <div className="relative w-full mb-3">
                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Quatity</label>
-                <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                 id="itemqty" onChange={(e)=>{
+                <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                 id="itemqty"  min="10" max="25" onChange={(e)=>{
 
                     setItemQty(e.target.value);
 
-                }} />
+                }} required/>
                 </div>
 
                 <div className="relative w-full mb-3">
                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Price</label>
-                <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                 id="itemprice" onChange={(e)=>{
+                <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                 id="itemprice"  min="50"  onChange={(e)=>{
 
                     setItemPrice(e.target.value);
 
-                }}/>
+                }} required/>
             </div>
 
             <div className="relative w-full mb-3">
                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Chooes Article Image</label>
                 <input type="file" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                 fileName="itemimage" onChange= {onChangeFile}/>
+                 fileName="itemimage" onChange= {onChangeFile} required/>
 
             </div>
 
@@ -157,7 +157,7 @@ const Additems = () => {
 
                     setItemDescription(e.target.value);
 
-                }}/>
+                }} required/>
             </div >
 
             <div className="relative w-full mb-3">

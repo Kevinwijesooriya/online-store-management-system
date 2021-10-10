@@ -81,25 +81,25 @@ function Updateitem() {
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Name</label>
                         <input id="itemname" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="Role Name" defaultValue={itemname} onChange={e => onInputChange(e, "itemname")}></input>
+                         placeholder="Role Name" defaultValue={itemname} onChange={e => onInputChange(e, "itemname")} required></input>
                     </div>
                     <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Chooes Article Image</label>
                          <input id="itemimage" type="file" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         fileName="itemimage" defaultValue={itemimage} onChange= {e => onInputChange(e, "itemimage")}/>
+                         fileName="itemimage" defaultValue={itemimage} onChange= {e => onInputChange(e, "itemimage")} />
                     </div>
                     <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Category</label>
                         <input id="itemcategory" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="itemcategory" defaultValue={itemcategory} onChange={e => onInputChange(e, "salary")}></input>
+                         placeholder="itemcategory" defaultValue={itemcategory} onChange={e => onInputChange(e, "salary")} required></input>
                     </div>
                     <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Brand</label>
                         <input id="itembrand" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="itembrand" defaultValue={itembrand} onChange={e => onInputChange(e, "salary")}></input>
+                         placeholder="itembrand" defaultValue={itembrand} onChange={e => onInputChange(e, "salary")} required></input>
                     </div>
                     
                     
@@ -107,25 +107,25 @@ function Updateitem() {
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Color</label>
                         <input id="itemcolor" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="Role Name" defaultValue={itemcolor} onChange={e => onInputChange(e, "itemcolor")}></input>
+                         placeholder="Role Name" defaultValue={itemcolor} onChange={e => onInputChange(e, "itemcolor")} required></input>
                     </div>
                     <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Price</label>
                         <input id="itemprice" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="Role Name" defaultValue={itemprice} onChange={e => onInputChange(e, "itemprice")}></input>
+                         placeholder="Role Name" defaultValue={itemprice} onChange={e => onInputChange(e, "itemprice")} required></input>
                     </div>
                     <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item qty</label>
                         <input id="itemqty" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="Role Name" defaultValue={itemqty} onChange={e => onInputChange(e, "itemqty")}></input>
+                         placeholder="Role Name" defaultValue={itemqty} onChange={e => onInputChange(e, "itemqty") }required></input>
                     </div>
                     <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                 htmlFor="grid-password">Item Description</label>
                         <input id="itemdescription" type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                         placeholder="Role Name" defaultValue={itemdescription} onChange={e => onInputChange(e, "itemdescription")}></input>
+                         placeholder="Role Name" defaultValue={itemdescription} onChange={e => onInputChange(e, "itemdescription")} required></input>
                     </div>
                     <div className="relative w-full mb-3">
                         <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
