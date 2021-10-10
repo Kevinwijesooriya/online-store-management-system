@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 export default class EditNote extends Component {
- 
+
   constructor(props) {
     super(props);
 
@@ -18,28 +18,28 @@ export default class EditNote extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-    
+
       title: '',
       description: '',
       date: new Date(),
-    
+
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/notes/'+this.props.match.params.id)
+    axios.get('http://localhost:5000/notes/' + this.props.match.params.id)
       .then(response => {
         this.setState({
           title: response.data.title,
           description: response.data.description,
           date: new Date(response.data.date)
-        })   
+        })
       })
       .catch(function (error) {
         console.log(error);
       })
 
-    
+
 
   }
 
@@ -75,52 +75,71 @@ export default class EditNote extends Component {
     axios.post('http://localhost:5000/notes/update/' + this.props.match.params.id, note)
       .then(res => console.log(res.data));
 
-    
 
-    window.location = '/noteList';
+
+    window.location = "/admin/noteList";
   }
 
-  
+
 
 
   render() {
     return (
-    <div>
-      <h3>Edit Exercise Log</h3>
-      <form onSubmit={this.onSubmit}>
-      <div className="form-group">
-          <label>Title: </label>
-          <input 
-              type="text" 
-              className="form-control"
-              value={this.state.title}
-              onChange={this.onChangetitle}
-              />
-        </div>
-        <div className="form-group"> 
-          <label>Description: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.description}
-              onChange={this.onChangeDescription}
-              />
-        </div>
-        <div className="form-group">
-          <label>Date: </label>
-          <div>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.onChangeDate}
-            />
+      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0" >
+
+        <div className="rounded-t bg-white mb-0 px-6 py-6">
+          <div className="text-center flex justify-between">
+            <h4 className="text-blueGray-700 text-xl font-bold">Edit Note</h4>
           </div>
         </div>
 
-        <div className="form-group">
-          <input type="submit" value="Edit note" className="btn btn-primary" />
+        <div className="flex flex-wrap">
+          <hr className="mt-6 border-b-1 border-blueGray-300" />
         </div>
-      </form>
-    </div>
+
+        <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+          <form onSubmit={this.onSubmit}>
+            <div className="flex flex-wrap">
+            <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password">Title</label>
+                <input
+                  type="text"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value={this.state.title}
+                  onChange={this.onChangetitle}
+                />
+              </div>
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password">Description</label>
+                <input type="text"
+                  required
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value={this.state.description}
+                  onChange={this.onChangeDescription}
+                />
+              </div>
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password">Date</label>
+                <div >
+                  <DatePicker
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                   selected={this.state.date}
+                    onChange={this.onChangeDate}
+                  />
+                </div>
+              </div>
+
+              <div className="relative w-full mb-3">
+                <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  type="submit">Edit Note</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     )
   }
 }

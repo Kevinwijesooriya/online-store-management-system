@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { PDFViewer } from '@react-pdf/renderer';
 
 // components
 
@@ -24,11 +23,8 @@ import deleteitem from "components/deleteitem";
 import Itemreport from "components/Reports/Itemreport";
 import Itemreportpre from "components/Itemreportpre";
 
-import ViewSalaryPlanReport from "components/Reports/ViewSalaryPlanReport";
-
 // views
 
-import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
