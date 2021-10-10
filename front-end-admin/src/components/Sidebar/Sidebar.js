@@ -329,7 +329,7 @@ export default function Sidebar() {
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cart/issuedcarts"
+                  to="/admin/issuedcarts"
                 >
                   <i
                     className={
@@ -506,16 +506,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/orders/ordersreport") !== -1
+                    (window.location.href.indexOf("/admin/financialreport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cartreport"
+                  to="/admin/financialreport"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/ordersreport") !== -1
+                      (window.location.href.indexOf("/admin/financialreport") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
