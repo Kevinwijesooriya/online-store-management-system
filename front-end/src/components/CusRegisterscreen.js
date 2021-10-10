@@ -1,5 +1,5 @@
-
-
+import {Button , Col , Form , Row } from "react-bootstrap";
+// import '../styles/registerCustomer.css';
 import React ,{useEffect,useState} from "react"
 import ErrorMesssage from "./ErrorMessage";
 import Loading from "./loading"; 
@@ -33,6 +33,8 @@ export default function (){
   const dispatch = useDispatch();
 
   const cusRegister = useSelector ((state)=> state.cusRegister)
+
+
   const {loading , error , userInfo}  = cusRegister;
   const history = useHistory();
 
@@ -98,22 +100,21 @@ const SubmiHandler = async (e) =>{
 
 return (  
   
+  
     
-<div className="container">
+<div className="login-box">
+<h2>Register Customer</h2><br></br>
 
-    <center>
-      <img src="https://www.kindpng.com/picc/m/756-7564789_registration-icon-png-transparent-png.png" width="200" height="200" />
-      </center>
 
+   
       {message && <ErrorMesssage variant="danger">{message}</ErrorMesssage>}
       {error && <ErrorMesssage variant="danger">{error}</ErrorMesssage>}
       {loading && <Loading/>}
 
 <form onSubmit={SubmiHandler}>
-<center> <h1>Register Customer</h1></center><br></br>
-
-  <div className="mb-3" >
-    <label htmlFor="Name" className="form-label">Name</label>
+<label htmlFor="Name" className="form-label">Name</label>
+  <div className="textbox" >
+  
     <input type="text" className="form-control" id="name"  placeholder="Enter your name" required
     onChange = {(e)=>{
    
@@ -126,7 +127,7 @@ return (
   
 
 
-  <div className="mb-3">
+  <div className="textbox">
     <label htmlFor="phone" className="form-label">Phone Number</label>
     <input type="text" className="form-control" id="phone" placeholder="775477541" pattern="[0-9]{9}" required
      onChange = {(e)=>{
@@ -138,8 +139,8 @@ return (
   </div>
 
   <label htmlFor="phone" className="form-label">Gender</label>
-  <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value = "male" required
+  <div >
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value = " male" required
        onChange = {(e)=>{
    
         setGender(e.target.value);
@@ -147,7 +148,7 @@ return (
       }
       } />
   <label class="form-check-label" for="flexRadioDefault1">
-    Male
+      Male
   </label>
 </div>
 <div class="form-check">
@@ -168,7 +169,7 @@ return (
 {picMessage && (
 <ErrorMesssage variant="danger">{picMessage}</ErrorMesssage>
 )}
-<div class="custom-file">
+<div className="textbox">
     <input type="file" class="custom-file-input" id="validatedCustomFile"
           onChange = {(e)=>{
             
@@ -191,7 +192,8 @@ return (
 
 <h2> Enter your Credentials</h2><br></br>
 
-<div className="mb-3">
+<div >
+  <div className="textbox">
     <label htmlFor="email" className="form-label">User name</label>
     <input type="email" className="form-control" id="email" autocomplete="off" placeholder="Enter your E-mail" required
      onChange = {(e)=>{
@@ -200,10 +202,11 @@ return (
 
     }
     } />
+    </div>
     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
 
-  <div className="mb-3">
+  <div className="textbox">
     <label htmlFor="password" className="form-label">Password</label>
     <input type="password" className="form-control" id="password"    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#+!%*?&])[A-Za-z\d@$#+!%*?&]{8,}$" placeholder="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" required
     onChange = {(e)=>{
@@ -214,8 +217,8 @@ return (
     } />
   </div>
 
-  <div className="mb-3">
-    <label htmlFor="Repassword" className="form-label">Re - Password</label>
+  <div className="textbox">
+    <label htmlFor="Repassword" className="form-label">confirm Password</label>
     <input type="password" className="form-control" id="Repassword"  placeholder="Re enter your password"  required
      onChange = {(e)=>{
    
@@ -230,7 +233,7 @@ return (
 
 
   
-  <div class="form-check form-check-inline">
+  <div >
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="customer" required 
        onChange = {(e)=>{
    
@@ -241,13 +244,15 @@ return (
   <label class="form-check-label" forhtml="inlineRadio1">costomer</label>
 </div>
 
-<br></br>
-
-  <button type="submit" className="btn btn-primary">Submit</button>
-  <div>
 
 
-</div>
+<center>
+
+<Button className="btn" type="submit">
+    Submit
+  </Button>
+</center>
+
 </form>
 </div>
 

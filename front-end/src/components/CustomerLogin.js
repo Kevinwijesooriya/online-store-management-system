@@ -1,7 +1,7 @@
 import React ,{useEffect, useState} from "react"
 import {Link} from 'react-router-dom';
 import {Button , Col , Form , Row } from "react-bootstrap";
-import './login.css';
+// import '../styles/CustomerLogin.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loading from "./loading";
 import ErrorMesssage from "./ErrorMessage";
@@ -9,9 +9,11 @@ import { login } from "../actions/Cusations";
 
 
 
+
+
  const CustomerLogin = ({history}) => {
  
-
+ 
 const  [email , setmail] = useState("");
 const  [password, setpassword] = useState("");
 const  [message,setMessage] = useState(null);
@@ -26,6 +28,7 @@ useEffect(()=>{
 
   if (userInfo){
     history.push("/AdminMain");
+
      
   }
 
@@ -35,7 +38,7 @@ const submitHanler = async (e) => {
   
   e.preventDefault();
   dispatch(login(email,password));
-  
+
 
 };
 
@@ -43,17 +46,18 @@ const submitHanler = async (e) => {
 
     return (
 
-
+      // style = {{
+  
+      // }}
       
-        <div className="loginContainer">
+      
+        <div className="login-box">
 
 
   
-  <center>
-  <h1>Customer login</h1>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuDoisN_XW3IVsEn4qXXTiqfTFBCCQOWqDFg&usqp=CAU" width="200" height="200" />
-    </center>
-   
+
+  <h1>login</h1>
+  
 
     {message && <ErrorMesssage variant="danger">{message}</ErrorMesssage>}
     {error && <ErrorMesssage variant="warning">{error}</ErrorMesssage>}  
@@ -61,7 +65,8 @@ const submitHanler = async (e) => {
      
 
   <Form onSubmit= {submitHanler} >
-  <Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Group className="textbox" controlId="formBasicEmail">
+  <i class="fas fa-user" aria-hidden="true"></i>
     <Form.Label>User name</Form.Label>
     <Form.Control type="text" 
     value = {email}
@@ -74,11 +79,12 @@ const submitHanler = async (e) => {
 
     />
     <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
+   
     </Form.Text>
   </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Group className="textbox" controlId="formBasicPassword">
+  <i class="fas fa-lock" aria-hidden="true"></i>
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" 
    value = {password}
@@ -101,7 +107,7 @@ const submitHanler = async (e) => {
 </Row>
 
 
-  <Button variant="primary" type="submit">
+  <Button className="btn" type="submit">
     Submit
   </Button>
 

@@ -18,6 +18,8 @@ import AllCart from './AllCart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartReport from './Reports/CartReport';
 import PlaceOrder from './PlaceOrder';
+import MyProfileApp from './MyProfileApp';
+import Footer from './Footer';
 
 
 function CartApp() {
@@ -29,8 +31,10 @@ function CartApp() {
             <Navbar click={() => setSideToggle(true)} />
             <SideDrawer show={sideToggle} click={() => setSideToggle(false)} />
             <Backdrop show={sideToggle} click={() => setSideToggle(false)} />
+            
             <main>
                 <Switch>
+                    <Route path="/profile" component={MyProfileApp} /> 
                     <Route exact path="/cart" component={HomeScreen} />
                     <Route exact path="/cart/product/:id" component={ProductScreen} />
                     <Route exact path="/cart/cart" component={CartScreen} />
@@ -43,6 +47,10 @@ function CartApp() {
                 </Switch>
 
             </main>
+            
+            
+            <Footer/>
+            
         </Router>
 
     );
