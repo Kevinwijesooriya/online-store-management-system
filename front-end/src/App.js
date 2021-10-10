@@ -28,7 +28,7 @@ import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
-import OrderReport from './components/OrderReport';
+import OrderReport from './components/Reports/OrderReport';
 import StockApp from './components/StockApp';
 import DeliveryApp from './components/DeliveryApp';
 import AllDeliveryDetails from './components/AllDeliveryDetails';

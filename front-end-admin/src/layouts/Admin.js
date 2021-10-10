@@ -113,6 +113,7 @@ export default function Admin() {
             <Route path="/admin/CusRegister" exact component={CusRegisterscreen} />
 
             
+
             {/* ================= P R O D U C T == M A N A G E M E N T ============================================*/}
             <Route path="/admin/additem" exact component={Additem} />
             <Route path="/admin/mainitem" exact component={Mainitem} />
@@ -120,6 +121,10 @@ export default function Admin() {
             <Route path="/admin/deleteitem" exact component={deleteitem} />
             <Route path="/admin/itemreport" exact component={Itemreport} />
             <Route path="/admin/itemreportpre" exact component={Itemreportpre} />
+
+
+            {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
+
 
             <Redirect from="/admin" to="/admin/dashboard" />
 
