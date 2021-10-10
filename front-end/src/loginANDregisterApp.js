@@ -31,12 +31,9 @@ function loginANDregister() {
       <UserAdminHeader/>
  
   
-        <Route path="/" exact component={Initial}/>
-        <Route path="/Adminlogin" exact component={AdminLogin}/>
-        <Route path="/Cuslogin" exact component={CustomerLogin}/>
-        <Route path="/CusRegister" exact component={CusRegisterScreen}/>
-        <Route path="/AdminMain" exact component={AdminMain}/>
-      
+      <Route path="/AdminMain" exact component={AdminMain}/>
+      <Route path="/AdminReport" exact component={AdminReport}/>
+      <Route path="/Adminlogin" exact component={AdminLogin}/>
              
         <Route path="/UserAdminMainHtaml" exact component={UserAdminMainHtaml}/>
          <Route path="/AdminRegister" exact component={AdminRegisterScreen}/>

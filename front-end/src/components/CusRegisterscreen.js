@@ -41,7 +41,7 @@ export default function (){
   useEffect(()=>{
 
     if (userInfo){
-      history.push("/AdminMain");
+      history.push("/cart");
        
     }
   

@@ -40,6 +40,8 @@ import EditNote from "components/EditNote";
 import CreateNote from "components/CreateNote";
 import SalPlaReport from "components/Reports/SalPlaReport";
 import AllCart from "components/AllCart";
+import Allinquiry from "components/Allinquiry";
+import Inquiryreport from "components/Reports/Inquiryreport";
 
 
 export default function Admin() {
@@ -91,6 +93,8 @@ export default function Admin() {
             {/* ================= D E L I V E R Y == M A N A G E M E N T ==========================================*/}
 
             {/* ================= I N Q U I R Y == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/allinquiry" exact component={Allinquiry} ></Route>
+            <Route path="/admin/inquiryreport" exact component={Inquiryreport} ></Route>
 
             {/* ================= F E E D B A C K == M A N A G E M E N T ==========================================*/}
 

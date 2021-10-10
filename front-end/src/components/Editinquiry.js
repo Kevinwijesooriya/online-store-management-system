@@ -47,7 +47,7 @@ export default function Editinquiry(props) {
 
         const newinquiry = {
             custom_ID: "6139e6e813ebc16dec25059",
-            custom_name,
+            custom_name:inquiry.custom_name,
             custom_address_code,
             custom_streat_address,
             custom_city,
@@ -62,7 +62,7 @@ export default function Editinquiry(props) {
         }
 
         console.log(newinquiry);
-        alert("insert inquiry")
+        // alert("insert inquiry")
 
         axios.put(`http://localhost:5000/inquiry/update/${id}`, newinquiry).then(() => {
             alert("update inquiry")

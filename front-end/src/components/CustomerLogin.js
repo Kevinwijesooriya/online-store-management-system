@@ -1,7 +1,7 @@
 import React ,{useEffect, useState} from "react"
 import {Link} from 'react-router-dom';
 import {Button , Col , Form , Row } from "react-bootstrap";
-// import '../styles/CustomerLogin.css';
+import '../styles/CustomerLogin.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loading from "./loading";
 import ErrorMesssage from "./ErrorMessage";
@@ -27,7 +27,7 @@ const {loading , error , userInfo}  = cusLogin;
 useEffect(()=>{
 
   if (userInfo){
-    history.push("/AdminMain");
+    history.push("/cart");
 
      
   }
