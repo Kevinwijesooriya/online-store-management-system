@@ -9,7 +9,7 @@ function Footer() {
     return (
         <div>
             <hr></hr>
-            {/* <a href="/Addinquiry">inquiry</a> */}
+
             {/* ========= F O O T R E ====== */}
             <footer class="bg-dark" id="tempaltemo_footer">
                 <div class="container">
