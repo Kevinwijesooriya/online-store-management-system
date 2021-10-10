@@ -9,7 +9,7 @@ export default function Myrating() {
     useEffect(() => {
 
         function getrating() {
-            axios.get(`http://localhost:8050/Feedback/`).then((res) => {
+            axios.get(`http://localhost:5000/Feedback/`).then((res) => {
                 console.log(res);
                 setrating(res.data);
             }).catch((err) => {
@@ -20,7 +20,7 @@ export default function Myrating() {
     }, []);
 
     function Delete(id) {
-        axios.delete(`http://localhost:8050/Feedback/delete/${id}`).then((res) => {
+        axios.delete(`http://localhost:5000/Feedback/delete/${id}`).then((res) => {
             alert(" Delete SuccessFully")
         }).catch(err => { alert(err) });
     }
@@ -86,7 +86,7 @@ export default function Myrating() {
                             <td>{rtd.comment}</td>
                             <td>{rtd.date_ob}</td>
                             <td>
-                                {/* <a className="btn btn-warning" href={`#`}>edit</a> &nbsp; */}
+                                <a className="btn btn-warning" href={`/myProfile/Myrating/${rtd._id}`}>edit</a> &nbsp;
                                 <a className="btn btn-danger" href="/myProfile/Myrating" onClick={() => Delete(rtd._id)}>delete</a>
                             </td>
                         </tr>

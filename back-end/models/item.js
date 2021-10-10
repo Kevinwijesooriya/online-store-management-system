@@ -43,7 +43,13 @@ const itemSchema = new Schema({
     itemdescription: {
         type: String,
         required: true
+    },
+
+    date_ob:{
+        type:Date,
+        required: true
     }
+
 
 })
 

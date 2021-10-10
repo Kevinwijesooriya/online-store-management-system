@@ -28,11 +28,27 @@ import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
+import OrderReport from './components/Reports/OrderReport';
+import StockApp from './components/StockApp';
+import DeliveryApp from './components/DeliveryApp';
+import AllDeliveryDetails from './components/AllDeliveryDetails';
 import myProfile from "./components/myProfile";
 import Editinquiry from './components/Editinquiry';
 import AdminReport from './components/Reports/AdminReport';
 import ProfileScreen from './components/MyprofilePage';
 import UpdateProfile from './components/UpdateProfile';
+import AllAdminfeedback from './components/AllAdminfeedback';
+import Addadminfeedback from './components/AddAdminfeedback';
+import UpdateAdminfeedback from './components/UpdateAdminfeedback';
+import Additem from"./components/Additem";
+import updateitem from"./components/updateitem";
+import deleteitem from"./components/deleteitem";
+import itemnav from './components/itemnav';
+import Mainitem from './components/Mainitem';
+import Itemreportpre from './components/Itemreportpre';
+import Itemreport from './components/Reports/Itemreport';
+
+
 
 
 function App() {
@@ -47,8 +63,11 @@ function App() {
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
         <Route path="/cart" component={CartApp} />
         <Route path="/cartadmin" component={CartAdminApp} />
-        <Route path="/product" component={ProductApp} />
+        
         <Route path="/AdminHome" component={AdminHome} />
+        <Route path="/Stock" component={StockApp} />
+        <Route path="/delivery" component={DeliveryApp} />
+        <Route path="/courier" component={DeliveryApp} />
 
         {/* Budget function */}
         <Route path="/budget/add" exact component={AddBudget} />
@@ -57,16 +76,31 @@ function App() {
         <Route path="/budget/update/:id" exact component={UpdateBudget} />
 
         {/*order routes*/}  
-        <Route path="/orderlist" exact component={OrderList} />
-        <Route path="/updateorder/:id" component={UpdateOrder} />
-        <Route path="/placeorder" component={PlaceOrder} />
-        <Route path="/confirmorder" component={ConfirmOrder} />  
+        <Route path="/order/" exact component={OrderList} />
+        <Route path="/order/update/:id" exact component={UpdateOrder} />
+        <Route path="/order/add" exact component={PlaceOrder} />
+        <Route path="/order/confirmorder" exact component={ConfirmOrder} />
+        <Route path="/order/report"  exact component={OrderReport} />
               
         {/* Salary Plan function */}
         <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
         <Route path="/salaryplan/" exact component={AllSalaryPlans} />
         <Route path="/salaryplan/salaryplan" exact component={AllSalaryPlans} />
         <Route path="/salaryplan/update/:id" exact component={UpdateSalaryPlan} />
+
+        {/* AdminFeedback function */}
+        <Route path="/adminfeedback/add" exact component={Addadminfeedback} />
+        <Route path="/adminfeedback/" exact component={AllAdminfeedback} />
+        <Route path="/adminfeedback/adminfeedback" exact component={AllAdminfeedback} />
+        <Route path="/adminfeedback/update/:id" exact component={UpdateAdminfeedback} />
+        {/* Item function */}
+        <Route path="/product/" exact component={itemnav} />
+        <Route path="/productadd" exact component={Additem} />
+        <Route path="/productdelete" exact component={deleteitem} />
+        <Route path="/productupdate" exact component={Mainitem} />
+        <Route path="/update/:id" exact component={updateitem} />
+        <Route path="/itemreport" exact component={Itemreport} />
+        <Route path="/itemreportpre" exact component={Itemreportpre} />
 
         {/* inquriy and feedback routes */}
         <Route path="/Addinquiry" component={Addinquiry} />
@@ -80,6 +114,7 @@ function App() {
         <Route path="/ProfileScreen" exact component={ProfileScreen}/>
         <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
       
+        <Route path="/" component={Footer} />
       </div>
     </Router>
 

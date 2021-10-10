@@ -3,7 +3,7 @@ import axios from "axios";
 import Reactstars from "react-rating-stars-component";
 // import { useHistory } from "react-router-dom";
 import { useHistory, useParams } from 'react-router-dom';
-
+import { useSelector, useDispatch } from "react-redux";
 export default function Rating() {
     const [customID, set_custom_ID] = useState("");
     const [customName, setCustomName] = useState("");
@@ -17,11 +17,10 @@ export default function Rating() {
         itemname: ""
        
     });
-
-    const { itemname
+   const { itemname
          } = item;
-
-
+   const customerID = useSelector((state) => state.cusLogin.userInfo._id);
+   const customername = useSelector((state) => state.cusLogin.userInfo.name);
     function sendData(e) {
         e.preventDefault();
 
@@ -34,10 +33,10 @@ export default function Rating() {
 
 
         const newrating = {
-            custom_ID: "6139e6e813ebc16dec25059",
+            custom_ID:customerID ,
             item_name: `${item.itemname}`,
             itemcode: `${id}`,
-            custom_name: "test name",
+            custom_name:customername,
             rate,
             comment,
         }

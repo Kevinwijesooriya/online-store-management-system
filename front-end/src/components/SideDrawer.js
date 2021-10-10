@@ -1,6 +1,7 @@
 import "./SideDrawer.css";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {logout} from "../actions/Cusations";
 
 const SideDrawer = ({ show, click }) => {
   const sideDrawerClass = ["sidedrawer"];
@@ -15,10 +16,33 @@ const SideDrawer = ({ show, click }) => {
   if (show) {
     sideDrawerClass.push("show");
   }
+  ////////////////////////////////////////////////////////////
 
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+  const cusLogin= useSelector((state) => state.cusLogin);
+  const { userInfo } = cusLogin;
+
+  const logoutHandler = () => {
+   dispatch(logout());
+   history.push("/");    
+
+  };
+
+  //////////////////////////////////////////////////////////////
   return (
     <div className={sideDrawerClass.join(" ")}>
       <ul className="sidedrawer__links" onClick={click}>
+
+      <li>
+          <a href="/myProfile">My profile</a>
+        </li>
+
+        <li>
+          <a href="/" onClick = {logoutHandler}>Log out</a>
+        </li>
+
         <li>
           <Link to="/cart/cart">
             <i className="fas fa-shopping-cart"></i>
@@ -29,8 +53,9 @@ const SideDrawer = ({ show, click }) => {
           </Link>
         </li>
         <li>
-          <Link to="/cart">Shop</Link>
+          <a href="/cart">Shop</a>
         </li>
+        
       </ul>
     </div>
   );
