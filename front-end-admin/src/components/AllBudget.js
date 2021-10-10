@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function AllBudget() {
-
+    const [searchTerm, setSearchTerm] = useState('');
     const [budget, setBudget] = useState([]);
 
     useEffect(() => {
@@ -25,25 +25,11 @@ function AllBudget() {
         }).catch(err => { alert(err) });
     }
 
+    const filteredBudgets = budget.filter(budgets => {
+        return (
+            budgets.month.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+    })
 
-
-    // filterData(budget,searchkey){
-    //   const result = budget.filter((budget) =>
-    //  budget.firstName.toLowerCase().includes(searchkey)||
-    //  budget.lastName.toLowerCase().includes(searchkey)
-    //   )
-    //   this.setState({budget:result})
-    // }
-
-    // handleSearchArea=(e)=>{
-    //   const searchkey = e.currentTarget.value;
-
-    //   axios.get("http://localhost:5000/budget").then(res =>{
-    //     if(res.data.success){
-    //       this.filterData(res.data.existingsalaryplan,searchkey)
-    //     }
-    //   });
-    // }
 
     return (
         <>
@@ -59,6 +45,7 @@ function AllBudget() {
                                         <i className="fas fa-search"></i>
                                     </span>
                                     <input
+                                        onChange={e => setSearchTerm(e.target.value)}
                                         type="text"
                                         placeholder="Search here..."
                                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
@@ -71,14 +58,6 @@ function AllBudget() {
                             </Link>
                         </div>
                     </div>
-
-                    {/* <div className="flex flex-wrap items-center">
-                    <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                        <h3 className="font-semibold text-lg text-blueGray-700">
-                            Budget Information
-                        </h3>
-                    </div>
-                </div> */}
 
                     <div className="block w-full overflow-x-auto">
                         <table className="items-center w-full bg-transparent border-collapse">
@@ -103,7 +82,7 @@ function AllBudget() {
                             </thead>
 
                             <tbody>
-                                {budget.map((budget, index) => (
+                                {filteredBudgets.map((budget, index) => (
                                     <tr key={index}>
                                         <th scope="row">{index + 1}</th>
                                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" >{budget.month}</td>
