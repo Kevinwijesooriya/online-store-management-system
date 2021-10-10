@@ -1,7 +1,7 @@
 import React ,{useEffect, useState} from "react"
 import {Link} from 'react-router-dom';
 import {Button , Col , Form , Row } from "react-bootstrap";
-import '../styles/CustomerLogin.css';
+// import '../styles/CustomerLogin.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loading from "./loading";
 import ErrorMesssage from "./ErrorMessage";
@@ -46,10 +46,18 @@ const submitHanler = async (e) => {
 
     return (
 
-      // style = {{
-  
-      // }}
-      
+   
+
+<div
+         
+          style={{
+            background:
+              "url(https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg)",
+              margin: 0,
+              padding: 0,
+
+          }}
+        >
       
         <div className="login-box">
 
@@ -115,6 +123,8 @@ const submitHanler = async (e) => {
 </Form>
 
         </div>
+        </div>
+    
     )
     
     }

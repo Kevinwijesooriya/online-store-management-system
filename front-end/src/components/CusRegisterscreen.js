@@ -112,9 +112,9 @@ return (
       {loading && <Loading/>}
 
 <form onSubmit={SubmiHandler}>
-<label htmlFor="Name" className="form-label">Name</label>
+
   <div className="textbox" >
-  
+  <label htmlFor="Name" className="form-label">Name</label>
     <input type="text" className="form-control" id="name"  placeholder="Enter your name" required
     onChange = {(e)=>{
    
@@ -164,7 +164,7 @@ return (
   </label>
 </div>
 
-<br></br>
+
 
 {picMessage && (
 <ErrorMesssage variant="danger">{picMessage}</ErrorMesssage>
@@ -188,9 +188,9 @@ return (
 
 
   
-  <br></br><br></br><br></br>
+  <br></br>
 
-<h2> Enter your Credentials</h2><br></br>
+<h2> Enter your Credentials</h2>
 
 <div >
   <div className="textbox">
@@ -203,7 +203,6 @@ return (
     }
     } />
     </div>
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
 
   <div className="textbox">

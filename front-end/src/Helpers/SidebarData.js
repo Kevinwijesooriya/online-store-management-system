@@ -2,6 +2,7 @@ import React from 'react'
 import {BsPersonPlus} from "react-icons/bs"
 import {BsFileText} from "react-icons/bs"
 import {FaMoneyCheckAlt} from "react-icons/fa"
+import {CgProfile} from "react-icons/cg"
 
 
 
@@ -30,6 +31,11 @@ export const SidebarData = [
    title:"Logout",
    icon:<FaMoneyCheckAlt/>,
    link:"/profile/delivery"
+},
+{
+   title:"Profile",
+   icon:<CgProfile/>,
+   link:"/profile"
 },
 ]
 
