@@ -17,6 +17,13 @@ import AddBudget from "components/AddBudget";
 import AllBudget from "components/AllBudget";
 import UpdateBudget from "components/UpdateBudget";
 
+import Additem from "components/Additem";
+import Mainitem from "components/Mainitem";
+import updateitem from "components/updateitem";
+import deleteitem from "components/deleteitem";
+import Itemreport from "components/Reports/Itemreport";
+import Itemreportpre from "components/Itemreportpre";
+
 import ViewSalaryPlanReport from "components/Reports/ViewSalaryPlanReport";
 
 // views
@@ -108,7 +115,12 @@ export default function Admin() {
             
 
             {/* ================= P R O D U C T == M A N A G E M E N T ============================================*/}
-
+            <Route path="/admin/additem" exact component={Additem} />
+            <Route path="/admin/mainitem" exact component={Mainitem} />
+            <Route path="/admin/updateitem/:id" exact component={updateitem} />
+            <Route path="/admin/deleteitem" exact component={deleteitem} />
+            <Route path="/admin/itemreport" exact component={Itemreport} />
+            <Route path="/admin/itemreportpre" exact component={Itemreportpre} />
 
 
             {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
