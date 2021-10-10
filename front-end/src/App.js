@@ -52,6 +52,7 @@ import AdminLogin from './components/AdminLogin';
 import CustomerLogin from './components/CustomerLogin';
 import CusRegisterscreen from './components/CusRegisterscreen';
 import AdminMain from './components/ADminMainPage';
+import MyProfileApp from './components/MyProfileApp';
 
 
 
@@ -66,7 +67,8 @@ function App() {
     
 
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
-        <Route path="/cart" component={CartApp} />
+        <Route path="/cart" component={CartApp} />        
+        <Route path="/profile" component={MyProfileApp} />        
         <Route path="/cartadmin" component={CartAdminApp} />
         
         <Route path="/AdminHome" component={AdminHome} />

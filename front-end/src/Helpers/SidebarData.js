@@ -7,20 +7,30 @@ import {FaMoneyCheckAlt} from "react-icons/fa"
 
 export const SidebarData = [
     {
-   title:"Salary Plans",
+   title:"My Inquiry",
    icon:<BsPersonPlus/>,
-   link:"/salaryplan"
+   link:"/profile/delivery"
 },
 {
-    title:"Monthly Budget",
+    title:"My Comment",
     icon:<FaMoneyCheckAlt/>,
-    link:"/budget"
+    link:"/profile/comment"
  },
  {
-    title:"Create Report",
+    title:"My Order",
     icon:<BsFileText/>,
-    link:"/financialreport"
+    link:"/profile/orderlist"
  },
+ {
+   title:"My Addresses",
+   icon:<FaMoneyCheckAlt/>,
+   link:"/profile/delivery"
+},
+{
+   title:"Logout",
+   icon:<FaMoneyCheckAlt/>,
+   link:"/profile/delivery"
+},
 ]
 
 

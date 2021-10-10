@@ -186,28 +186,43 @@ export default function () {
 
                   <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password">Gender</label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male" required
-                      onChange={(e) => {
-                        setGender(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">
-                      Male
-                    </label>
+
+
+
+                  <div className="flex flex-wrap">
+                    <div class="relativew-full px-4 md:w-2/12">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male" required
+                        onChange={(e) => {
+                          setGender(e.target.value);
+                        }
+                        } />
+                    </div>
+                    <div class="relativew-full px-4 md:w-10/12">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password">
+                        Male
+                      </label>
+                    </div>
                   </div>
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female" required
-                      onChange={(e) => {
-                        setGender(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">
-                      Female
-                    </label>
+
+
+                  <div className="flex flex-wrap">
+                    <div class="relativew-full px-4 md:w-2/12">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female" required
+                        onChange={(e) => {
+                          setGender(e.target.value);
+                        }
+                        } />
+                    </div>
+                    <div class="relativew-full px-4 md:w-10/12">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password">
+                        Female
+                      </label>
+                    </div>
                   </div>
+
+
 
                   <br></br>
 
@@ -225,19 +240,12 @@ export default function () {
                     />
                   </div>
 
-
-
-
-
-
                   <hr className="mt-6 border-b-1 border-blueGray-300" />
                   <h6 className="text-blueGray-500 text-sm font-bold">
                     Enter your Credentials
                   </h6>
 
                   <br></br>
-
-
 
                   <div className="relative w-full mb-3">
                     <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -250,10 +258,6 @@ export default function () {
                       } />
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                   </div>
-
-
-
-
 
                   <div className="relative w-full mb-3">
                     <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -277,93 +281,144 @@ export default function () {
                       } />
                   </div>
 
-
-
-
-
-
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="product" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">Product manager</label>
-                  </div>
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="finacial" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">Financial manager</label>
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="store" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">Stock manager</label>
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="quary" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">inquiry manager</label>
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="user" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">User manager</label>
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="delivery" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">delivery manager</label>
-                  </div>
-
-                  <div className="relative w-full mb-3">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="order" required
-                      onChange={(e) => {
-                        setLogin(e.target.value);
-                      }
-                      } />
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                      htmlFor="grid-password">order manager</label>
-                  </div>
-
-
                   <br></br>
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="product" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">Product manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="finacial" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">Financial manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="store" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">Stock manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="inquiry" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">Inquiry manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="user" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">user manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="delivery" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">delivery manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="relative w-full mb-3">
+
+                    <div className="flex flex-wrap">
+                      <div class="relativew-full px-4 md:w-2/12">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="order" required
+                          onChange={(e) => {
+                            setLogin(e.target.value);
+                          }
+                          } />
+                      </div>
+                      <div class="relativew-full px-4 md:w-10/12">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                          htmlFor="grid-password">order manager</label>
+                      </div>
+                    </div>
+
+                  </div>
+
                   <div className="text-center mt-6">
                     <button type="submit" className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                     >Create Account</button>
-
                   </div>
+                  
                 </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
 
 
