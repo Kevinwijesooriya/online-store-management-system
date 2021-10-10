@@ -47,6 +47,7 @@ import itemnav from './components/itemnav';
 import Mainitem from './components/Mainitem';
 import Itemreportpre from './components/Itemreportpre';
 import Itemreport from './components/Reports/Itemreport';
+import MyProfileApp from './components/MyProfileApp';
 
 
 
@@ -57,11 +58,12 @@ function App() {
     <Router>
       <div className="App">
 
-      <LoginANDregister/>
+      {/* <LoginANDregister/> */}
     
 
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
-        <Route path="/cart" component={CartApp} />
+        <Route path="/cart" component={CartApp} />        
+        <Route path="/profile" component={MyProfileApp} />        
         <Route path="/cartadmin" component={CartAdminApp} />
         
         <Route path="/AdminHome" component={AdminHome} />
@@ -114,7 +116,7 @@ function App() {
         <Route path="/ProfileScreen" exact component={ProfileScreen}/>
         <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
       
-        <Route path="/" component={Footer} />
+        {/* <Route path="/" component={Footer} /> */}
       </div>
     </Router>
 
