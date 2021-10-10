@@ -47,6 +47,11 @@ import itemnav from './components/itemnav';
 import Mainitem from './components/Mainitem';
 import Itemreportpre from './components/Itemreportpre';
 import Itemreport from './components/Reports/Itemreport';
+import Initial from './components/initial';
+import AdminLogin from './components/AdminLogin';
+import CustomerLogin from './components/CustomerLogin';
+import CusRegisterscreen from './components/CusRegisterscreen';
+import AdminMain from './components/ADminMainPage';
 
 
 
@@ -57,7 +62,7 @@ function App() {
     <Router>
       <div className="App">
 
-      <LoginANDregister/>
+ 
     
 
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
@@ -110,11 +115,16 @@ function App() {
         {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
 
-        <Route path="/AdminReport" exact component={AdminReport}/>
+        
+  
+    
+        <Route path="/" exact component={CustomerLogin}/>
+        <Route path="/CusRegister" exact component={CusRegisterscreen}/>
         <Route path="/ProfileScreen" exact component={ProfileScreen}/>
         <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
+        
       
-        <Route path="/" component={Footer} />
+        {/* <Route path="/" component={Footer} /> */}
       </div>
     </Router>
 
