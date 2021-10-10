@@ -33,22 +33,22 @@ return(
         <h1>Select your login type</h1>
 
 <div className="d-grid gap-2" >
-    <Link to ="/Cuslogin" className = "nav-link"  >
+    <a href ="/Cuslogin" className = "nav-link"  >
 <button type="button" className="btn btn-primary"> Login as a customer</button>
-</Link>
+</a>
    </div>
 
 <div>
-<Link to ="/Adminlogin" className = "nav-link" >
+<a href ="/Adminlogin" className = "nav-link" >
 <button type="button" className="btn btn-info">   Login as an admin      </button>
-</Link>
+</a>
 </div>
 
 <div> 
 
 <h6>Click here to rgister as a costomer</h6>
 
-<Link to ="/CusRegister" className = "nav-link">click here to register+</Link>
+<a href ="/CusRegister" className = "nav-link">click here to register+</a>
 
 </div>
 
