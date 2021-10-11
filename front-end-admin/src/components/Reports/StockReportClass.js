@@ -1,4 +1,4 @@
-import AllProducts from "../PrintAllProducts";
+import AllProducts from "../AllProducts";
 
 import React from "react";
 

@@ -40,6 +40,10 @@ import EditNote from "components/EditNote";
 import CreateNote from "components/CreateNote";
 import SalPlaReport from "components/Reports/SalPlaReport";
 import AllCart from "components/AllCart";
+import CartReport from "components/Reports/CartReport";
+import Addadminfeedback from "components/AddAdminfeedback";
+import AllAdminfeedback from "components/AllAdminfeedback";
+import UpdateAdminfeedback from "components/UpdateAdminfeedback";
 import Allinquiry from "components/Allinquiry";
 import Inquiryreport from "components/Reports/Inquiryreport";
 
@@ -83,9 +87,9 @@ export default function Admin() {
 
             {/* ================= C A R T   M A N A G E M E N T ===================================================*/}
             {/* Budget function */}
-            <Route path="/admin/issuedcarts" exact component={AllCart} />
-            <Route path="/admin/issuedcarts/issuedcarts" exact component={AllCart} />
-            {/* <Route path="/admin/issuedcartsreport" exact component={IssuedCartsReport} /> */}
+            <Route path="/admin/Issuedcarts" exact component={AllCart} />
+            <Route path="/admin/Issuedcarts/Issuedcarts" exact component={AllCart} />
+            <Route path="/admin/issuedcartsreport" exact component={CartReport} />
             {/* <Redirect from="/admin/issuedcarts" to="/admin/issuedcarts/" /> */}
 
             {/* ================= S T O C K == M A N A G E M E N T ================================================*/}
@@ -97,6 +101,11 @@ export default function Admin() {
             <Route path="/admin/inquiryreport" exact component={Inquiryreport} ></Route>
 
             {/* ================= F E E D B A C K == M A N A G E M E N T ==========================================*/}
+
+            <Route path="/admin/adminfeedback/add" exact component={Addadminfeedback} />
+            <Route path="/admin/adminfeedback" exact component={AllAdminfeedback} />
+            <Route path="/admin/adminfeedback/adminfeedback" exact component={AllAdminfeedback} />
+            <Route path="/admin/adminfeedback/update/:id" exact component={UpdateAdminfeedback} />
 
             {/* ================= A U T H E N T I C A T I O N == M A N A G E M E N T ==============================*/}
             <Route path="/admin/dashboard" exact component={Initial} />
