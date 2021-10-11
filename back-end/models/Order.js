@@ -4,9 +4,9 @@ const Schema = mongoose.Schema ;
 
 const orderSchema = new Schema ({
 
-    username: { 
-        type: String, 
-        required: true 
+    userName :{
+        type: String,
+        required : true
     },
 
     bankName :{
@@ -20,8 +20,8 @@ const orderSchema = new Schema ({
     },
     
     orderDate : {
-        type : String ,
-        required : true
+        type : Date ,
+        default : Date.now 
     },
     
     phone :{

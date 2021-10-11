@@ -45,10 +45,13 @@ export default function (){
 
     }else{
       setMessage(null);
+      window.location = '/AdminList';
       try{
         const config = {
           headers:{
          "Content-type": "application/json",
+
+  
          
     },
 
@@ -71,7 +74,7 @@ export default function (){
   );
   console.log(data);
   setLoading(false);
-  localStorage.setItem("userInfo", JSON.stringify(data));
+  // localStorage.setItem("userInfo", JSON.stringify(data));
     }catch(error){
 
 setError(error.response.data.message);
@@ -156,7 +159,7 @@ return (
 
   <div className="mb-3">
     <label htmlFor="phone" className="form-label">Phone Number</label>
-    <input type="text" className="form-control" id="phone" placeholder="124578655" pattern="[0-9]{9}" required
+    <input type="text" className="form-control" id="phone" placeholder="777363546" pattern="[0-9]{9}" required
      onChange = {(e)=>{
    
       setPhone(e.target.value);
@@ -239,7 +242,7 @@ return (
 
   <div className="mb-3">
     <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" className="form-control" id="password"    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#+!%*?&])[A-Za-z\d@$#+!%*?&]{8,}$" placeholder="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" required
+    <input type="password" className="form-control" id="password"    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#+!%*?&])[A-Za-z\d@$#+!%*?&]{8,}$"  placeholder="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" required
     onChange = {(e)=>{
    
       setpassword(e.target.value);
@@ -249,7 +252,7 @@ return (
   </div>
 
   <div className="mb-3">
-    <label htmlFor="Repassword" className="form-label">Re - Password</label>
+    <label htmlFor="Repassword" className="form-label">confirm Password</label>
     <input type="password" className="form-control" id="Repassword"  placeholder="Re enter your password"  required
      onChange = {(e)=>{
    
@@ -308,18 +311,18 @@ return (
 </div>
 
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="quary" required
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="user" required
        onChange = {(e)=>{
    
         setLogin(e.target.value);
      
       }
       } />
-  <label class="form-check-label" for="inlineRadio3">Useer</label>
+  <label class="form-check-label" for="inlineRadio3">User</label>
 </div>
 
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="quary" required
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="delivery" required
        onChange = {(e)=>{
    
         setLogin(e.target.value);
@@ -330,7 +333,7 @@ return (
 </div>
 
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="quary" required
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="order" required
        onChange = {(e)=>{
    
         setLogin(e.target.value);

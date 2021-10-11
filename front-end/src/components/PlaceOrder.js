@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import "./OrderStyles.css";
 import axios from "axios";
 // import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -14,7 +15,7 @@ export default function PlaceOrder() {
   const key = useSelector(state => state.cart.cartItems.map(ele => ele.name))
   const { cartItems } = cart;
   const itemName = useSelector(state => state.cart.cartItems[0].name);
-
+  const itemImage = useSelector(state => state.cart.cartItems[0].imageUrl);
   const [bankName, setBankName] = useState("");
   // const [amount, setAmount] = useState("");
   const [orderDate, setOrderDate] = useState("");
@@ -26,6 +27,7 @@ export default function PlaceOrder() {
   const [address, setAddress] = useState("");
   const [orderStatus, setOrderStatus] = useState("Not Confirmed");
   const [deliveries, setDeliveries] = useState([]);
+  const [couriers, setCouriers] = useState([]);
 
   const itemPrice = cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
   const qty = cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
@@ -34,7 +36,7 @@ export default function PlaceOrder() {
     e.preventDefault();
     setOrderStatus("Not Confirmed");
     const order = {
-      username : customerID,
+      userName : customerID,
       bankName,
       amount :itemPrice,
       orderDate,
@@ -46,25 +48,37 @@ export default function PlaceOrder() {
       address,
       orderStatus,
     }
-    console.log(order)
 
     axios.post('http://localhost:5000/order/add', order)
-      .then(res => console.log(res.data))
+      .then(()=>{
+        alert("Successfully Placed the order!")
+        window.location = '/order/';
+        })
       .catch(err => { alert(err) });
   }
   useEffect(() => {
-    axios.get('http://localhost:5000/delivery/')
+      axios.get('http://localhost:5000/delivery/')
+        .then(response => {
+          if (response.data.length > 0) {
+            setDeliveries(response.data.map(delivery => delivery.address))
+            setAddress(response.data[0].address)
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+
+      axios.get('http://localhost:5000/courier/')
       .then(response => {
         if (response.data.length > 0) {
-          setDeliveries(response.data.map(delivery => delivery.address))
-          setAddress(response.data[0].address)
+          setCouriers(response.data.map(courier => courier.name))
+          setCourierService(response.data[0].name)
         }
       })
       .catch((error) => {
         console.log(error);
       })
-  }, []);
-
+  }, [] );
 
   return (
   
@@ -161,16 +175,25 @@ export default function PlaceOrder() {
             />
           </div>
           <div className="form-group"><br />
-            <label>Courier Service: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={courierService}
-              onChange={(e) => {
-                setCourierService(e.target.value);
-              }}
-            />
-          </div>
+                <label>Courier Service: </label>
+                <select
+                  required
+                  className="form-control"
+                  value={courierService}
+                  onChange={(e) => {
+                    setCourierService(e.target.value);
+                  }}
+                >
+                   {
+                    couriers.map(function (courier) {
+                      return <option
+                        key={courier}
+                        value={courier}>{courier}
+                      </option>;
+                    })
+                  }
+                </select>
+              </div>
           <div className="form-group"> <br />
             <label>Address: </label>
             <select

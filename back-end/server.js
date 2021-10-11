@@ -20,10 +20,10 @@ app.use(express.urlencoded({
 const URL = process.env.MONGOBD_URL;
 
 mongoose.connect(URL,{
-    useCreateIndex:true,
+    //useCreateIndex:true,
     useNewUrlParser:true,
     useUnifiedTopology:true,
-    useFindAndModify:false
+    //useFindAndModify:false
 })
 
 //app.use(notFound);

@@ -28,7 +28,16 @@ return(
     <div className="collapse navbar-collapse"  id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-        <Link to ="AdminRegister"  className = "nav-link">Register an admin</Link>
+        <Link to ="/AdminRegister"  className = "nav-link">Register an admin</Link>
+        </li>
+
+        <li className="nav-item">
+        <Link to ="/CustomerList"  className = "nav-link">Customer List</Link>
+        </li>
+
+        
+        <li className="nav-item">
+        <Link to ="/AdminList"  className = "nav-link">Admin List</Link>
         </li>
 
         <li className="nav-item">
@@ -37,6 +46,11 @@ return(
 
         <li className="nav-item">
         <Link to="/CreateNotes" className="nav-link">Craete Notes</Link>
+        </li>
+
+        
+        <li className="nav-item">
+        <Link to="/ProfileScreen" className="nav-link">My Profile</Link>
         </li>
         
         <li class="nav-item">
