@@ -1,4 +1,4 @@
-import AllCart from "../AllCart";
+import ReportCartDisplay from "../Reports/ReportCartDisplay";
 
 import React from "react";
 
@@ -12,7 +12,7 @@ export class CartReportClass extends React.PureComponent {
 
       <div>
 
-        <AllCart />
+        <ReportCartDisplay />
 
       </div>
 
