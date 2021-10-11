@@ -56,6 +56,18 @@ export default function () {
 
 
   return (
+    
+    <div className="bg-info"
+    style={{
+      height: "100%",
+      backgroundImage:
+        "url(https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80)",
+        backgroundsize: "cover",
+        margin: "0",
+        padding: "0",
+        fontfamily: "sans-serif",
+    
+    }}>
 
     <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0" >
       <div className="container">
@@ -68,7 +80,7 @@ export default function () {
           <Col md={6}>
             <Form >
               <Form.Group controlId="name">
-                <Form.Label class="table table-success table-striped text-secondary">Name</Form.Label>
+                <Form.Label >Name</Form.Label>
                 <Form.Control
                   type="text"
                   required
@@ -77,7 +89,7 @@ export default function () {
                 ></Form.Control><br />
 
                 <Form.Group controlId="email">
-                  <Form.Label class="table table-success table-striped text-secondary">Email</Form.Label>
+                  <Form.Label >Email</Form.Label>
                   <Form.Control
                     type="email"
                     required
@@ -89,7 +101,7 @@ export default function () {
 
               </Form.Group><br />
               <Form.Group controlId="phone">
-                <Form.Label class="table table-success table-striped text-secondary">Phone Number</Form.Label>
+                <Form.Label >Phone Number</Form.Label>
                 <Form.Control
                   type="text"
                   required
@@ -97,7 +109,7 @@ export default function () {
                 ></Form.Control>
               </Form.Group><br />
               <Form.Group controlId="gender">
-                <Form.Label class="table table-success table-striped text-secondary">Gender</Form.Label>
+                <Form.Label >Gender</Form.Label>
                 <Form.Control
                   type="text"
                   value={salaryplan.gender}
@@ -109,7 +121,7 @@ export default function () {
 
 
               <Form.Group controlId="loginType">
-                <Form.Label class="table table-success table-striped text-secondary">Login-Type</Form.Label>
+                <Form.Label >Login-Type</Form.Label>
                 <Form.Control
                   type="text"
                   required
@@ -146,6 +158,6 @@ export default function () {
           </Col>
         </Row>
       </div>
-    </div>
+    </div></div>
   );
 };
