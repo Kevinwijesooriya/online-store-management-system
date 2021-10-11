@@ -32,7 +32,7 @@ export default function Editrateing(props) {
 
 
         const newrating = {
-            custom_ID: "6139e6e813ebc16dec25059",
+            custom_ID: feedback.custom_ID,
             item_name: feedback.item_name,
             itemcode: feedback.itemcode,
             custom_name: feedback.custom_name,

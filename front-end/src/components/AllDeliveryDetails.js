@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import "./OrderStyles.css";
 
 export default function AllDeliveryDetails(){
 
@@ -37,6 +38,7 @@ export default function AllDeliveryDetails(){
 
     return(
         <div className="container">
+            <div>
             <h1>All Delivery Details</h1>
 
             <nav class="navbar navbar-light bg-light">
@@ -47,6 +49,8 @@ export default function AllDeliveryDetails(){
                         />
                         {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
                     </form>
+                    <Link className="btn btn-success" to={"/profile/AddCusDeliveryDetails"}>
+                            <i className="fas fa-edit"></i>&nbsp;Add New Delivery address</Link>
                 </div>
             </nav>
 
@@ -90,6 +94,7 @@ export default function AllDeliveryDetails(){
                 ))}
             </tbody>
         </table>
+        </div>
         </div>
     )
 }

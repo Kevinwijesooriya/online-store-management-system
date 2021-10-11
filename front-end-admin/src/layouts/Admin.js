@@ -40,6 +40,11 @@ import EditNote from "components/EditNote";
 import CreateNote from "components/CreateNote";
 import SalPlaReport from "components/Reports/SalPlaReport";
 import AllCart from "components/AllCart";
+import AdminOrderList from "components/AdminOrderList ";
+import OrderReport from "components/Reports/OrderReport";
+import ToConfirmOrder from "components/ToConfirmOrder";
+import ConfirmedOrderList from "components/ConfirmedOrderList";
+import UnconfirmedOrderList from "components/UnconfirmedOrderList";
 import CartReport from "components/Reports/CartReport";
 import Addadminfeedback from "components/AddAdminfeedback";
 import AllAdminfeedback from "components/AllAdminfeedback";
@@ -134,6 +139,7 @@ export default function Admin() {
             <Route path="/admin/Cuslogin" exact component={CustomerLogin} />
             <Route path="/admin/CusRegister" exact component={CusRegisterscreen} />
 
+
             
 
             {/* ================= P R O D U C T == M A N A G E M E N T ============================================*/}
@@ -145,10 +151,12 @@ export default function Admin() {
             <Route path="/admin/itemreportpre" exact component={Itemreportpre} />
 
 
-            {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
-
-
-        
+            {/* ================= O R D E R == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/OrderReport" exact component={OrderReport} />
+            <Route path="/admin/confirm/:id" exact component={ToConfirmOrder} />
+            <Route path="/admin/order" exact component={AdminOrderList} />
+            <Route path="/admin/confirmedOrder" exact component={ConfirmedOrderList} />
+            <Route path="/admin/unconfirmedOrder" exact component={UnconfirmedOrderList} />
 
              {/* =================  P R O F I L E == M A N A G E M E N T ================================================*/}
              <Route path="/admin/profile" exact component={MyprofilePage} />
