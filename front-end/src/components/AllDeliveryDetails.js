@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import "./OrderStyles.css";
+import { useSelector} from "react-redux";
 
 export default function AllDeliveryDetails(){
 
     const[deliveries, setDeliveries] = useState([]);
+    const customerID = useSelector((state) => state.cusLogin.userInfo._id);
 
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() =>{
         function getDeliveries(){
-            axios.get("http://localhost:5000/delivery").then((res) =>{ 
+            axios.get(`http://localhost:5000/delivery/cgot/${customerID}`).then((res) =>{ 
                 setDeliveries(res.data);
             }).catch((err) => {
                 alert(err.message);
@@ -59,7 +61,7 @@ export default function AllDeliveryDetails(){
 <table className="table table-bordered border-primary">
             <thead className="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Street</th>
@@ -82,10 +84,10 @@ export default function AllDeliveryDetails(){
                         <td>{delivery.date_ob.substring(0, 10)}</td>
                         <td>
                             <center>
-                            <Link className="btn btn-warning" to={"/delivery/update/" + delivery._id}>
+                            <Link className="btn btn-warning" to={"/profile/UpdateDeliveryDetails/" + delivery._id}>
                             <i className="fas fa-edit"></i>&nbsp;Edit</Link>
                             &nbsp;  &nbsp; &nbsp;
-                            <a type="button" className="btn btn-danger" onClick={() => Delete(delivery._id)} >
+                            <a href="/profile/delivery" type="button" className="btn btn-danger" onClick={() => Delete(delivery._id)} >
                             <i className="fas fa-trash-alt"></i>&nbsp;Delete
                             </a>
                             </center>

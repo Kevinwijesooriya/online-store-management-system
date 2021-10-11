@@ -20,6 +20,10 @@ const deliverySchema = new Schema({
         type: String,
         required: true
     },
+    customerID : {
+        type: String,
+        required: true
+    },
     postal_code : {
         type: Number,
         required: true

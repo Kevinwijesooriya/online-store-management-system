@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
+import { useSelector} from "react-redux";
 
 function UpdateDeliveryDetails(){
 
     let history = useHistory();
     const { id } = useParams();
+    const cusID = useSelector((state) => state.cusLogin.userInfo._id);
 
     const [delivery, updateDeliveryDetails] = useState({
         name:"",
@@ -20,6 +22,7 @@ function UpdateDeliveryDetails(){
         address,
         street,
         city,
+        customerID=cusID,
         postal_code} = delivery;
 
         const onInputChange = (e, input_field) => {
@@ -32,7 +35,7 @@ function UpdateDeliveryDetails(){
         await axios.put(`http://localhost:5000/delivery/update/${id}`, delivery)
         .then(response => {
             alert("Successfully Updated Delivery Details");
-            history.push("/delivery");
+            history.push("/profile/delivery");
             console.log(response);
           })      
         .catch((err) => {alert(err)});
