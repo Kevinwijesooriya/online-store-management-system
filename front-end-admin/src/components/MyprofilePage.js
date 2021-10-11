@@ -58,7 +58,7 @@ export default function (){
 
 return (
   <>
-    <Navbar transparent />
+    
     <main className="profile-page">
       <section className="relative block h-500-px">
         <div
@@ -185,7 +185,6 @@ return (
         </div>
       </section>
     </main>
-    <Footer />
   </>
 );
 }

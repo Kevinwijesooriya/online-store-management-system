@@ -25,6 +25,7 @@ function AllAdminfeedback() {
     function onDelete(id) {
         axios.delete(`http://localhost:5000/adminfeedback/delete/${id}`).then((res) => {
             alert("Feedback Deleted SuccessFully")
+            window.location.reload(false);
         }).catch(err => { alert(err) });
     }
 
