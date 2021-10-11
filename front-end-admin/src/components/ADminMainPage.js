@@ -10,7 +10,7 @@ function AdminMain() {
     <div className="justify-center flex flex-wrap relative">
       <div className="my-4 w-full lg:w-6/12 px-4">
         <a
-          href="/admin/noteList"
+          href="/admin/AdminRegister"
         >
           <div className="bg-red-600 shadow-lg rounded-lg text-center p-8">
           <i class="fas fa-fingerprint shadow-md rounded-full max-w-full w-16 mx-auto p-5 bg-white"></i>
@@ -84,7 +84,7 @@ function AdminMain() {
           </div>
         </a>
         <a
-          href="#"
+          href="/admin/order"
         >
           <div className="bg-emerald-500 shadow-lg rounded-lg text-center p-8 mt-8">
           <i class="fas fa-hand-holding-usd shadow-md rounded-full max-w-full w-16 mx-auto p-5 bg-white"></i>

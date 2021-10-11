@@ -25,6 +25,7 @@ import Editrateing from './Editrateing';
 import Editinquiry from './Editinquiry';
 import AddCusDeliveryDetails from './AddCusDeliveryDetails';
 import UpdateDeliveryDetails from './UpdateDeliveryDetails';
+import UpdateOrder from './UpdateOrder';
 
 
 function MyProfileApp() {
@@ -45,6 +46,7 @@ function MyProfileApp() {
                         <Route path="/profile/delivery" exact component={AllDeliveryDetails} />
                         <Route path="/profile/comment" exact component={Myrating} />
                         <Route path="/profile/orderlist" exact component={OrderList} />
+                        <Route path="/profile/order/update/:id" exact component={UpdateOrder} />
                         <Route path="/profile/AddCusDeliveryDetails" exact component={AddCusDeliveryDetails} />
                         <Route path="/profile/UpdateDeliveryDetails/:id" exact component={UpdateDeliveryDetails} />
                         {/* <Route path="/ProfileScreen" exact component={}/> */}

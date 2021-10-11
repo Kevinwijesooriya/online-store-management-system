@@ -87,7 +87,7 @@ export default function Myrating() {
                         <th scope="col"> item Name</th>
                         <th scope="col">Rate</th>
                         <th scope="col">Commit</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Date/Time</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -100,10 +100,10 @@ export default function Myrating() {
                             <td>{rtd.item_name}</td>
                             <td>{rtd.rate}</td>
                             <td>{rtd.comment}</td>
-                            <td>{rtd.date_ob}</td>
+                            <td>{rtd.date_ob.substring(0,10)} {rtd.date_ob.substring(11,19)}</td>
                             <td>
                                 <a className="btn btn-warning" href={`/Profile/Myrating/${rtd._id}`}><AiOutlineEdit/>&nbsp;Edit</a> &nbsp;
-                                <a className="btn btn-danger" href="/Profile/Myrating" onClick={() => Delete(rtd._id)}><MdDelete/>&nbsp;Delete</a>
+                                <a className="btn btn-danger" href="/profile/comment" onClick={() => Delete(rtd._id)}><MdDelete/>&nbsp;Delete</a>
                             </td>
                         </tr>
 

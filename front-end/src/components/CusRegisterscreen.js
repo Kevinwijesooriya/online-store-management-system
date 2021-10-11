@@ -102,7 +102,7 @@ return (
   
   <div className="bg-info"
       style={{
-        height: "119%",
+        height: "125%",
         backgroundImage:
           "url(https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg)",
           backgroundsize: "cover",

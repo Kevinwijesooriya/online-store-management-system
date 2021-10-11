@@ -4,6 +4,10 @@ const Schema = mongoose.Schema ;
 
 const orderSchema = new Schema ({
 
+    userID : {
+        type: String,
+        required : true
+    },
     userName :{
         type: String,
         required : true

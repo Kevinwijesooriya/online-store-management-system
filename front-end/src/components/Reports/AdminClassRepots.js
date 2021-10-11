@@ -1,4 +1,4 @@
-import AdminList from "../adminList";
+// import AdminList from "../adminList";
 
 import React from "react";
 
@@ -12,7 +12,7 @@ export class AdminClassRepots extends React.PureComponent {
 
       <div>
 
-        <AdminList/>
+        {/* <AdminList/> */}
 
       </div>
 
