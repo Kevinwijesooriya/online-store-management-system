@@ -129,6 +129,21 @@ export default class UpdateProfile extends Component {
 
   render() {
     return (
+
+      <div className="bg-info"
+      style={{
+        height: "100%",
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80)",
+          backgroundsize: "cover",
+          margin: "0",
+          padding: "0",
+          fontfamily: "sans-serif",
+      
+      }}>
+
+
+        
       <div
         className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
         <div style={{
@@ -226,7 +241,7 @@ export default class UpdateProfile extends Component {
               <input type="submit" value="Edit admin" className="btn btn-primary" />
             </center>
           </form>
-        </div></div>
+        </div></div></div>
     )
   }
 }
