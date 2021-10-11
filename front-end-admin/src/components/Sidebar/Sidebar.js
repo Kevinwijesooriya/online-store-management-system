@@ -325,16 +325,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/issuedcarts") !== -1
+                    (window.location.href.indexOf("/admin/Issuedcarts") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cart/issuedcarts"
+                  to="/admin/Issuedcarts"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/issuedcarts") !== -1
+                      (window.location.href.indexOf("/admin/Issuedcarts") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -347,7 +347,7 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/cart/issuedcartsreport") !== -1
+                    (window.location.href.indexOf("/admin/issuedcartsreport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -537,16 +537,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/adminfeedbackk/") !== -1
+                    (window.location.href.indexOf("/admin/adminfeedback") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/adminfeedbackk/"
+                  to="/admin/adminfeedback"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/adminfeedbackk/") !== -1
+                      (window.location.href.indexOf("/admin/adminfeedback") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
