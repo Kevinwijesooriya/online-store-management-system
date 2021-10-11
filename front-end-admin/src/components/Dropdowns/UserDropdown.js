@@ -1,5 +1,10 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect,useState} from "react"
+import axios from 'axios';
+import {logout} from "../../actions/adminaction";
+import {Link , useHistory} from 'react-router-dom';
 
 const UserDropdown = () => {
   // dropdown props
@@ -15,6 +20,31 @@ const UserDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+
+
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+  const cusLogin= useSelector((state) => state.cusLogin);
+  const { userInfo } = cusLogin;
+
+  const logoutHandler = () => {
+   dispatch(logout());
+   history.push("/auth/login");    
+
+  };
+   
+  const adminid = useSelector((state) => state.cusLogin.userInfo._id);
+  const [salaryplan, updateSalaryplan] = useState([]);
+const loadsalaryplan = async () => {
+      const res = await axios.get
+          (`http://localhost:5000/admin/${adminid}`)
+      updateSalaryplan(res.data)
+  };
+  useEffect(() => {
+      loadsalaryplan();
+  }, []);
+
   return (
     <>
       <a
@@ -28,11 +58,7 @@ const UserDropdown = () => {
       >
         <div className="items-center flex">
           <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-            <img
-              alt="..."
-              className="w-full rounded-full align-middle border-none shadow-lg"
-              src={require("assets/img/team-1-800x800.jpg").default}
-            />
+          <img className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full" src={salaryplan.pic}></img>
           </span>
         </div>
       </a>
@@ -44,42 +70,26 @@ const UserDropdown = () => {
         }
       >
         <a
-          href="#pablo"
+          href="/admin/profile"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
-          onClick={(e) => e.preventDefault()}
+          // onClick={(e) => e.preventDefault()}
         >
-          Action
+          {salaryplan.name}
         </a>
         <a
-          href="#pablo"
+          href="#"
+          onClick = {logoutHandler}
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
-          onClick={(e) => e.preventDefault()}
+    
         >
-          Another action
+          Logout
         </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Seprated link
-        </a>
+
+
       </div>
     </>
   );

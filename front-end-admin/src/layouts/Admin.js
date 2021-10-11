@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { PDFViewer } from '@react-pdf/renderer';
 
 // components
 
@@ -17,11 +16,15 @@ import AddBudget from "components/AddBudget";
 import AllBudget from "components/AllBudget";
 import UpdateBudget from "components/UpdateBudget";
 
-import ViewSalaryPlanReport from "components/Reports/ViewSalaryPlanReport";
+import Additem from "components/Additem";
+import Mainitem from "components/Mainitem";
+import updateitem from "components/updateitem";
+import deleteitem from "components/deleteitem";
+import Itemreport from "components/Reports/Itemreport";
+import Itemreportpre from "components/Itemreportpre";
 
 // views
 
-import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
@@ -41,6 +44,24 @@ import AddCourierCompany from "components/AddCourierCompany";
 import AllCourierDetails from "components/AllCourierDetails";
 import UpdateCourierDetails from "components/UpdateCourierDetails";
 import DeliveryReport from "components/Reports/DeliveryReport";
+import AdminOrderList from "components/AdminOrderList ";
+import OrderReport from "components/Reports/OrderReport";
+import ToConfirmOrder from "components/ToConfirmOrder";
+import ConfirmedOrderList from "components/ConfirmedOrderList";
+import UnconfirmedOrderList from "components/UnconfirmedOrderList";
+import CartReport from "components/Reports/CartReport";
+import Addadminfeedback from "components/AddAdminfeedback";
+import AllAdminfeedback from "components/AllAdminfeedback";
+import UpdateAdminfeedback from "components/UpdateAdminfeedback";
+import Allinquiry from "components/Allinquiry";
+import Inquiryreport from "components/Reports/Inquiryreport";
+import MyprofilePage from "components/MyprofilePage";
+import UpdateProfile from "components/UpdateProfile";
+import AddProduct from "components/AddProduct";
+import AllProducts from "components/AllProducts";
+import AvailableStock from "components/AvailableStock";
+import EditProducts from "components/EditProducts";
+import StockReport from "components/Reports/StockReport";
 
 
 export default function Admin() {
@@ -82,12 +103,18 @@ export default function Admin() {
 
             {/* ================= C A R T   M A N A G E M E N T ===================================================*/}
             {/* Budget function */}
-            <Route path="/admin/issuedcarts" exact component={AllCart} />
-            <Route path="/admin/issuedcarts/issuedcarts" exact component={AllCart} />
-            {/* <Route path="/admin/issuedcartsreport" exact component={IssuedCartsReport} /> */}
+            <Route path="/admin/Issuedcarts" exact component={AllCart} />
+            <Route path="/admin/Issuedcarts/Issuedcarts" exact component={AllCart} />
+            <Route path="/admin/issuedcartsreport" exact component={CartReport} />
             {/* <Redirect from="/admin/issuedcarts" to="/admin/issuedcarts/" /> */}
 
             {/* ================= S T O C K == M A N A G E M E N T ================================================*/}
+            <Route path="/admin/stock/add" exact component={AddProduct} />
+            <Route path="/admin/stock" exact component={AllProducts} />
+            <Route path="/admin/availablestock" exact component={AvailableStock} />
+            <Route path="/admin/stock/stock" exact component={AllProducts} />
+            <Route path="/admin/stock/update/:id" exact component={EditProducts} />
+            <Route path="/admin/reportstock" exact component={StockReport} />
 
             {/* ================= D E L I V E R Y == M A N A G E M E N T ==========================================*/}
             <Route path="/admin/courier/add" exact component={AddCourierCompany} />
@@ -97,8 +124,15 @@ export default function Admin() {
             <Route path="/admin/courierReport" exact component={DeliveryReport} />
 
             {/* ================= I N Q U I R Y == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/allinquiry" exact component={Allinquiry} ></Route>
+            <Route path="/admin/inquiryreport" exact component={Inquiryreport} ></Route>
 
             {/* ================= F E E D B A C K == M A N A G E M E N T ==========================================*/}
+
+            <Route path="/admin/adminfeedback/add" exact component={Addadminfeedback} />
+            <Route path="/admin/adminfeedback" exact component={AllAdminfeedback} />
+            <Route path="/admin/adminfeedback/adminfeedback" exact component={AllAdminfeedback} />
+            <Route path="/admin/adminfeedback/update/:id" exact component={UpdateAdminfeedback} />
 
             {/* ================= A U T H E N T I C A T I O N == M A N A G E M E N T ==============================*/}
             <Route path="/admin/dashboard" exact component={Initial} />
@@ -114,10 +148,32 @@ export default function Admin() {
             <Route path="/admin/Cuslogin" exact component={CustomerLogin} />
             <Route path="/admin/CusRegister" exact component={CusRegisterscreen} />
 
-            <Redirect from="/admin" to="/admin/dashboard" />
+
+            
 
             {/* ================= P R O D U C T == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/additem" exact component={Additem} />
+            <Route path="/admin/mainitem" exact component={Mainitem} />
+            <Route path="/admin/updateitem/:id" exact component={updateitem} />
+            <Route path="/admin/deleteitem" exact component={deleteitem} />
+            <Route path="/admin/itemreport" exact component={Itemreport} />
+            <Route path="/admin/itemreportpre" exact component={Itemreportpre} />
 
+
+            {/* ================= O R D E R == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/OrderReport" exact component={OrderReport} />
+            <Route path="/admin/confirm/:id" exact component={ToConfirmOrder} />
+            <Route path="/admin/order" exact component={AdminOrderList} />
+            <Route path="/admin/confirmedOrder" exact component={ConfirmedOrderList} />
+            <Route path="/admin/unconfirmedOrder" exact component={UnconfirmedOrderList} />
+
+             {/* =================  P R O F I L E == M A N A G E M E N T ================================================*/}
+             <Route path="/admin/profile" exact component={MyprofilePage} />
+             <Route path="/admin/profile/update/:id" exact component={UpdateProfile} />
+
+
+
+             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
           <FooterAdmin />
         </div>

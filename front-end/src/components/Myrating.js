@@ -1,15 +1,30 @@
 import React, { useStae, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { useSelector} from "react-redux";
+
+
+
+import "./OrderStyles.css";
+import { AiOutlineEdit} from "react-icons/ai";
+import { MdDelete} from "react-icons/md";
+import { dark } from "@material-ui/core/styles/createPalette";
+import { blue } from "@material-ui/core/colors";
+
+
+
+
+
 
 export default function Myrating() {
     const [searchTerm, setSearchTerm] = useState('');
     const [rating, setrating] = useState([]);
     // const id = "6124fac7f10e9c4078b2d16f";
+    const customerID = useSelector((state) => state.cusLogin.userInfo._id);
     useEffect(() => {
 
         function getrating() {
-            axios.get(`http://localhost:5000/Feedback/`).then((res) => {
+            axios.get(`http://localhost:5000/Feedback/cgot/${customerID}`).then((res) => {
                 console.log(res);
                 setrating(res.data);
             }).catch((err) => {
@@ -26,7 +41,8 @@ export default function Myrating() {
     }
     const filteredCountrise = rating.filter(rtd => {
         return (rtd.custom_name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-            rtd.comment.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+               rtd.item_name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+               rtd.comment.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
 
     })
 
@@ -34,8 +50,8 @@ export default function Myrating() {
 
     return (
 
-        <div >
-            <h1>All commints</h1>
+        <div className="oneDetail">
+            <h1>My Comments</h1>
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
                     <form class="d-flex">
@@ -63,7 +79,7 @@ export default function Myrating() {
 
 
 
-            <table className="table table-success table-striped">
+            <table className="table table-dark" style={{color:blue}}>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -86,8 +102,8 @@ export default function Myrating() {
                             <td>{rtd.comment}</td>
                             <td>{rtd.date_ob}</td>
                             <td>
-                                <a className="btn btn-warning" href={`/myProfile/Myrating/${rtd._id}`}>edit</a> &nbsp;
-                                <a className="btn btn-danger" href="/myProfile/Myrating" onClick={() => Delete(rtd._id)}>delete</a>
+                                <a className="btn btn-warning" href={`/Profile/Myrating/${rtd._id}`}><AiOutlineEdit/>&nbsp;Edit</a> &nbsp;
+                                <a className="btn btn-danger" href="/Profile/Myrating" onClick={() => Delete(rtd._id)}><MdDelete/>&nbsp;Delete</a>
                             </td>
                         </tr>
 

@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -8,6 +7,7 @@ export default class UpdateOrder extends Component {
     super(props);
 
     this.onChangeItemName = this.onChangeItemName.bind(this);
+    this.onChangeItemImage = this.onChangeItemImage.bind(this);
     this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
     this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -15,7 +15,8 @@ export default class UpdateOrder extends Component {
     this.state = {
 
       itemName:'',
-      orderDate :new Date(),
+      itemImage : '',
+      orderDate :'',
       address:'',
       deliveries: []
     }
@@ -26,7 +27,8 @@ export default class UpdateOrder extends Component {
       .then(response => {
         this.setState({
           itemName: response.data.itemName,
-          orderData: new Date(response.data.orderDate),
+          itemImage: response.data.itemImage,
+          orderData: response.data.orderDate,
           address: response.data.address
         })   
       })
@@ -48,15 +50,21 @@ export default class UpdateOrder extends Component {
 
   }
 
-  onChangeOrderDate(date) {
+  onChangeOrderDate(e) {
     this.setState({
-      orderDate: date
+      orderDate: e.target.value
     })
   }
 
   onChangeItemName(e) {
     this.setState({
       itemName: e.target.value
+    })
+  }
+
+  onChangeItemImage(e) {
+    this.setState({
+      itemImage: e.target.value
     })
   }
 
@@ -71,6 +79,7 @@ export default class UpdateOrder extends Component {
 
     const order = {
       itemName: this.state.itemName,
+      itemImage: this.state.itemImage,
       orderDate: this.state.orderDate,
       address: this.state.address
     }
@@ -86,20 +95,20 @@ export default class UpdateOrder extends Component {
   render() {
     return (
     <div>
-      <h3>Update Order Details</h3>
+      <h3>Update Order Details</h3><br/>
       <div class="container" >
           <div className="oneDetail">
                 Order #{this.props.match.params.id}<br/>
-                Placed on
-              <hr/>
+                Placed on 
+              <hr/><br/>
               <div class="row">
                 <div class="col">
                   <div class="row">
                     <div class="col">
-                      <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded float-start" alt="Item image" width="150" height="150"/>
+                      <img src={`/images/${this.state.itemImage}`} class="rounded float-start" alt="Item image" width="150" height="150"/>
                     </div>
                     <div class="col">
-                    {this.state.itemName}
+                    Item Name : {this.state.itemName}
                     </div>
                   </div>
                 </div>
@@ -129,7 +138,7 @@ export default class UpdateOrder extends Component {
                 </div>
             </div>
           </div>
-      </div>
+      </div><br/><br/><br/><br/><br/><br/><br/><br/>
     </div>
     )
   }

@@ -32,7 +32,7 @@ export default function Editrateing(props) {
 
 
         const newrating = {
-            custom_ID: "6139e6e813ebc16dec25059",
+            custom_ID: feedback.custom_ID,
             item_name: feedback.item_name,
             itemcode: feedback.itemcode,
             custom_name: feedback.custom_name,
@@ -43,7 +43,7 @@ export default function Editrateing(props) {
 
         axios.put(`http://localhost:5000/Feedback/update/${id}`, newrating).then(() => {
             alert("update your comment")
-            // history.push("/Rall");
+            history.push("/profile/comment");
         }).catch((err) => {
             alert(err)
         })
@@ -71,7 +71,7 @@ export default function Editrateing(props) {
     return (
 
         <div className="container">
-            
+            <div>
             <form onSubmit={sendData}>
 
                 <div className="mb-3">
@@ -95,6 +95,8 @@ export default function Editrateing(props) {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+
+            </div>
         </div>
     )
 

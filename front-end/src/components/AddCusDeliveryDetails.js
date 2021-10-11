@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios";
-
+import "./OrderStyles.css";
 export default function AddCusDeliveryDetails() {
 
     const [name, setName] = useState("");
@@ -33,8 +33,9 @@ export default function AddCusDeliveryDetails() {
     return (
 
         <div className="container">
+            <div className="oneDetail">
             <form onSubmit={sendData}>
-
+             
                 <div className="form-group">
                     <label for="name">Customer Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter Customer Name"
@@ -78,6 +79,8 @@ export default function AddCusDeliveryDetails() {
 
                 <button type="submit" className="btn btn-primary">Add Delivery Details</button>
             </form>
+
+            </div>
         </div>
 
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
+import "./OrderStyles.css";
 
 export default function Editinquiry(props) {
 
@@ -45,8 +46,8 @@ export default function Editinquiry(props) {
         e.preventDefault();
 
         const newinquiry = {
-            custom_ID: "6139e6e813ebc16dec25059",
-            custom_name,
+            custom_ID: inquiry.custom_ID,
+            custom_name:inquiry.custom_name,
             custom_address_code,
             custom_streat_address,
             custom_city,
@@ -61,11 +62,11 @@ export default function Editinquiry(props) {
         }
 
         console.log(newinquiry);
-        alert("insert inquiry")
+        // alert("insert inquiry")
 
         axios.put(`http://localhost:5000/inquiry/update/${id}`, newinquiry).then(() => {
-            alert("update inquiry")
-            history.push("/myProfile/Myinquriy");
+            alert("Your inquery has been update successfully. Your response will be sent as soon as possible.")
+            history.push("/Profile/Myinquriy");
         }).catch((err) => {
             alert(err)
         })
@@ -93,8 +94,9 @@ export default function Editinquiry(props) {
     return (
 
         <div className="container">
-
+            <div className="oneDetail">
             {/* inquiry form */}
+            <h1>Update your inquiry</h1>
             <form onSubmit={sendData}>
 
                 <div className="mb-3">
@@ -205,12 +207,16 @@ export default function Editinquiry(props) {
                         }}
                         required />
                 </div>
+                <div id="emailHelp" className="form-text">(Please fill out all of the fields and send us a message so that we can provide you with the service you require as soon as possible.)</div>
+                    <br/>
+                <div class="d-grid gap-2">
+                        <button type="submit" className="btn btn-outline-primary">Submit</button>
+                    </div>
 
-
-
-
-                <button type="submit" className="btn btn-primary">Submit</button>
+                {/* <button type="submit" className="btn btn-primary">Submit</button> */}
             </form>
+
+            </div>
         </div>
     )
 
