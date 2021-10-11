@@ -41,7 +41,7 @@ function AllAdminfeedback() {
             <div className="rounded-t mb-0 px-4 py-3 border-0">
             <div className="rounded-t bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
-                            <h6 className="text-blueGray-700 text-xl font-bold">Admin feedback</h6>
+                            <h6 className="text-blueGray-700 text-xl font-bold">Admin Feedback</h6>
                             <Link className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                 to={"/admin/adminfeedback/add"}>
                                 ADD
