@@ -37,6 +37,10 @@ import EditNote from "components/EditNote";
 import CreateNote from "components/CreateNote";
 import SalPlaReport from "components/Reports/SalPlaReport";
 import AllCart from "components/AllCart";
+import AddCourierCompany from "components/AddCourierCompany";
+import AllCourierDetails from "components/AllCourierDetails";
+import UpdateCourierDetails from "components/UpdateCourierDetails";
+import DeliveryReport from "components/Reports/DeliveryReport";
 
 
 export default function Admin() {
@@ -86,6 +90,11 @@ export default function Admin() {
             {/* ================= S T O C K == M A N A G E M E N T ================================================*/}
 
             {/* ================= D E L I V E R Y == M A N A G E M E N T ==========================================*/}
+            <Route path="/admin/courier/add" exact component={AddCourierCompany} />
+            <Route path="/admin/courier" exact component={AllCourierDetails} />
+            <Route path="/admin/courier/courier" exact component={AllCourierDetails} />
+            <Route path="/admin/courier/update/:id" exact component={UpdateCourierDetails} />
+            <Route path="/admin/courierReport" exact component={DeliveryReport} />
 
             {/* ================= I N Q U I R Y == M A N A G E M E N T ============================================*/}
 
