@@ -42,6 +42,11 @@ import SalPlaReport from "components/Reports/SalPlaReport";
 import AllCart from "components/AllCart";
 import Allinquiry from "components/Allinquiry";
 import Inquiryreport from "components/Reports/Inquiryreport";
+import AddProduct from "components/AddProduct";
+import AllProducts from "components/AllProducts";
+import AvailableStock from "components/AvailableStock";
+import EditProducts from "components/EditProducts";
+import StockReport from "components/Reports/StockReport";
 
 
 export default function Admin() {
@@ -89,6 +94,12 @@ export default function Admin() {
             {/* <Redirect from="/admin/issuedcarts" to="/admin/issuedcarts/" /> */}
 
             {/* ================= S T O C K == M A N A G E M E N T ================================================*/}
+            <Route path="/admin/stock/add" exact component={AddProduct} />
+            <Route path="/admin/stock" exact component={AllProducts} />
+            <Route path="/admin/availablestock" exact component={AvailableStock} />
+            <Route path="/admin/stock/stock" exact component={AllProducts} />
+            <Route path="/admin/stock/update/:id" exact component={EditProducts} />
+            <Route path="/admin/reportstock" exact component={StockReport} />
 
             {/* ================= D E L I V E R Y == M A N A G E M E N T ==========================================*/}
 
