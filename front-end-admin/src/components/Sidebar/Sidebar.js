@@ -94,6 +94,55 @@ export default function Sidebar() {
                   Register
                 </Link>
               </li>
+
+
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/customerlist") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/admin/customerlist"
+                >
+                  <i
+                    className={
+                      "fas fa-user mr-2 text-sm " +  
+                      (window.location.href.indexOf("/admin/customerlist") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Customer Information
+                </Link>
+              </li>
+
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/list") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/admin/list"
+                >
+                  <i
+                    className={
+                      "fas fa-users-cog mr-2 text-sm " + 
+                      (window.location.href.indexOf("/admin/list") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Admin Information
+                </Link>
+              </li>
+
+
               <li className="items-center">
                 <Link
                   className={
@@ -106,7 +155,7 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      "fas fa-tv mr-2 text-sm " +
+                      "fas fa-notes-medical mr-2 text-sm " + 
                       (window.location.href.indexOf("/admin/noteList") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
@@ -115,27 +164,50 @@ export default function Sidebar() {
                   Notes
                 </Link>
               </li>
+
               <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/Report") !== -1
+                    (window.location.href.indexOf("/admin/adminReport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/Report"
+                  to="/admin/adminReport"
                 >
                   <i
                     className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/Report") !== -1
+                      "fas fa-file mr-2 text-sm " + 
+                      (window.location.href.indexOf("/admin/adminReport") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Report
+                 Admin Report
                 </Link>
-              </li>
+              </li> 
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/customerReport") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/admin/customerReport"
+                >
+                  <i
+                    className={
+                      "fas fa-file mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/customerReport") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                 Customer Report
+                </Link>
+              </li> 
               
             </ul>
             

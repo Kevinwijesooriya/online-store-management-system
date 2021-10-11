@@ -219,7 +219,7 @@ onChange={this.onChangetgender}
 
 
               <center className="form-group">
-                <input type="submit" value="Edit admin" className="btn btn-primary" />
+                <input type="submit" value="Update" className="btn btn-primary" />
               </center>
             </form>
           </div>

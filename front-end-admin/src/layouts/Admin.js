@@ -58,6 +58,12 @@ import AllProducts from "components/AllProducts";
 import AvailableStock from "components/AvailableStock";
 import EditProducts from "components/EditProducts";
 import StockReport from "components/Reports/StockReport";
+import AdminList from "components/adminList";
+import CustomerList from "components/customerList";
+import UpdateAdmin from "components/UpdateAdmin";
+import AdminReport from "components/Reports/AdminReport";
+import CustomerReport from "components/Reports/CustomerReport";
+
 
 
 export default function Admin() {
@@ -131,13 +137,17 @@ export default function Admin() {
             <Route path="/admin/AdminMain" exact component={AdminMain} />
             <Route path="/admin/AdminRegister" exact component={AdminRegisterscreen} />
             <Route path="/admin/UserAdminMainHtaml" exact component={UserAdminMainHtaml} />
+            <Route path="/admin/list" exact component={AdminList} />
+            <Route path="/admin/customerlist" exact component={CustomerList} />
+            <Route path="/admin/update/:id" exact component={UpdateAdmin} />
+            <Route path="/admin/adminReport" exact component={AdminReport} />
+            <Route path="/admin/customerReport" exact component={CustomerReport} />
 
             <Route path="/admin/noteList" exact component={NoteList} />
             <Route path="/admin/noteEdit/:id" exact component={EditNote} />
             <Route path="/admin/CreateNotes" exact component={CreateNote} />
 
-            <Route path="/admin/Cuslogin" exact component={CustomerLogin} />
-            <Route path="/admin/CusRegister" exact component={CusRegisterscreen} />
+        
 
 
             
