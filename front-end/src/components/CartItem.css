@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
     gap: 8px;
-    background:whitesmoke;
+    background:rgb(245, 245, 245);
     border-radius: 2px;
     place-items: center;
 }

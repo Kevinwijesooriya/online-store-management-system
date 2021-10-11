@@ -41,7 +41,7 @@ export default function AddSalaryPlan() {
             .post("http://localhost:5000/salaryplan/add", newSalaryplan)
             .then(res => {
                 alert("Salary Plan Added");
-                history.push("/salaryplan");
+                history.push("/admin/salaryplan");
                 // setRole_name("");
                 // setSalary("");
                 // setDate("");
@@ -93,7 +93,10 @@ export default function AddSalaryPlan() {
                         // }} required
 
                         ></input>
-                        {errors.role_name && <p>{errors.role_name}</p>}
+                        <div className=" bg-red-400 text-red-700 text-xs  mb-2">
+                        {errors.role_name && <p >{errors.role_name}</p>}
+                        </div>
+
                     </div>
 
                     <div className="relative w-full mb-3">
@@ -109,7 +112,9 @@ export default function AddSalaryPlan() {
                         // }} required
 
                         ></input>
-                        {errors.salary && <p>{errors.salary}</p>}
+                        <div className=" bg-red-400 text-red-700 text-xs  mb-2">
+                        {errors.salary && <p  >{errors.salary}</p>}
+                    </div>
                     </div>
 
                     <div className="relative w-full mb-3">
@@ -124,7 +129,9 @@ export default function AddSalaryPlan() {
                         //     setDate(e.target.value);
                         // }} required                        
                         ></input>
-                        {errors.date && <p>{errors.date}</p>}
+                        <div className=" bg-red-400 text-red-700 text-xs  mb-2">
+                        {errors.date && <p >{errors.date}</p >}
+                    </div>
                     </div>
 
                     

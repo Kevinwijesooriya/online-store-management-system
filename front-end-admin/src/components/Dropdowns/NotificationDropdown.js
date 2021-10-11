@@ -1,5 +1,6 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import { Link } from "react-router-dom";
 
 const NotificationDropdown = () => {
   // dropdown props
@@ -19,7 +20,7 @@ const NotificationDropdown = () => {
   return (
     <>
       <a
-        className="text-blueGray-500 block py-1 px-3"
+        className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
         href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -27,52 +28,91 @@ const NotificationDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        <i className="fas fa-bell"></i>
+        ADMIN
       </a>
       <div
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
-        <a
-          href="#pablo"
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
-          onClick={(e) => e.preventDefault()}
         >
-          Action
-        </a>
-        <a
-          href="#pablo"
+          ADMIN
+        </span>
+        <Link
+          to="/admin/dashboard"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Dashboard
+        </Link>       
+         
+        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
+        <span
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
-          onClick={(e) => e.preventDefault()}
         >
-          Another action
-        </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
+          FUNCTIONS
+        </span>
+        <Link
+          to="/admin/noteList"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Something else here
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
+          Authentication Management
+        </Link>
+        <Link
+          to="/admin/salaryplan"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Seprated link
-        </a>
+          Financial Management
+        </Link>
+        <Link
+          to="/admin/stock"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Stock Management
+        </Link>
+        <Link
+          to="/admin/courier"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Delivery Management
+        </Link>
+        <Link
+          to="/admin/Issuedcarts"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Cart Management
+        </Link>
+        <Link
+          to="/admin/allinquiry"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Inquiry Management
+        </Link>
+        <Link
+          to="/admin/mainitem"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Product Management
+        </Link>
+        <Link
+          to="/admin/order"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Order Management
+        </Link>
+        <Link
+          to="/admin/adminfeedback"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Feedback Management
+        </Link>
       </div>
     </>
   );
