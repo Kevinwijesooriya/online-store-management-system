@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import "./OrderStyles.css";
 
 
-export default class UpdateOrder extends Component {
+export default class ToConfirmOrder extends Component {
   constructor(props) {
     super(props);
 
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
     this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
+    this.onChangeOrderStatus = this.onChangeOrderStatus.bind(this);
     this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -17,8 +19,8 @@ export default class UpdateOrder extends Component {
       itemName:'',
       itemImage : '',
       orderDate :'',
+      orderStatus : 'Confirmed', 
       address:'',
-      deliveries: []
     }
   }
 
@@ -29,25 +31,13 @@ export default class UpdateOrder extends Component {
           itemName: response.data.itemName,
           itemImage: response.data.itemImage,
           orderData: response.data.orderDate,
+          orderStatus: response.data.orderStatus,
           address: response.data.address
         })   
       })
       .catch(function (error) {
         console.log(error);
       })
-
-    axios.get('http://localhost:5000/delivery/')
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            deliveries: response.data.map(delivery=> delivery.address),
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-
   }
 
   onChangeOrderDate(e) {
@@ -74,28 +64,35 @@ export default class UpdateOrder extends Component {
     })
   }
 
+  onChangeOrderStatus(e) {
+    this.setState({
+      orderStatus: e.target.value
+    })
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
     const order = {
-      itemName: this.state.itemName,
-      itemImage: this.state.itemImage,
-      orderDate: this.state.orderDate,
-      address: this.state.address
+      //itemName: this.state.itemName,
+      //itemImage: this.state.itemImage,
+      //orderDate: this.state.orderDate,
+      //address: this.state.address,
+      orderStatus : this.state.orderStatus
     }
 
     console.log(order);
 
-    axios.post('http://localhost:5000/order/update/' + this.props.match.params.id, order)
+    axios.post('http://localhost:5000/order/admin/confirm/'+ this.props.match.params.id, order)
       .then(res => console.log(res.data));
-      alert("Successfully Updated!")
-    window.location = '/order/';
+      alert("Oreder Confirmed Successfully!")
+    window.location = '/admin/confirmedOrder';
   }
 
   render() {
     return (
     <div>
-      <h3>Update Order Details</h3><br/>
+      <h3>Confirm Order</h3><br/>
       <div class="container" >
           <div className="oneDetail">
                 Order #{this.props.match.params.id}<br/>
@@ -114,25 +111,8 @@ export default class UpdateOrder extends Component {
                 </div>
                 <div class="col">
                   <form onSubmit={this.onSubmit}>
-                  <div className="form-group"> 
-                      <label>Delivery Address: </label>
-                      <select ref="addressInput"
-                          required
-                          className="form-control"
-                          value={this.state.address}
-                          onChange={this.onChangeAddress}>
-                          {
-                            this.state.deliveries.map(function(delivery) {
-                              return <option 
-                                key={delivery}
-                                value={delivery}>{delivery}
-                                </option>;
-                            })
-                          }
-                      </select><br/>
-                  </div>
                   <div className="form-group">
-                    <center><input type="submit" value="Update Delivery Address" className="btn btn-primary" /></center>
+                    <center><input type="submit" value="Confirm Order" className="btn btn-primary" /></center>
                   </div>
                   </form>
                 </div>

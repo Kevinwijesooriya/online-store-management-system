@@ -484,16 +484,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/orders/") !== -1
+                    (window.location.href.indexOf("/admin/order") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/orders/"
+                  to="/admin/order"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/orders/") !== -1
+                      (window.location.href.indexOf("/admin/order") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -506,16 +506,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/orders/ordersreport") !== -1
+                    (window.location.href.indexOf("/admin/OrderReport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cartreport"
+                  to="/admin/OrderReport"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/ordersreport") !== -1
+                      (window.location.href.indexOf("/admin/OrderReport") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -523,6 +523,7 @@ export default function Sidebar() {
                   Report
                 </Link>
               </li>
+
             </ul>
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
