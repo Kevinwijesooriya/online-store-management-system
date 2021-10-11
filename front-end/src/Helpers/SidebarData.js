@@ -11,6 +11,11 @@ import { AiOutlineLogout} from "react-icons/ai";
 
 
 export const SidebarData = [
+   {
+      title:"My Profile",
+      icon:<CgProfile/>,
+      link:"/profile"
+   },
     {
    title:"My Inquiry",
    icon:<FiFrown/>,
@@ -30,16 +35,6 @@ export const SidebarData = [
    title:"My Addresses",
    icon:<FaAddressBook/>,
    link:"/profile/delivery"
-},
-{
-   title:"Logout",
-   icon:<AiOutlineLogout/>,
-   link:"/profile/delivery"
-},
-{
-   title:"Profile",
-   icon:<CgProfile/>,
-   link:"/profile"
 },
 ]
 

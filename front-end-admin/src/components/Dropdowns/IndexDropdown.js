@@ -41,71 +41,76 @@ const IndexDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Admin Layout
+          ADMIN
         </span>
         <Link
           to="/admin/dashboard"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
           Dashboard
-        </Link>
-        <Link
-          to="/admin/settings"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-        >
-          Settings
-        </Link>
-        <Link
-          to="/admin/tables"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-        >
-          Tables
-        </Link>
-        <Link
-          to="/admin/maps"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-        >
-          Maps
-        </Link>
+        </Link>       
+         
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
         <span
           className={
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Auth Layout
+          FUNCTIONS
         </span>
         <Link
-          to="/auth/login"
+          to="/admin/noteList"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Login
+          Authentication Management
         </Link>
         <Link
-          to="/auth/register"
+          to="/admin/salaryplan"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Register
-        </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-          }
-        >
-          No Layout
-        </span>
-        <Link
-          to="/landing"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-        >
-          Landing
+          Financial Management
         </Link>
         <Link
-          to="/profile"
+          to="/admin/stock"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >
-          Profile
+          Stock Management
+        </Link>
+        <Link
+          to="/admin/courier"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Delivery Management
+        </Link>
+        <Link
+          to="/admin/Issuedcarts"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Cart Management
+        </Link>
+        <Link
+          to="/admin/allinquiry"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Inquiry Management
+        </Link>
+        <Link
+          to="/admin/mainitem"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Product Management
+        </Link>
+        <Link
+          to="/admin/order"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Order Management
+        </Link>
+        <Link
+          to="/admin/adminfeedback"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Feedback Management
         </Link>
       </div>
     </>

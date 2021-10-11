@@ -1,6 +1,5 @@
-import AllCourierDetails from "../AllCourierDetails";
-
 import React from "react";
+import DeliveryDisplay from "./DeliveryDisplay";
 
 
 
@@ -12,7 +11,7 @@ export class DeliveryReportClass extends React.PureComponent {
 
       <div>
 
-        <AllCourierDetails />
+        <DeliveryDisplay />
 
       </div>
 

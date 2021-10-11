@@ -23,6 +23,7 @@ function AllCart() {
     function onDelete(id) {
         axios.delete(`http://localhost:5000/cart/delete/${id}`).then((res) => {
             alert("Cart Details Deleted SuccessFully")
+            window.location.reload(false);
         }).catch(err => { alert(err) });
     }
 
@@ -55,7 +56,7 @@ function AllCart() {
                 <div className="rounded-t mb-0 px-4 py-3 border-0">
                 <div className="rounded-t bg-white mb-0 px-6 py-6">
                         <div className="text-center flex justify-between">
-                            <h6 className="text-blueGray-700 text-xl font-bold">Issued cart</h6>
+                            <h6 className="text-blueGray-700 text-xl font-bold">Issued Cart</h6>
                             <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
                                 <div className="relative flex w-full flex-wrap items-stretch">
                                     <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">

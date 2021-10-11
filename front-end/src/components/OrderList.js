@@ -45,11 +45,10 @@ console.log(order);
     return (
       <div><br/><br/>
         <div className="container">
-           <div className="row">
-            <div className="col-lg-9 mt-2 mb-2">
-              <h3>My Orders</h3>
-            </div>
-            <div className="col-lg-3 mt-2 mb-2">
+          <div className="row">
+            <div className="oneDetail">
+           <center> <h3>My Orders</h3> </center>
+            <div className="col-lg-3 mt-2 mb-2"> <form class="d-flex">
               <input
               className="form-control"
               type="search"
@@ -57,7 +56,7 @@ console.log(order);
               name="searchQuery"
               onChange={e => setSearchTerm(e.target.value)}
               >
-              </input>
+              </input></form></div>
             </div>
           </div> 
         </div> 
