@@ -144,7 +144,7 @@ import  { Component } from 'react';
         
                     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
 
-                     <center>   <img src={this.state.pic}></img> </center>
+                     <center>   <img src={this.state.pic }width="350" height="350"></img> </center>
         
                 <form onSubmit={this.onSubmit}>
         
