@@ -44,7 +44,7 @@ export default function () {
 
     } else {
       setMessage(null);
-      window.location = '/AdminList';
+      window.location = "/admin/dashboard";
       try {
         const config = {
           headers: {

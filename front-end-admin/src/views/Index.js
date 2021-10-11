@@ -1,6 +1,5 @@
 /*eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
@@ -22,7 +21,6 @@ export default function Index() {
               <div className="mt-12">
                 <a
                   href="/auth/login"
-                  target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
                   Login
