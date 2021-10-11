@@ -24,6 +24,7 @@ import Myinquriy from './Myinquriy';
 import Editrateing from './Editrateing';
 import Editinquiry from './Editinquiry';
 import AddCusDeliveryDetails from './AddCusDeliveryDetails';
+import UpdateDeliveryDetails from './UpdateDeliveryDetails';
 
 
 function MyProfileApp() {
@@ -45,6 +46,7 @@ function MyProfileApp() {
                         <Route path="/profile/comment" exact component={Myrating} />
                         <Route path="/profile/orderlist" exact component={OrderList} />
                         <Route path="/profile/AddCusDeliveryDetails" exact component={AddCusDeliveryDetails} />
+                        <Route path="/profile/UpdateDeliveryDetails/:id" exact component={UpdateDeliveryDetails} />
                         {/* <Route path="/ProfileScreen" exact component={}/> */}
                         <Route path="/UpdateProfile/:id" exact component={UpdateProfile} />
                         <Route path="/profile/Myinquriy" exact component={Myinquriy} />
