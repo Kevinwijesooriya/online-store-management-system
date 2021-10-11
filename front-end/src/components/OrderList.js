@@ -8,12 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 export default  function OrderList()  {
   const[order,setorder]=useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const user = useSelector((state) => state.cusLogin.userInfo.name);;
+  const userID = useSelector((state) => state.cusLogin.userInfo._id);;
 
   
   useEffect(()=>{                
   function getorder(){            
-    axios.get(`http://localhost:5000/order/user/${user}`).then((res)=>{                 
+    axios.get(`http://localhost:5000/order/user/${userID}`).then((res)=>{                 
       console.log(res);                 
       setorder(res.data);            
     }).catch((err)=>{                
@@ -71,10 +71,10 @@ console.log(order);
                       Order #{orders._id} <br/>
                       Placed on {orders.orderDate.substring(0,10)}
                     </div>
-                    <div class="col">
-                    </div>
-                    <div class="col" style={{alignContent:'right'}}>
-                      <Link className = "btn btn-warning" to={"/order/update/"+orders._id}>Change Delivary Address</Link>  <a className = "btn btn-danger"  onClick={() => {deleteOrder(orders._id) }}><i className="far fa-trash-alt"></i>&nbsp; Cancel Order</a>
+                    {/* <div class="col">
+                    </div> */}
+                    <div class="col" style={{alignContent:'right'}}><center>
+                      <Link className = "btn btn-warning" to={"/profile/order/update/"+orders._id}>Change Delivary Address</Link>  <a className = "btn btn-danger"  onClick={() => {deleteOrder(orders._id) }}><i className="far fa-trash-alt"></i>&nbsp; Cancel Order</a></center>
                     </div>
                   </div>
                 <hr/>
