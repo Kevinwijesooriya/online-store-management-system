@@ -46,6 +46,8 @@ import AllAdminfeedback from "components/AllAdminfeedback";
 import UpdateAdminfeedback from "components/UpdateAdminfeedback";
 import Allinquiry from "components/Allinquiry";
 import Inquiryreport from "components/Reports/Inquiryreport";
+import MyprofilePage from "components/MyprofilePage";
+import UpdateProfile from "components/UpdateProfile";
 
 
 export default function Admin() {
@@ -135,8 +137,15 @@ export default function Admin() {
             {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
 
 
-            <Redirect from="/admin" to="/admin/dashboard" />
+        
 
+             {/* =================  P R O F I L E == M A N A G E M E N T ================================================*/}
+             <Route path="/admin/profile" exact component={MyprofilePage} />
+             <Route path="/admin/profile/update/:id" exact component={UpdateProfile} />
+
+
+
+             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
           <FooterAdmin />
         </div>

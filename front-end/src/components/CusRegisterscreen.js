@@ -102,7 +102,7 @@ return (
   
   <div className="bg-info"
       style={{
-        height: "110%",
+        height: "119%",
         backgroundImage:
           "url(https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg)",
           backgroundsize: "cover",
@@ -116,7 +116,7 @@ return (
         style={{
           width: "1000px",
           position: "absolute",
-          top: "55%",
+          top: "60%",
           left: "35%",
           transform: "translate(-50%,-50%)",
           color: "white",
@@ -277,7 +277,7 @@ onChange = {(e)=>{
     } />
     </div>
   </div>
-  <br></br> 
+  <br></br><br></br>  
 
   <div className="textbox">
     <h5 htmlFor="password" className="form-label">Password</h5>
@@ -300,7 +300,7 @@ onChange = {(e)=>{
     }
     } />
   </div>
-  <br></br> 
+  <br></br><br></br>  
   <div className="textbox">
     <h5 htmlFor="Repassword" className="form-label">confirm Password</h5>
     <input type="password" className="form-control" id="Repassword"  placeholder="Re enter your password"  required
@@ -326,7 +326,7 @@ onChange = {(e)=>{
  
 
 
-  <br></br> 
+  <br></br> <br></br> 
   
   <div >
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="customer" required 

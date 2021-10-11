@@ -143,7 +143,7 @@ const CustomerLogin = ({ history }) => {
 
             </Form.Text>
           </Form.Group>
-          <br></br> <br></br>
+          <br></br> <br></br><br></br> 
 
           <Form.Group className="textbox" controlId="formBasicPassword">
             <i class="fas fa-lock" aria-hidden="true"
