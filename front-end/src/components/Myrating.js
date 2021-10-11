@@ -8,6 +8,8 @@ import { useSelector} from "react-redux";
 import "./OrderStyles.css";
 import { AiOutlineEdit} from "react-icons/ai";
 import { MdDelete} from "react-icons/md";
+import { dark } from "@material-ui/core/styles/createPalette";
+import { blue } from "@material-ui/core/colors";
 
 
 
@@ -77,7 +79,7 @@ export default function Myrating() {
 
 
 
-            <table className="table table-success table-striped">
+            <table className="table table-dark" style={{color:blue}}>
                 <thead>
                     <tr>
                         <th scope="col">#</th>

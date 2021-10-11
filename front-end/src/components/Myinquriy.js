@@ -128,8 +128,8 @@ export default function Myinquriy() {
                      <div class="col"></div>
                      <div class="col">
                          <br/>
-                    <a className="btn btn-warning" href={`/Profile/EdtI/${std._id}`} style={{ textDecoration: 'none', color: 'white' }}><AiOutlineEdit/>&nbsp;Edit</a> &nbsp;
-                                <a className="btn btn-danger" href="/Profile/Myinquriy" onClick={() => Delete(std._id)}><MdDelete/>&nbsp;Delete</a>
+                    <a className="btn btn-outline-warning" href={`/Profile/EdtI/${std._id}`} style={{ textDecoration: 'none', color: 'black' }}><AiOutlineEdit/>&nbsp;Edit</a> &nbsp;
+                                <a className="btn btn-outline-danger" href="/Profile/Myinquriy" style={{ textDecoration: 'none', color: 'black' }} onClick={() => Delete(std._id)}><MdDelete/>&nbsp;Delete</a>
                                 </div>
                                 </div>
                     </div>
