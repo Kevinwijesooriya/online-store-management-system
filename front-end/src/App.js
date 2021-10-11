@@ -27,8 +27,6 @@ import inquriyM from './components/inquriyM';
 import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
-import ConfirmOrder from "./components/ConfirmOrder";
-import OrderReport from './components/Reports/OrderReport';
 import StockApp from './components/StockApp';
 import DeliveryApp from './components/DeliveryApp';
 import AllDeliveryDetails from './components/AllDeliveryDetails';
@@ -53,6 +51,7 @@ import CustomerLogin from './components/CustomerLogin';
 import CusRegisterscreen from './components/CusRegisterscreen';
 import AdminMain from './components/ADminMainPage';
 import MyProfileApp from './components/MyProfileApp';
+
 
 
 
@@ -86,8 +85,8 @@ function App() {
         <Route path="/order/" exact component={OrderList} />
         <Route path="/order/update/:id" exact component={UpdateOrder} />
         <Route path="/order/add" exact component={PlaceOrder} />
-        <Route path="/order/confirmorder" exact component={ConfirmOrder} />
-        <Route path="/order/report"  exact component={OrderReport} />
+
+        
               
         {/* Salary Plan function */}
         <Route path="/salaryplan/add" exact component={AddSalaryPlan} />
