@@ -1,6 +1,10 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
 import {useDispatch, useSelector} from "react-redux";
+import {useEffect,useState} from "react"
+import axios from 'axios';
+import {logout} from "../../actions/adminaction";
+import {Link , useHistory} from 'react-router-dom';
 
 const UserDropdown = () => {
   // dropdown props
@@ -17,7 +21,29 @@ const UserDropdown = () => {
     setDropdownPopoverShow(false);
   };
 
-  const customerpic = useSelector((state) => state.cusLogin.userInfo.pic);
+
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+  const cusLogin= useSelector((state) => state.cusLogin);
+  const { userInfo } = cusLogin;
+
+  const logoutHandler = () => {
+   dispatch(logout());
+   history.push("/auth/login");    
+
+  };
+   
+  const adminid = useSelector((state) => state.cusLogin.userInfo._id);
+  const [salaryplan, updateSalaryplan] = useState([]);
+const loadsalaryplan = async () => {
+      const res = await axios.get
+          (`http://localhost:5000/admin/${adminid}`)
+      updateSalaryplan(res.data)
+  };
+  useEffect(() => {
+      loadsalaryplan();
+  }, []);
 
   return (
     <>
@@ -32,7 +58,7 @@ const UserDropdown = () => {
       >
         <div className="items-center flex">
           <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-          <img className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full" src={customerpic}></img>
+          <img className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full" src={salaryplan.pic}></img>
           </span>
         </div>
       </a>
@@ -44,22 +70,23 @@ const UserDropdown = () => {
         }
       >
         <a
-          href="#"
+          href="/admin/profile"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
           // onClick={(e) => e.preventDefault()}
         >
-          Action
+          {salaryplan.name}
         </a>
         <a
           href="#"
+          onClick = {logoutHandler}
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
     
         >
-          Another action
+          Logout
         </a>
 
 
