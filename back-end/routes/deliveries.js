@@ -6,6 +6,7 @@ router.route("/add").post((req,res)=>{
     const address = req.body.address;
     const street = req.body.street;
     const city = req.body.city;
+    const customerID = req.body.customerID;
     const postal_code = Number(req.body.postal_code);
     let date_ob = new Date();
 
@@ -14,6 +15,7 @@ router.route("/add").post((req,res)=>{
         address,
         street,
         city,
+        customerID,
         postal_code,
         date_ob
     })
@@ -39,7 +41,7 @@ router.route("/").get((req,res)=>{
 
 router.route("/update/:id").put(async (req,res) =>{
     let DeliveryUserId = req.params.id;
-    const {name, address, street, city, postal_code } = req.body;
+    const {name, address, street, city, customerID, postal_code } = req.body;
     let date_ob = new Date();
 
     const updateDeliveryDetails = {
@@ -47,6 +49,7 @@ router.route("/update/:id").put(async (req,res) =>{
         address,
         street,
         city,
+        customerID,
         postal_code,
         date_ob
     }
@@ -83,4 +86,27 @@ router.route("/get/:id").get(async (req, res) => {
         res.status(500).send({status: "Error with get user", error: err.message});
     })
 })
+
+router.route("/cgot/:customerID").get(async (req, res) => {
+
+    let customerID = req.params.customerID ;
+  
+    const user = await Delivery.find({customerID})
+  
+      .then((Delivery) => {
+  
+        // res.status(200).send({status: "User fetched", Delivery})
+  
+        res.json(Delivery)
+  
+      }).catch((err) => {
+  
+        console.log(err.message);
+  
+        res.status(500).send({status: "Error with get user", error: err.message});
+  
+    })
+  
+  })
+
 module.exports = router;

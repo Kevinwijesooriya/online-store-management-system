@@ -15,9 +15,9 @@ import CartApp from './components/CartApp';
 import {BrowserRouter as Router , Route}  from "react-router-dom"
 import EditNote from './components/EditNote';
 import CreateNote from './components/CreateNote';
-import CustomerList from './components/customerList';
-import AdminList from './components/adminList';
-import UpdateAdmin from './components/UpdateAdmin';
+// import CustomerList from './components/customerList';
+// import AdminList from './components/adminList';
+// import UpdateAdmin from './components/UpdateAdmin';
 import AdminReport from './components/Reports/AdminReport';
 import UserAdminHeader from './components/UserAdminHeader';
 import UserAdminMainjs from './UserAdminpage';
@@ -40,9 +40,9 @@ function loginANDregister() {
          <Route path="/noteList" exact component={NoteList}/>
         <Route path="/noteEdit/:id" exact component={EditNote}/>
         <Route path="/CreateNotes" exact component={CreateNote}/>
-        <Route path="/CustomerList" exact component={CustomerList}/>
+        {/* <Route path="/CustomerList" exact component={CustomerList}/>
         <Route path="/AdminList" exact component={AdminList}/>
-        <Route path="/UpdateAdmin/:id" exact component={UpdateAdmin}/>
+        <Route path="/UpdateAdmin/:id" exact component={UpdateAdmin}/> */}
         <Route path="/AdminReport" exact component={AdminReport}/> 
       
         
