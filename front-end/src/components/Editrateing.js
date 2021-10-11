@@ -43,7 +43,7 @@ export default function Editrateing(props) {
 
         axios.put(`http://localhost:5000/Feedback/update/${id}`, newrating).then(() => {
             alert("update your comment")
-            // history.push("/Rall");
+            history.push("/profile/comment");
         }).catch((err) => {
             alert(err)
         })

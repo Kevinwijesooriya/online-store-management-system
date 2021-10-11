@@ -100,10 +100,33 @@ const SubmiHandler = async (e) =>{
 
 return (  
   
+  <div className="bg-info"
+      style={{
+        height: "110%",
+        backgroundImage:
+          "url(https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg)",
+          backgroundsize: "cover",
+          margin: "0",
+          padding: "0",
+          fontfamily: "sans-serif",
+      
+      }}>
+
+      <div class="container"
+        style={{
+          width: "1000px",
+          position: "absolute",
+          top: "55%",
+          left: "35%",
+          transform: "translate(-50%,-50%)",
+          color: "white",
+        }}>
   
     
 <div className="login-box">
-<h2>Register Customer</h2><br></br>
+  <center>
+<h1>Customer Registration</h1>
+</center>
 
 
    
@@ -112,10 +135,23 @@ return (
       {loading && <Loading/>}
 
 <form onSubmit={SubmiHandler}>
-<label htmlFor="Name" className="form-label">Name</label>
-  <div className="textbox" >
   
+<br></br>
+  <div className="textbox" >
+  <h5 htmlFor="Name" className="form-label">Name</h5>
     <input type="text" className="form-control" id="name"  placeholder="Enter your name" required
+                        class="textbox"
+                        style={{
+                          border: "none",
+                          outline: "none",
+                          background: "none",
+                          color: "white",
+                          fontsize: "18px",
+                          width: "80%",
+                          float: "left",
+                          margin: "0 10px",
+                        }}
+    
     onChange = {(e)=>{
    
       setname(e.target.value);
@@ -125,11 +161,22 @@ return (
     <div id="invalidCheck3Feedback" className="invalid-feedback"> </div>
   </div>
   
+<br></br><br></br> 
 
-
-  <div className="textbox">
-    <label htmlFor="phone" className="form-label">Phone Number</label>
+  <div >
+    <h5 htmlFor="phone" className="form-label">Phone Number</h5>
     <input type="text" className="form-control" id="phone" placeholder="775477541" pattern="[0-9]{9}" required
+                        class="textbox"
+                        style={{
+                          border: "none",
+                          outline: "none",
+                          background: "none",
+                          color: "white",
+                          fontsize: "18px",
+                          width: "80%",
+                          float: "left",
+                          margin: "0 10px",
+                        }}
      onChange = {(e)=>{
    
       setPhone(e.target.value);
@@ -137,19 +184,22 @@ return (
     }
     } />
   </div>
+    
+<br></br> <br></br> 
 
-  <label htmlFor="phone" className="form-label">Gender</label>
+  <lable htmlFor="phone" className="form-label">Gender</lable>
   <div >
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value = " male" required
+  
        onChange = {(e)=>{
    
         setGender(e.target.value);
   
       }
       } />
-  <label class="form-check-label" for="flexRadioDefault1">
+  <lable class="form-check-label" for="flexRadioDefault1">
       Male
-  </label>
+  </lable>
 </div>
 <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value = "female"required
@@ -159,11 +209,12 @@ return (
   
       }
       } />
-  <label class="form-check-label" for="flexRadioDefault2">
+  <h5 class="form-check-label" for="flexRadioDefault2">
     Female
-  </label>
+  </h5>
 </div>
 
+    
 <br></br>
 
 {picMessage && (
@@ -171,6 +222,17 @@ return (
 )}
 <div className="textbox">
     <input type="file" class="custom-file-input" id="validatedCustomFile"
+                            class="textbox"
+                            style={{
+                              border: "none",
+                              outline: "none",
+                              background: "none",
+                              color: "white",
+                              fontsize: "18px",
+                              width: "80%",
+                              float: "left",
+                              margin: "0 10px",
+                            }}
           onChange = {(e)=>{
             
    
@@ -180,7 +242,6 @@ return (
          
     />
     <label class="custom-file-label" htmlFor="validatedCustomFile">Select your Image</label>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div>
 
 
@@ -190,36 +251,70 @@ return (
   
   <br></br><br></br><br></br>
 
-<h2> Enter your Credentials</h2><br></br>
+<h3> Enter your Credentials</h3>
+<br></br>
 
 <div >
   <div className="textbox">
-    <label htmlFor="email" className="form-label">User name</label>
+    <h5 htmlFor="email" className="form-label">User name</h5>
     <input type="email" className="form-control" id="email" autocomplete="off" placeholder="Enter your E-mail" required
-     onChange = {(e)=>{
+                        class="textbox"
+                        style={{
+                          border: "none",
+                          outline: "none",
+                          background: "none",
+                          color: "white",
+                          fontsize: "18px",
+                          width: "80%",
+                          float: "left",
+                          margin: "0 10px",
+                        }}
+onChange = {(e)=>{
    
       setmail(e.target.value);
 
     }
     } />
     </div>
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
+  <br></br> 
 
   <div className="textbox">
-    <label htmlFor="password" className="form-label">Password</label>
+    <h5 htmlFor="password" className="form-label">Password</h5>
     <input type="password" className="form-control" id="password"    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#+!%*?&])[A-Za-z\d@$#+!%*?&]{8,}$" placeholder="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character" required
-    onChange = {(e)=>{
+                           class="textbox"
+                           style={{
+                             border: "none",
+                             outline: "none",
+                             background: "none",
+                             color: "white",
+                             fontsize: "18px",
+                             width: "80%",
+                             float: "left",
+                             margin: "0 10px",
+                           }}
+   onChange = {(e)=>{
    
       setpassword(e.target.value);
    
     }
     } />
   </div>
-
+  <br></br> 
   <div className="textbox">
-    <label htmlFor="Repassword" className="form-label">confirm Password</label>
+    <h5 htmlFor="Repassword" className="form-label">confirm Password</h5>
     <input type="password" className="form-control" id="Repassword"  placeholder="Re enter your password"  required
+                            class="textbox"
+                            style={{
+                              border: "none",
+                              outline: "none",
+                              background: "none",
+                              color: "white",
+                              fontsize: "18px",
+                              width: "80%",
+                              float: "left",
+                              margin: "0 10px",
+                            }}
      onChange = {(e)=>{
    
       setrepassword(e.target.value);
@@ -231,7 +326,7 @@ return (
  
 
 
-
+  <br></br> 
   
   <div >
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="customer" required 
@@ -248,12 +343,25 @@ return (
 
 <center>
 
-<Button className="btn" type="submit">
+<Button className="btn" type="submit"
+                          style={{
+                            width: "100%",
+                            background: "none",
+                            border: "5px solid #055f02",
+                            color: "white",
+                            padding: "5px",
+                            fontsize: "18px",
+                            cursor: "pointer",
+                            margin: "12px 0",
+                     
+                          }}>
     Submit
   </Button>
 </center>
 
 </form>
+</div>
+</div>
 </div>
 
 

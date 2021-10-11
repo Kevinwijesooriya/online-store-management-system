@@ -74,7 +74,7 @@ function AdminMain() {
           </div>
         </a>
         <a
-          href="/admin/issuedcarts"
+          href="/admin/Issuedcarts"
         >
           <div className="bg-red-700 shadow-lg rounded-lg text-center p-8 mt-8">
           <i class="fas fa-shopping-cart shadow-md rounded-full max-w-full w-16 mx-auto p-5 bg-white"></i>

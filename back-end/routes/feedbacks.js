@@ -93,4 +93,18 @@ router.route("/got/:item_name").get(async (req, res) => {
       res.status(500).send({status: "Error with get user", error: err.message});
   })
 })
+
+router.route("/cgot/:custom_ID").get(async (req, res) => {
+  let custom_ID = req.params.custom_ID ;
+  const user = await Feedback.find({custom_ID})
+    .then((feedback) => {
+      // res.status(200).send({status: "User fetched", feedback})
+      res.json(feedback)
+    }).catch((err) => {
+      console.log(err.message);
+      res.status(500).send({status: "Error with get user", error: err.message});
+  })
+})
+
+
 module.exports = router;

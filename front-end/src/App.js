@@ -122,8 +122,7 @@ function App() {
     
         <Route path="/" exact component={CustomerLogin}/>
         <Route path="/CusRegister" exact component={CusRegisterscreen}/>
-        <Route path="/ProfileScreen" exact component={ProfileScreen}/>
-        <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
+        
         
       
         {/* <Route path="/" component={Footer} /> */}

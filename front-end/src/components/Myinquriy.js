@@ -1,15 +1,26 @@
 import React, { useStae, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { useSelector} from "react-redux";
+
+
+
+// ======== STYLING IMORTS ===========
 import "./OrderStyles.css";
+import { AiOutlineEdit} from "react-icons/ai";
+import { MdDelete} from "react-icons/md";
+import { grey } from "@material-ui/core/colors";
+
+
+
 export default function Myinquriy() {
     const [searchTerm, setSearchTerm] = useState('');
     const [inquiry, setinquiry] = useState([]);
-
+    const customerID = useSelector((state) => state.cusLogin.userInfo._id);
     useEffect(() => {
 
         function getinquiry() {
-            axios.get(`http://localhost:5000/inquiry/`).then((res) => {
+            axios.get(`http://localhost:5000/inquiry/cgot/${customerID}`).then((res) => {
                 console.log(res);
                 setinquiry(res.data);
             }).catch((err) => {
@@ -39,9 +50,9 @@ export default function Myinquriy() {
 
     return (
 
-        <div >
+        <div className="oneDetail" >
             <h1>your inquiris</h1>
-            <nav class="navbar navbar-light bg-light">
+            <nav className="p-3 mb-2 bg-transparent text-dark">
                 <div class="container-fluid">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
@@ -117,8 +128,8 @@ export default function Myinquriy() {
                      <div class="col"></div>
                      <div class="col">
                          <br/>
-                    <a className="btn btn-warning" href={`/myProfile/EdtI/${std._id}`} style={{ textDecoration: 'none', color: 'white' }}>edit</a> &nbsp;
-                                <a className="btn btn-danger" href="/myProfile/Myinquriy" onClick={() => Delete(std._id)}>delete</a>
+                    <a className="btn btn-warning" href={`/Profile/EdtI/${std._id}`} style={{ textDecoration: 'none', color: 'white' }}><AiOutlineEdit/>&nbsp;Edit</a> &nbsp;
+                                <a className="btn btn-danger" href="/Profile/Myinquriy" onClick={() => Delete(std._id)}><MdDelete/>&nbsp;Delete</a>
                                 </div>
                                 </div>
                     </div>

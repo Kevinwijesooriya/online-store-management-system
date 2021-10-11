@@ -18,6 +18,11 @@ import CartApp from './CartApp';
 import Myrating from './Myrating';
 import OrderList from './OrderList';
 import Footer from './Footer';
+import ProfileScreen from './MyprofilePage';
+import UpdateProfile from './UpdateProfile';
+import Myinquriy from './Myinquriy';
+import Editrateing from './Editrateing';
+import Editinquiry from './Editinquiry';
 
 
 function MyProfileApp() {
@@ -34,10 +39,15 @@ function MyProfileApp() {
             <Sidebar/>
             <main>
                 <Switch>                
-                <Route path="/profile" exact component={AllDeliveryDetails} />
+                <Route path="/profile" exact component={ProfileScreen} />
                 <Route path="/profile/delivery" exact component={AllDeliveryDetails} />
                 <Route path="/profile/comment" exact component={Myrating} />
                 <Route path="/profile/orderlist" exact component={OrderList} />
+                {/* <Route path="/ProfileScreen" exact component={}/> */}
+        <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
+                <Route path="/profile/Myinquriy" exact component={Myinquriy} />
+                <Route path="/Profile/Myrating/:id" component={Editrateing}/> 
+                <Route path="/Profile/EdtI/:id" component={Editinquiry}/> 
             {/* <Route path="/admin/Adminlogin" exact component={AdminLogin} />
             <Route path="/admin/AdminMain" exact component={AdminMain} /> */}
                 </Switch>                

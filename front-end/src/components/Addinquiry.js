@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
+import { useHistory, useParams } from 'react-router-dom';
 
 export default function Addinquiry() {
 
@@ -18,6 +18,7 @@ export default function Addinquiry() {
     const [billnumber, set_billnumber] = useState("");
     const [type_of_inquiry, set_type_of_inquiry] = useState("");
     const [inquriy_description, set_inquriy_description] = useState("");
+    let history = useHistory();
     const customerID = useSelector((state) => state.cusLogin.userInfo._id);
 
     console.log(customerID);
@@ -43,11 +44,11 @@ export default function Addinquiry() {
         }
 
         console.log(newinquiry);
-        alert("insert inquiry")
+        // alert("insert inquiry")
 
         axios.post("http://localhost:5000/inquiry/add", newinquiry).then(() => {
             alert("insert inquiry")
-
+            history.push("/profile");
         }).catch((err) => {
             alert(err)
         })
