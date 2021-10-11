@@ -88,22 +88,55 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/auth/login"
-                >
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Login
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                   to="/auth/register"
                 >
                   <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>{" "}
                   Register
                 </Link>
               </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/noteList") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/admin/noteList"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/noteList") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Notes
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/Report") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/admin/Report"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/Report") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Report
+                </Link>
+              </li>
+              
             </ul>
             
             {/* Divider */}
@@ -294,16 +327,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/courierreport") !== -1
+                    (window.location.href.indexOf("/admin/courieReport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/financialreport"
+                  to="/admin/courieReport"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/financialreport") !== -1
+                      (window.location.href.indexOf("/admin/courieReport") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -325,16 +358,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/issuedcarts") !== -1
+                    (window.location.href.indexOf("/admin/Issuedcarts") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cart/issuedcarts"
+                  to="/admin/Issuedcarts"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/issuedcarts") !== -1
+                      (window.location.href.indexOf("/admin/Issuedcarts") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -347,7 +380,7 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/cart/issuedcartsreport") !== -1
+                    (window.location.href.indexOf("/admin/issuedcartsreport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -378,16 +411,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/inquiries/") !== -1
+                    (window.location.href.indexOf("/admin/allinquiry") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/inquiries/"
+                  to="/admin/allinquiry"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/inquiries/") !== -1
+                      (window.location.href.indexOf("/admin/allinquiry") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -400,16 +433,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/inquiries/inquiriesreport") !== -1
+                    (window.location.href.indexOf("/admin/inquiryreport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cartreport"
+                  to="/admin/inquiryreport"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/cartreport") !== -1
+                      (window.location.href.indexOf("/admin/inquiryreport") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -431,16 +464,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/product/") !== -1
+                    (window.location.href.indexOf("/admin/mainitem") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/product/"
+                  to="/admin/mainitem"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/product/") !== -1
+                      (window.location.href.indexOf("/admin/mainitem") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -453,16 +486,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/product/productreport") !== -1
+                    (window.location.href.indexOf("/admin/itemreport") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/cartreport"
+                  to="/admin/itemreport"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/productreport") !== -1
+                      (window.location.href.indexOf("/admin/itemreport") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -538,16 +571,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/adminfeedbackk/") !== -1
+                    (window.location.href.indexOf("/admin/adminfeedback") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/adminfeedbackk/"
+                  to="/admin/adminfeedback"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/adminfeedbackk/") !== -1
+                      (window.location.href.indexOf("/admin/adminfeedback") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }

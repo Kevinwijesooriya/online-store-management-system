@@ -86,13 +86,22 @@ const alladmin = asyncHandler( async (req ,res )=> {
 });
 
 
-const oneAdmin = asyncHandler( async (req ,res )=> {
+const oneAdmin = asyncHandler( async (req ,res)=> {
 
-    adUser.findById(req.params.id)
-    .then(adUser => res.json(adUser))
-    .catch(err => res.status(400).json('Error: ' + err));
+    // adUser.findById(req.params.id)
+    // .then(adUser => res.json(adUser))
+    // .catch(err => res.status(400).json('Error: ' + err));
 
- 
+    const ad = await adUser.findById(req.params.id);
+
+    if(ad){
+
+        res.json(ad);
+
+    }else{
+        res.status(404).json({message:"admin note found"});
+    }
+
 });
 
 

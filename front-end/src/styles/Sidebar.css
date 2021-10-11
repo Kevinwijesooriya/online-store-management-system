@@ -8,23 +8,23 @@ body {
     padding: 0;
 }
 .App .content {
-    width: 100%;
-    height: 100vh;
+    width: auto;
+    height: auto;
     display: flex;
     /* background-color:blue; */
 }
 
-.Sidebar {
+.App .content .Sidebar {
     float: right;
     height: 100%;
     width: 250px;    
-    background-color: darkslategray;
+    background-color: #333;
     /* flex-direction: column; */
 }
 .Sidebar h3 {
     height: 10%;
     text-align: center;   
-    background-color:darkcyan;
+    background-color:rgb(87, 87, 87);
 }
 
 .Navbar {
@@ -34,13 +34,13 @@ body {
 }
 
 .SidebarList {
-    height: 250px;
+    height: 600px;
     width: 100%;
     padding: 0;  
     vertical-align: middle;  
 }
 .SidebarList #active {
-    background-color: rgb(32, 51, 51);
+    background-color: rgb(50, 53, 53);
     color:rgb(255, 255, 255);
 }
 
@@ -58,7 +58,7 @@ body {
 }
 .SidebarList .row:hover {
    cursor: pointer;
-   background-color: rgb(32, 51, 51);
+   background-color: rgb(0, 0, 0);
    color:rgb(255, 255, 255);
 }
 
