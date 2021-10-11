@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { PDFViewer } from '@react-pdf/renderer';
 
 // components
 
@@ -17,11 +16,15 @@ import AddBudget from "components/AddBudget";
 import AllBudget from "components/AllBudget";
 import UpdateBudget from "components/UpdateBudget";
 
-import ViewSalaryPlanReport from "components/Reports/ViewSalaryPlanReport";
+import Additem from "components/Additem";
+import Mainitem from "components/Mainitem";
+import updateitem from "components/updateitem";
+import deleteitem from "components/deleteitem";
+import Itemreport from "components/Reports/Itemreport";
+import Itemreportpre from "components/Itemreportpre";
 
 // views
 
-import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
@@ -41,6 +44,8 @@ import CartReport from "components/Reports/CartReport";
 import Addadminfeedback from "components/AddAdminfeedback";
 import AllAdminfeedback from "components/AllAdminfeedback";
 import UpdateAdminfeedback from "components/UpdateAdminfeedback";
+import Allinquiry from "components/Allinquiry";
+import Inquiryreport from "components/Reports/Inquiryreport";
 
 
 export default function Admin() {
@@ -92,6 +97,8 @@ export default function Admin() {
             {/* ================= D E L I V E R Y == M A N A G E M E N T ==========================================*/}
 
             {/* ================= I N Q U I R Y == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/allinquiry" exact component={Allinquiry} ></Route>
+            <Route path="/admin/inquiryreport" exact component={Inquiryreport} ></Route>
 
             {/* ================= F E E D B A C K == M A N A G E M E N T ==========================================*/}
 
@@ -114,9 +121,21 @@ export default function Admin() {
             <Route path="/admin/Cuslogin" exact component={CustomerLogin} />
             <Route path="/admin/CusRegister" exact component={CusRegisterscreen} />
 
-            <Redirect from="/admin" to="/admin/dashboard" />
+            
 
             {/* ================= P R O D U C T == M A N A G E M E N T ============================================*/}
+            <Route path="/admin/additem" exact component={Additem} />
+            <Route path="/admin/mainitem" exact component={Mainitem} />
+            <Route path="/admin/updateitem/:id" exact component={updateitem} />
+            <Route path="/admin/deleteitem" exact component={deleteitem} />
+            <Route path="/admin/itemreport" exact component={Itemreport} />
+            <Route path="/admin/itemreportpre" exact component={Itemreportpre} />
+
+
+            {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
+
+
+            <Redirect from="/admin" to="/admin/dashboard" />
 
           </Switch>
           <FooterAdmin />

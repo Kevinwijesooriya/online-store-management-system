@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-
+import Product from "../components/itemnav";
 
 import { Link } from "react-router-dom";
 
@@ -17,7 +17,8 @@ function DisplayItems(){
         itemcolor: '',
         itemprice: '',
         itemqty: '',
-        itemdescription: ''
+        itemdescription: '',
+        date_ob: ''
 
     }]);
     const location = useLocation();
@@ -44,6 +45,7 @@ function DisplayItems(){
     return(
         <div>
 
+        <div><Product/></div>
 
         <div class="container-fluid">
     

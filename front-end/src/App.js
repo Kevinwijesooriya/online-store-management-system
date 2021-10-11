@@ -5,7 +5,7 @@ import LoginANDregister from './loginANDregisterApp';
 
 
 
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,12 +28,15 @@ import OrderList from "./components/OrderList";
 import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import ConfirmOrder from "./components/ConfirmOrder";
-import OrderReport from './components/OrderReport';
+import OrderReport from './components/Reports/OrderReport';
 import StockApp from './components/StockApp';
 import DeliveryApp from './components/DeliveryApp';
 import AllDeliveryDetails from './components/AllDeliveryDetails';
 import myProfile from "./components/myProfile";
 import Editinquiry from './components/Editinquiry';
+import AdminReport from './components/Reports/AdminReport';
+import ProfileScreen from './components/MyprofilePage';
+import UpdateProfile from './components/UpdateProfile';
 import AllAdminfeedback from './components/AllAdminfeedback';
 import Addadminfeedback from './components/AddAdminfeedback';
 import UpdateAdminfeedback from './components/UpdateAdminfeedback';
@@ -42,6 +45,14 @@ import updateitem from"./components/updateitem";
 import deleteitem from"./components/deleteitem";
 import itemnav from './components/itemnav';
 import Mainitem from './components/Mainitem';
+import Itemreportpre from './components/Itemreportpre';
+import Itemreport from './components/Reports/Itemreport';
+import Initial from './components/initial';
+import AdminLogin from './components/AdminLogin';
+import CustomerLogin from './components/CustomerLogin';
+import CusRegisterscreen from './components/CusRegisterscreen';
+import AdminMain from './components/ADminMainPage';
+import MyProfileApp from './components/MyProfileApp';
 
 
 
@@ -52,10 +63,12 @@ function App() {
     <Router>
       <div className="App">
 
-      <LoginANDregister/>
+ 
+    
 
         {/* <Route path="/salaryplan" exact component={SalaryPlanApp} /> */}
-        <Route path="/cart" component={CartApp} />
+        <Route path="/cart" component={CartApp} />        
+        <Route path="/profile" component={MyProfileApp} />        
         <Route path="/cartadmin" component={CartAdminApp} />
         
         <Route path="/AdminHome" component={AdminHome} />
@@ -91,8 +104,10 @@ function App() {
         <Route path="/product/" exact component={itemnav} />
         <Route path="/productadd" exact component={Additem} />
         <Route path="/productdelete" exact component={deleteitem} />
-        <Route path="/product" exact component={Mainitem} />
+        <Route path="/productupdate" exact component={Mainitem} />
         <Route path="/update/:id" exact component={updateitem} />
+        <Route path="/itemreport" exact component={Itemreport} />
+        <Route path="/itemreportpre" exact component={Itemreportpre} />
 
         {/* inquriy and feedback routes */}
         <Route path="/Addinquiry" component={Addinquiry} />
@@ -101,7 +116,17 @@ function App() {
         <Route path="/myProfile" component={myProfile}/>
         {/* <Route path="/myProfile/Myinquriy/:id" component={Editinquiry}/>  */}
         {/* appiction footer */}
-        <Route path="/" component={Footer} />
+
+        
+  
+    
+        <Route path="/" exact component={CustomerLogin}/>
+        <Route path="/CusRegister" exact component={CusRegisterscreen}/>
+        <Route path="/ProfileScreen" exact component={ProfileScreen}/>
+        <Route path="/UpdateProfile/:id" exact component={UpdateProfile}/>
+        
+      
+        {/* <Route path="/" component={Footer} /> */}
       </div>
     </Router>
 

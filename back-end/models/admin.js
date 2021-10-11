@@ -36,7 +36,7 @@ const adminSchema = new Schema({
     },
     pic:{
         type : String,
-        required : true,
+    
         default :
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuDoisN_XW3IVsEn4qXXTiqfTFBCCQOWqDFg&usqp=CAU",
     },

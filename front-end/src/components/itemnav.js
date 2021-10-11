@@ -23,10 +23,13 @@ function DisplayItems(){
         <a class="nav-link" href="/productadd">Add Item <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/product">Update Item</a>
+        <a class="nav-link" href="/productupdate">Update Item</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/productdelete">Delete Item</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/itemreport">New Item Report</a>
       </li>
      
       
