@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function AvailableStock() {
   const[product, setProduct] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     function getProduct() {
@@ -16,9 +17,23 @@ function AvailableStock() {
     getProduct();
   },[]);
 
+  const filteredCountrise = product.filter(std => {
+    return (std.product_name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+        std.model_number.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+
+})
+
   return(
     <div className="container">&nbsp;
       <h2 align="center">Available Stock</h2>&nbsp;
+      <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+              <form class="d-flex">
+                  <input class="form-control me-2"  type="search" placeholder="Search" aria-label="Search"
+                      onChange={e => setSearchTerm(e.target.value)} />
+              </form>
+          </div>
+      </nav>
       <table class="table table-bordered table-striped text-center">
         <thead class="thead-dark">
         <tr>
@@ -29,7 +44,7 @@ function AvailableStock() {
         </tr>
       </thead>
       <tbody>
-          {product.map((product, index) => (
+          {filteredCountrise.map((product, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>{product.product_name}</td>
