@@ -10,7 +10,7 @@ export default class ToConfirmOrder extends Component {
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
     this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
-    this.onChangeOrderStatus = this.onChangeOrderStatus.bind(this);
+    //this.onChangeOrderStatus = this.onChangeOrderStatus.bind(this);
     this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -19,7 +19,7 @@ export default class ToConfirmOrder extends Component {
       itemName:'',
       itemImage : '',
       orderDate :'',
-      orderStatus : 'Confirmed', 
+      orderStatus : '', 
       address:'',
     }
   }
@@ -64,12 +64,6 @@ export default class ToConfirmOrder extends Component {
     })
   }
 
-  onChangeOrderStatus(e) {
-    this.setState({
-      orderStatus: e.target.value
-    })
-  }
-
   onSubmit(e) {
     e.preventDefault();
 
@@ -78,14 +72,14 @@ export default class ToConfirmOrder extends Component {
       //itemImage: this.state.itemImage,
       //orderDate: this.state.orderDate,
       //address: this.state.address,
-      orderStatus : this.state.orderStatus
+      orderStatus : "Confirmed"
     }
 
     console.log(order);
 
     axios.post('http://localhost:5000/order/admin/confirm/'+ this.props.match.params.id, order)
       .then(res => console.log(res.data));
-      alert("Oreder Confirmed Successfully!")
+      alert("Order Confirmed Successfully!")
     window.location = '/admin/confirmedOrder';
   }
 

@@ -138,12 +138,6 @@ export default function Admin() {
             <Route path="/admin/itemreportpre" exact component={Itemreportpre} />
 
 
-            {/* ================= O R D E R == M A N A G E M E N T ================================================*/}
-
-
-            <Redirect from="/admin" to="/admin/dashboard" />
-
-
             {/* ================= O R D E R == M A N A G E M E N T ============================================*/}
             <Route path="/admin/OrderReport" exact component={OrderReport} />
             <Route path="/admin/confirm/:id" exact component={ToConfirmOrder} />
