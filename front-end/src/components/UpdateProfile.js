@@ -238,7 +238,7 @@ export default class UpdateProfile extends Component {
 
 
             <center className="form-group">
-              <input type="submit" value="Edit admin" className="btn btn-primary" />
+              <input type="submit" value="Submit" className="btn btn-primary" />
             </center>
           </form>
         </div></div></div>

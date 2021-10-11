@@ -337,7 +337,7 @@ onChange = {(e)=>{
      
       }
       } />
-  <label class="form-check-label" forhtml="inlineRadio1">costomer</label>
+  <label class="form-check-label" forhtml="inlineRadio1">customer</label>
 </div>
 
 
