@@ -12,7 +12,8 @@ export default function PlaceOrder() {
   let history = useHistory();
   
   const cart = useSelector((state) => state.cart);
-  const customerID = useSelector((state) => state.cusLogin.userInfo.name);
+  const customerID = useSelector((state) => state.cusLogin.userInfo._id);
+  const customerName = useSelector((state) => state.cusLogin.userInfo.name);
   const key = useSelector(state => state.cart.cartItems.map(ele => ele.name))
   const { cartItems } = cart;
   const itemName = useSelector(state => state.cart.cartItems[0].name);
@@ -46,7 +47,8 @@ export default function PlaceOrder() {
     e.preventDefault();
     setOrderStatus("Not Confirmed");
     const order = {
-      userName : customerID,
+      userID : customerID,
+      userName : customerName ,
       bankName,
       amount :amount,
       phone,
@@ -64,7 +66,7 @@ export default function PlaceOrder() {
     axios.post('http://localhost:5000/order/add', order)
       .then(()=>{
         alert("Successfully Placed the order!")
-        window.location = '/order/';
+        window.location = '/profile/orderlist';
         })
       .catch(err => { alert(err) });
       }
@@ -75,7 +77,7 @@ export default function PlaceOrder() {
 
 
   useEffect(() => {
-      axios.get('http://localhost:5000/delivery/')
+      axios.get(`http://localhost:5000/delivery/`)//cgot/${customerID}
         .then(response => {
           if (response.data.length > 0) {
             setDeliveries(response.data.map(delivery => delivery.address))
@@ -252,6 +254,7 @@ export default function PlaceOrder() {
                 </select>
               </div>
           <br />
+
           <div className="form-group"><center>
             <input type="submit" value="Place Order" className="btn btn-primary" /></center>
           </div>

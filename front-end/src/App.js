@@ -25,7 +25,6 @@ import Addinquiry from './components/Addinquiry';
 import Rating from './components/Rating';
 import inquriyM from './components/inquriyM';
 import OrderList from "./components/OrderList";
-import UpdateOrder from "./components/UpdateOrder";
 import PlaceOrder from "./components/PlaceOrder";
 import StockApp from './components/StockApp';
 import DeliveryApp from './components/DeliveryApp';
@@ -51,6 +50,7 @@ import CustomerLogin from './components/CustomerLogin';
 import CusRegisterscreen from './components/CusRegisterscreen';
 import AdminMain from './components/ADminMainPage';
 import MyProfileApp from './components/MyProfileApp';
+import UpdateOrder from './components/UpdateOrder';
 
 
 
