@@ -286,7 +286,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="product" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="product_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }
@@ -304,7 +304,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="finacial" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="finacial_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }
@@ -322,7 +322,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="store" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="store_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }
@@ -340,7 +340,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="inquiry" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="inquiry_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }
@@ -358,7 +358,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="user" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="user_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }
@@ -376,7 +376,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="delivery" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="delivery_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }
@@ -394,7 +394,7 @@ export default function () {
 
                     <div className="flex flex-wrap">
                       <div class="relativew-full px-4 md:w-2/12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="order" required
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="order_manager" required
                           onChange={(e) => {
                             setLogin(e.target.value);
                           }

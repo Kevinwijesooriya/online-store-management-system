@@ -51,6 +51,13 @@ import AllAdminfeedback from "components/AllAdminfeedback";
 import UpdateAdminfeedback from "components/UpdateAdminfeedback";
 import Allinquiry from "components/Allinquiry";
 import Inquiryreport from "components/Reports/Inquiryreport";
+import MyprofilePage from "components/MyprofilePage";
+import UpdateProfile from "components/UpdateProfile";
+import AddProduct from "components/AddProduct";
+import AllProducts from "components/AllProducts";
+import AvailableStock from "components/AvailableStock";
+import EditProducts from "components/EditProducts";
+import StockReport from "components/Reports/StockReport";
 
 
 export default function Admin() {
@@ -98,6 +105,12 @@ export default function Admin() {
             {/* <Redirect from="/admin/issuedcarts" to="/admin/issuedcarts/" /> */}
 
             {/* ================= S T O C K == M A N A G E M E N T ================================================*/}
+            <Route path="/admin/stock/add" exact component={AddProduct} />
+            <Route path="/admin/stock" exact component={AllProducts} />
+            <Route path="/admin/availablestock" exact component={AvailableStock} />
+            <Route path="/admin/stock/stock" exact component={AllProducts} />
+            <Route path="/admin/stock/update/:id" exact component={EditProducts} />
+            <Route path="/admin/reportstock" exact component={StockReport} />
 
             {/* ================= D E L I V E R Y == M A N A G E M E N T ==========================================*/}
 
@@ -144,8 +157,14 @@ export default function Admin() {
             <Route path="/admin/order" exact component={AdminOrderList} />
             <Route path="/admin/confirmedOrder" exact component={ConfirmedOrderList} />
             <Route path="/admin/unconfirmedOrder" exact component={UnconfirmedOrderList} />
-            <Redirect from="/admin" to="/admin/dashboard" />
 
+             {/* =================  P R O F I L E == M A N A G E M E N T ================================================*/}
+             <Route path="/admin/profile" exact component={MyprofilePage} />
+             <Route path="/admin/profile/update/:id" exact component={UpdateProfile} />
+
+
+
+             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
           <FooterAdmin />
         </div>
