@@ -121,7 +121,7 @@ import  { Component } from 'react';
       
           
       
-          window.location = '/ProfileScreen';
+          window.location = '/profile';
         }
       
         

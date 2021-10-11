@@ -49,6 +49,8 @@ export default function (){
   function Delete(id) {
     axios.delete(`http://localhost:5000/customer/${id}`).then((res) => {
         alert("customer Details Delete SuccessFully")  
+
+
     }).catch(err => { alert(err) });
 }
 
@@ -120,7 +122,7 @@ return (
           
 
                   <Link className="btn btn-success" to={"/UpdateProfile/" + customerid}>Edit</Link> &nbsp;
-                  <a href="/" className="btn btn-danger" onClick={() => Delete(customerid)} >
+                  <a href="/CusRegister" className="btn btn-danger" onClick={() => Delete(customerid)} >
                                         <MdDelete />Delete
                                     </a>
 
