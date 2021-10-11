@@ -16,7 +16,7 @@ function Footer() {
                     <div class="row">
 
                         <div class="col-md-4 pt-5">
-                            <h2 style={{ color: '#dd219e' }}>V-tech</h2>
+                            <h2 style={{ color: 'darkmagenta' }}>V-TECH</h2>
                             <ul class="list-unstyled text-light footer-link-list">
                                 <li>
                                     <i class="fas fa-map-marker-alt fa-fw"></i>

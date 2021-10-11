@@ -51,7 +51,7 @@ function AdminMain() {
           </div>
         </a>
         <a
-          href="#"
+          href="/admin/adminfeedback"
 
         >
           <div className="bg-teal-500 shadow-lg rounded-lg text-center p-8 mt-8">

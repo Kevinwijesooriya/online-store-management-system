@@ -23,6 +23,7 @@ function AllCart() {
     function onDelete(id) {
         axios.delete(`http://localhost:5000/cart/delete/${id}`).then((res) => {
             alert("Cart Details Deleted SuccessFully")
+            window.location.reload(false);
         }).catch(err => { alert(err) });
     }
 
