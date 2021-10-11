@@ -22,7 +22,8 @@ const DeliveryReport = () => {
 
             <DeliveryReportClass ref={componentRef} />
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button className="btn btn-secondary btn-sm" onClick={handlePrint}>Print this out!</button>
+            <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                 onClick={handlePrint}>Create Delivery Report</button>
 
         </div>
 

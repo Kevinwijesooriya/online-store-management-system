@@ -9,6 +9,7 @@ export default function Rating() {
     const [customName, setCustomName] = useState("");
     const [item_name, set_item_name] = useState("");
     const [itemcode, set_itemcode] = useState("");
+    const [itemimg, set_itemimg] = useState("");
     const [rate, set_rate] = useState("");
     const [comment, set_comment] = useState("");
     let history = useHistory();
@@ -17,7 +18,7 @@ export default function Rating() {
         itemname: ""
        
     });
-   const { itemname
+   const { itemname,itemimage
          } = item;
    const customerID = useSelector((state) => state.cusLogin.userInfo._id);
    const customername = useSelector((state) => state.cusLogin.userInfo.name);
@@ -36,6 +37,7 @@ export default function Rating() {
             custom_ID:customerID ,
             item_name: `${item.itemname}`,
             itemcode: `${id}`,
+            itemimg:`${item.itemimage}`,
             custom_name:customername,
             rate,
             comment,

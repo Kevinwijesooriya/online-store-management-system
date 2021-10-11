@@ -51,7 +51,7 @@ function AdminMain() {
           </div>
         </a>
         <a
-          href="#"
+          href="/admin/adminfeedback"
 
         >
           <div className="bg-teal-500 shadow-lg rounded-lg text-center p-8 mt-8">
@@ -84,7 +84,7 @@ function AdminMain() {
           </div>
         </a>
         <a
-          href="#"
+          href="/admin/order"
         >
           <div className="bg-emerald-500 shadow-lg rounded-lg text-center p-8 mt-8">
           <i class="fas fa-hand-holding-usd shadow-md rounded-full max-w-full w-16 mx-auto p-5 bg-white"></i>
@@ -94,7 +94,7 @@ function AdminMain() {
           </div>
         </a>
         <a
-          href="#"
+          href="/admin/courier"
         >
           <div className="bg-red-600 shadow-lg rounded-lg text-center p-8 mt-8">
           <i class="fas fa-truck shadow-md rounded-full max-w-full w-16 mx-auto p-5 bg-white"></i>
