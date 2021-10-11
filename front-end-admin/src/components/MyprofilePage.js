@@ -156,7 +156,7 @@ return (
                   {salaryplan.email}
                 </div>
                 <div className="mb-2 text-blueGray-600">
-                  <i className="fas fa-venus-double mr-2 text-lg text-blueGray-400"></i>
+                  <i className="fas fa-user mr-2 text-lg text-blueGray-400"></i> 
                   {salaryplan.gender}
                 </div>
               </div>
