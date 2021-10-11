@@ -1,4 +1,4 @@
-import AllProducts from "../AllProducts";
+import PrintAllReport from "../PrintAllProducts";
 
 import React from "react";
 
@@ -12,7 +12,7 @@ export class StockReportClass extends React.PureComponent {
 
       <div>
 
-        <AllProducts />
+        <PrintAllReport/>
 
       </div>
 

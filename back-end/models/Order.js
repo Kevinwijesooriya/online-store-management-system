@@ -23,6 +23,21 @@ const orderSchema = new Schema ({
         type : Date ,
         default : Date.now 
     },
+
+    itemImage : {
+        type : String ,
+        required : true 
+    },
+    
+    receiptNumber : {
+        type : String ,
+        required : true
+    },
+
+    email :{
+        type : String ,
+        required : true
+    },
     
     phone :{
         type :String ,
