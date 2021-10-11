@@ -70,17 +70,16 @@ export default class OrderList extends Component {
       <div><br/><br/>
         <div className="container">
           <div className="row">
-            <div className="col-lg-9 mt-2 mb-2">
-              <h3>My Orders</h3>
-            </div>
-            <div className="col-lg-3 mt-2 mb-2">
+            <div className="oneDetail">
+           <center> <h3>My Orders</h3> </center>
+            <div className="col-lg-3 mt-2 mb-2"> <form class="d-flex">
               <input
               className="form-control"
               type="search"
               placeholder="Search Orders"
               name="searchQuery"
               onChange={this.handleSearchArea}>
-              </input>
+              </input></form></div>
             </div>
           </div>
         </div>

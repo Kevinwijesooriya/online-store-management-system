@@ -51,7 +51,7 @@ export default function Myinquriy() {
     return (
 
         <div className="oneDetail" >
-            <h1>your inquiris</h1>
+            <h1>Your Inquiries</h1>
             <nav className="p-3 mb-2 bg-transparent text-dark">
                 <div class="container-fluid">
                     <form class="d-flex">
