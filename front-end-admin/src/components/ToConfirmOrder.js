@@ -9,7 +9,7 @@ export default class ToConfirmOrder extends Component {
 
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
-    this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
+    //this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
     //this.onChangeOrderStatus = this.onChangeOrderStatus.bind(this);
     this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -30,7 +30,7 @@ export default class ToConfirmOrder extends Component {
         this.setState({
           itemName: response.data.itemName,
           itemImage: response.data.itemImage,
-          orderData: response.data.orderDate,
+          orderDate: response.data.orderDate,
           orderStatus: response.data.orderStatus,
           address: response.data.address
         })   
@@ -90,7 +90,7 @@ export default class ToConfirmOrder extends Component {
       <div class="container" >
           <div className="oneDetail">
                 Order #{this.props.match.params.id}<br/>
-                Placed on 
+                Placed on {this.state.orderDate.substring(0,10)}
               <hr/><br/>
               <div class="row">
                 <div class="col">

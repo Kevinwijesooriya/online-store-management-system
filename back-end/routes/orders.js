@@ -3,6 +3,7 @@ let Order = require('../models/Order');
 
 
 router.route('/add').post((req, res) => {
+  const userID = req.body.userID;
   const userName = req.body.userName;
   const bankName = req.body.bankName;
   const amount = Number(req.body.amount);
@@ -18,7 +19,8 @@ router.route('/add').post((req, res) => {
   const orderStatus = req.body.orderStatus;
 
   const newOrder = new Order({
-    userName ,
+    userID ,
+    userName,
     bankName ,
     amount,
     phone,
@@ -99,9 +101,9 @@ router.route('/update/:id').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route("/user/:userName").get(async (req, res) => {
-  let userName= req.params.userName;
-  const user = await Order.find({userName})
+router.route("/user/:userID").get(async (req, res) => {
+  let userID= req.params.userID;
+  const user = await Order.find({userID})
     .then((order) => {
       // res.status(200).send({status: "Order fetched", order})
       res.json(order)

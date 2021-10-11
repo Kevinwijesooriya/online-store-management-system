@@ -8,7 +8,7 @@ export default class UpdateOrder extends Component {
 
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
-    this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
+    //this.onChangeOrderDate = this.onChangeOrderDate.bind(this);
     this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -28,7 +28,7 @@ export default class UpdateOrder extends Component {
         this.setState({
           itemName: response.data.itemName,
           itemImage: response.data.itemImage,
-          orderData: response.data.orderDate,
+          orderDate: response.data.orderDate,
           address: response.data.address
         })   
       })
@@ -50,11 +50,18 @@ export default class UpdateOrder extends Component {
 
   }
 
-  onChangeOrderDate(e) {
+  // onChangeOrderDate(Date) {
+  //   this.setState({
+  //     orderDate: this.state.orderDate
+  //   })
+  // }
+
+  onChangeItemName(e) {
     this.setState({
-      orderDate: e.target.value
+      itemName: e.target.value
     })
   }
+  
 
   onChangeItemName(e) {
     this.setState({
@@ -78,9 +85,9 @@ export default class UpdateOrder extends Component {
     e.preventDefault();
 
     const order = {
-      itemName: this.state.itemName,
-      itemImage: this.state.itemImage,
-      orderDate: this.state.orderDate,
+      // itemName: this.state.itemName,
+      // itemImage: this.state.itemImage,
+      // orderDate: this.state.orderDate,
       address: this.state.address
     }
 
@@ -89,17 +96,17 @@ export default class UpdateOrder extends Component {
     axios.post('http://localhost:5000/order/update/' + this.props.match.params.id, order)
       .then(res => console.log(res.data));
       alert("Successfully Updated!")
-    window.location = '/order/';
+    window.location = '/profile/orderlist';
   }
 
   render() {
     return (
-    <div>
-      <h3>Update Order Details</h3><br/>
+    <div><br/><br/>
+      <center><h3>      Update Order Details</h3></center><br/>
       <div class="container" >
-          <div className="oneDetail">
+          <div className="oneDetail" style={{fontSize:'1.0rem'}}>
                 Order #{this.props.match.params.id}<br/>
-                Placed on 
+                Placed on {this.state.orderDate.substring(0,10)}
               <hr/><br/>
               <div class="row">
                 <div class="col">
