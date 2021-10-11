@@ -71,7 +71,7 @@ export default function Editrateing(props) {
     return (
 
         <div className="container">
-            <div>
+            <div><div>{feedback.item_name}</div>
             <form onSubmit={sendData}>
 
                 <div className="mb-3">
