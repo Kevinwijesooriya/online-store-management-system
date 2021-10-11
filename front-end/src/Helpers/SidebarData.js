@@ -3,18 +3,22 @@ import {BsPersonPlus} from "react-icons/bs"
 import {BsFileText} from "react-icons/bs"
 import {FaMoneyCheckAlt} from "react-icons/fa"
 import {CgProfile} from "react-icons/cg"
+import {FaAddressBook} from "react-icons/fa"
+import { FiFrown } from "react-icons/fi";
+import { AiOutlineComment} from "react-icons/ai";
+import { AiOutlineLogout} from "react-icons/ai";
 
 
 
 export const SidebarData = [
     {
    title:"My Inquiry",
-   icon:<BsPersonPlus/>,
-   link:"/profile/delivery"
+   icon:<FiFrown/>,
+   link:"/profile/Myinquriy"
 },
 {
     title:"My Comment",
-    icon:<FaMoneyCheckAlt/>,
+    icon:<AiOutlineComment/>,
     link:"/profile/comment"
  },
  {
@@ -24,12 +28,12 @@ export const SidebarData = [
  },
  {
    title:"My Addresses",
-   icon:<FaMoneyCheckAlt/>,
+   icon:<FaAddressBook/>,
    link:"/profile/delivery"
 },
 {
    title:"Logout",
-   icon:<FaMoneyCheckAlt/>,
+   icon:<AiOutlineLogout/>,
    link:"/profile/delivery"
 },
 {

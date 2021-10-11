@@ -66,7 +66,7 @@ export default function Editinquiry(props) {
 
         axios.put(`http://localhost:5000/inquiry/update/${id}`, newinquiry).then(() => {
             alert("update inquiry")
-            history.push("/myProfile/Myinquriy");
+            history.push("/Profile/Myinquriy");
         }).catch((err) => {
             alert(err)
         })
