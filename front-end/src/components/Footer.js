@@ -9,14 +9,14 @@ function Footer() {
     return (
         <div>
             <hr></hr>
-            {/* <a href="/Addinquiry">inquiry</a> */}
+
             {/* ========= F O O T R E ====== */}
             <footer class="bg-dark" id="tempaltemo_footer">
                 <div class="container">
                     <div class="row">
 
                         <div class="col-md-4 pt-5">
-                            <h2 class="h2 text-success border-bottom pb-3 border-light logo">V-tech</h2>
+                            <h2 style={{ color: '#dd219e' }}>V-tech</h2>
                             <ul class="list-unstyled text-light footer-link-list">
                                 <li>
                                     <i class="fas fa-map-marker-alt fa-fw"></i>

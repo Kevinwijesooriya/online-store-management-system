@@ -1,15 +1,26 @@
 import React, { useStae, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { useSelector} from "react-redux";
+
+
+
+// ======== STYLING IMORTS ===========
+import "./OrderStyles.css";
+import { AiOutlineEdit} from "react-icons/ai";
+import { MdDelete} from "react-icons/md";
+import { grey } from "@material-ui/core/colors";
+
+
 
 export default function Myinquriy() {
     const [searchTerm, setSearchTerm] = useState('');
     const [inquiry, setinquiry] = useState([]);
-
+    const customerID = useSelector((state) => state.cusLogin.userInfo._id);
     useEffect(() => {
 
         function getinquiry() {
-            axios.get(`http://localhost:5000/inquiry/`).then((res) => {
+            axios.get(`http://localhost:5000/inquiry/cgot/${customerID}`).then((res) => {
                 console.log(res);
                 setinquiry(res.data);
             }).catch((err) => {
@@ -39,9 +50,9 @@ export default function Myinquriy() {
 
     return (
 
-        <div >
+        <div className="oneDetail" >
             <h1>your inquiris</h1>
-            <nav class="navbar navbar-light bg-light">
+            <nav className="p-3 mb-2 bg-transparent text-dark">
                 <div class="container-fluid">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
@@ -52,39 +63,94 @@ export default function Myinquriy() {
                 </div>
             </nav>
 
-            {/* {inquiry.map((std) =>(
-                    <div>
-                    <p>{std._id}</p>
-                    <p>{std.custom_ID}</p>
-                    <p>{std.custom_name}</p>
-                    <p>{std.custom_address_code}</p>
-                    <p>{std.custom_city}</p>
-                    <p>{std.custom_province_name}</p>
-                    <a href={`https://mail.google.com/mail/u/1/?ogbl#inbox`}>{std.custom_mail}</a>
-                    <p>{std.custom_contact_number}</p>
-                    <p>{std.item_name}</p>
-                    <p>{std.itemcode}</p>
-                    <p>{std.billnumber}</p>
-                    <p>{std.inquriy_description}</p>
-                    <p>{std.date_ob}</p>
- 
-                    <hr></hr>
+            {filteredCountrise.map((std) =>(
+                    <div  className="container">
+                    <div  className="oneDetail">
+                    {/* <p> id {std._id}</p>
+                    <p> custom id  {std.custom_ID}</p> */}
+                    
+                    <div class="row">
+                    <div class="col">
+                        Name&nbsp;{std.custom_name}
+                       <br/>
+                        Email <a href={`https://mail.google.com/mail/u/1/?ogbl#inbox`}>{std.custom_mail}</a>
+                       <br/>
+                        Number {std.custom_contact_number}
+                       <br/>
+                        Postal code {std.custom_address_code}
+                       <br/>
+                        Address  {std.custom_streat_address} {std.custom_city} {std.custom_province_name}
+                    </div>
+                    <div class="col">
+                    <p>Item name: &nbsp; {std.item_name}</p>
+                    <p>Item code: &nbsp;{std.itemcode}</p>
+                    <p>Item bill number: &nbsp;{std.billnumber}</p>
+                    </div>
+                    </div>
+                    <div class="row g-0">
+                    <div class="col-6 col-md-4">
+                     <h1></h1>
+                     </div>
+                     
+                     <div class="col-sm-6 col-md-8">
+                     <div class="row">  
+                     <div class="col"></div> 
+                     <div class="col">
+                      <p></p>
+                    </div>
+                        <div class="col">
+                    <p></p>
+                    </div>
+                    <div class="col">
+                    <p></p>
+                    </div>
                     </div>
 
 
-              ))} */}
+                    <p></p>
+                    <p></p>
+                    <div class="oneDetail">
+                    <div class="row">
+                    <p>{std.inquriy_description}</p>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                     <div class="col">
+                         <br/>
+                    <p>{std.date_ob}</p>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">  
+                     <div class="col"></div>
+                     <div class="col"></div>
+                     <div class="col">
+                         <br/>
+                    <a className="btn btn-warning" href={`/Profile/EdtI/${std._id}`} style={{ textDecoration: 'none', color: 'white' }}><AiOutlineEdit/>&nbsp;Edit</a> &nbsp;
+                                <a className="btn btn-danger" href="/Profile/Myinquriy" onClick={() => Delete(std._id)}><MdDelete/>&nbsp;Delete</a>
+                                </div>
+                                </div>
+                    </div>
+                    </div>
+                    <hr></hr>
+                    </div>
+                    </div>
+
+              ))}
 
 
 
 
-
+{/* 
             <table className="table table-success table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        {/* <th scope="col">Name</th>
+                        <th scope="col">Name</th>
       <th scope="col">Contact number</th>
-      <th scope="col">email</th> */}
+      <th scope="col">email</th>
                         <th scope="col">Item name</th>
                         <th scope="col">Item code</th>
                         <th scope="col">bill number</th>
@@ -98,11 +164,11 @@ export default function Myinquriy() {
 
                         <tr key={index}>
                             <th scope="row">{index + 1}</th>
-                            {/* <td>{std.custom_name}</td>
+                            <td>{std.custom_name}</td>
              <td>{std.custom_contact_number}</td>
              <td>
              <a href={`https://mail.google.com/mail/u/1/?ogbl#inbox`}>{std.custom_mail}</a>
-             </td> */}
+             </td>
                             <td>{std.item_name}</td>
                             <td>{std.itemcode}</td>
                             <td>{std.billnumber}</td>
@@ -119,16 +185,16 @@ export default function Myinquriy() {
                     ))}
                 </tbody>
                 <tbody>
-                    {/* <tr>
+                    <tr>
       <th scope="row">1</th>
       <td>{std._id}</td>
       <td>{std.name}</td>
       <td>{std.age}</td>
       <td>{std.gender}</td>
       <td>{std.date_ob}</td>
-    </tr> */}
+    </tr>
                 </tbody>
-            </table>
+            </table> */}
 
 
         </div>
