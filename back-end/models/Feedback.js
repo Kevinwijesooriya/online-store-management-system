@@ -20,6 +20,10 @@ const feedbackSchema = new Schema({
         type : String,
         required: true
     },
+    itemimg:{
+        type : String,
+        required: true
+    },
     rate:{
         type: Number,
         required: true

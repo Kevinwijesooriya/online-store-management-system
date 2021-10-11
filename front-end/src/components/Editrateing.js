@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from 'react-router-dom';
 import Reactstars from "react-rating-stars-component";
 import axios from "axios";
+import "./OrderStyles.css";
+import { blue } from "@material-ui/core/colors";
 
 
 export default function Editrateing(props) {
@@ -10,6 +12,7 @@ export default function Editrateing(props) {
     const [customName, setCustomName] = useState("");
     const [item_name, set_item_name] = useState("");
     const [itemcode, set_itemcode] = useState("");
+    const [itemimg, set_itemimg] = useState("");
     const [rate, set_rate] = useState("");
     const [comment, set_comment] = useState("");
     const { id } = useParams();
@@ -35,6 +38,7 @@ export default function Editrateing(props) {
             custom_ID: feedback.custom_ID,
             item_name: feedback.item_name,
             itemcode: feedback.itemcode,
+            itemimg:feedback.itemimg,
             custom_name: feedback.custom_name,
             rate,
             comment,
@@ -71,11 +75,27 @@ export default function Editrateing(props) {
     return (
 
         <div className="container">
-            <div><div>{feedback.item_name}</div>
+            <div className="oneDetail">
+                <div>
+                    <h3>{feedback.item_name}</h3>
+
+                </div>
+
+            <div   style={{
+                width:'500px',
+                height:'500px',
+                marginLeft:"300px",
+                borderRadius:'25px'
+                
+                }}>
+            <img src={`/images/${feedback.itemimg}`} alt={feedback.item_name} />
+            </div>
+               
+                <div className="oneDetail">
             <form onSubmit={sendData}>
 
                 <div className="mb-3">
-                    <label htmlFor="rate" className="form-label" >Comment</label>
+                    <label htmlFor="rate" className="form-label" > Your Comment</label>
                    
                     <Reactstars size={30} onChange={(e) => {
                         set_rate(e);
@@ -95,7 +115,7 @@ export default function Editrateing(props) {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-
+            </div>
             </div>
         </div>
     )

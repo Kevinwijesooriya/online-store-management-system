@@ -6,6 +6,7 @@ router.route("/add").post((req,res)=>{
    const custom_name = req.body.custom_name;
    const item_name= req.body.item_name;
    const itemcode = req.body.itemcode;
+   const itemimg = req.body.itemimg;
    const rate = Number(req.body.rate);
    const comment = req.body.comment;
    let date_ob = new Date();
@@ -14,6 +15,7 @@ router.route("/add").post((req,res)=>{
     custom_ID,
     item_name,
     itemcode,
+    itemimg,
     custom_name,
     rate,
     comment,
@@ -37,13 +39,14 @@ router.route("/").get((req,res)=>{
 
 router.route("/update/:id").put(async (req, res) => {
   let userId = req.params.id;
-  const {custom_ID,custom_name,item_name, itemcode,rate, comment} = req.body;
+  const {custom_ID,custom_name,item_name, itemcode,itemimg,rate, comment} = req.body;
   let date_ob = new Date();
   const updateFeedback = {
     custom_ID,
     custom_name,
     item_name,
     itemcode,
+    itemimg,
     rate,
     comment,
     date_ob 
