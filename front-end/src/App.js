@@ -51,6 +51,7 @@ import CusRegisterscreen from './components/CusRegisterscreen';
 import AdminMain from './components/ADminMainPage';
 import MyProfileApp from './components/MyProfileApp';
 import UpdateOrder from './components/UpdateOrder';
+import UpdateOrderc from './components/UpdateOrder copy';
 
 
 
@@ -83,8 +84,9 @@ function App() {
 
         {/*order routes*/}  
         <Route path="/order/" exact component={OrderList} />
-        <Route path="/order/update/:id" exact component={UpdateOrder} />
+         <Route path="/order/update/:id" exact component={UpdateOrder} /> 
         <Route path="/order/add" exact component={PlaceOrder} />
+        {/*<Route path="/order/update/:id" exact component={UpdateOrderc} />*/}
 
         
               

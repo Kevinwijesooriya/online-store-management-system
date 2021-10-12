@@ -45,21 +45,31 @@ console.log(order);
     return (
       <div><br/><br/>
         <div className="container">
-          <div className="row">
             <div className="oneDetail">
-           <center> <h3>My Orders</h3> </center>
-            <div className="col-lg-3 mt-2 mb-2"> <form class="d-flex">
-              <input
-              className="form-control"
-              type="search"
-              placeholder="Search Orders"
-              name="searchQuery"
-              onChange={e => setSearchTerm(e.target.value)}
-              >
-              </input></form></div>
-            </div>
-          </div> 
-        </div> 
+              <div className="row">
+                <div className="col"> 
+                  <h3>My Orders</h3>
+                </div>
+                <div className="col">
+                  <div className="row">
+                    <div className="col">
+                    </div>
+                    <div className="col">
+                      <form class="d-flex">
+                      <input
+                      className="form-control"
+                      type="search"
+                      placeholder="Search Orders"
+                      name="searchQuery"
+                      onChange={e => setSearchTerm(e.target.value)}
+                      >
+                      </input>
+                      </form>
+                    </div>
+                  </div>
+              </div>
+            </div> 
+        </div></div> 
         <br/><br/>
         {filteredCountrise.map((orders) =>(
             <div>

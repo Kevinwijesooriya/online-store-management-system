@@ -57,35 +57,28 @@ export default class OrderReport extends Component {
   render(){
     return (
       <div>
-        {/*<div className="container">
-          <div className="row">
-            <div className="col-lg-9 mt-2 mb-2">
-              <h3>My Orders</h3>
-            </div>
-            <div className="col-lg-3 mt-2 mb-2">
-              <input
-              className="form-control"
-              type="search"
-              placeholder="Search Orders"
-              name="searchQuery"
-              onChange={this.handleSearchArea}>
-              </input>
-            </div>
-          </div>
-        </div>
-    <br/><br/>*/}
           <div ref={(el) => (this.componentRef = el)}>
-              <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white" >
-                    <div className="rounded-t mb-0 px-4 py-3 border-0">
-                      <div className="flex flex-wrap items-center">
-                        <div className="relative w-full px-4 max-w-full flex-grow flex-1"><br/>
-                          <h3
-                            className="text-blueGray-700 text-xl font-bold">
-                            Order Report
-                          </h3><br/>
+                          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white" >
+                      <div className="rounded-t mb-0 px-4 py-3 border-0">
+                        <div className="rounded-t bg-white mb-0 px-6 py-6">
+                          <div className="text-center flex justify-between">
+                            <h6 className="text-blueGray-700 text-xl font-bold">Order Report</h6>
+                            <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
+                              <div className="relative flex w-full flex-wrap items-stretch">
+                                <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                                  <i className="fas fa-search"></i>
+                                </span>
+                                <input
+                                  onChange={this.handleSearchArea}
+                                  type="text"
+                                  placeholder="Search here..."
+                                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
+                                />
+                              </div>
+                            </form>
+                          </div>
                         </div>
-                      </div>
-                      <div className="block w-full overflow-x-auto">
+                        <div className="block w-full overflow-x-auto">
                         <table className="items-center w-full bg-transparent border-collapse">
                           <thead className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100">
                             <tr>

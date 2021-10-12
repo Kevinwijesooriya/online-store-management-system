@@ -77,7 +77,7 @@ export default function PlaceOrder() {
 
 
   useEffect(() => {
-      axios.get(`http://localhost:5000/delivery/`)//cgot/${customerID}
+      axios.get(`http://localhost:5000/delivery/cgot/${customerID}`)
         .then(response => {
           if (response.data.length > 0) {
             setDeliveries(response.data.map(delivery => delivery.address))
@@ -101,15 +101,17 @@ export default function PlaceOrder() {
   }, [] );
 
   return (
-  
-  // <div className="App" >
-  //   <div className="content">
-
       <div className="container">
-        
         <Form noValidate validated={validated} onSubmit={sendData}>
           <div className="needs-validation">
-            <center><h3>Place Order</h3></center><br/><br/>
+            <center><h3>Place Order</h3></center><br/>
+          <table class="table table-striped">
+            <tr><td>Bank of Ceylon, Kollupitiya  Branch, Branch Code 034</td><td>1630552</td></tr>
+            <tr><td>Sampath Bank, Malabe Branch, Branch Code 039</td><td>003990000033</td></tr>
+            <tr><td>Nations Trust Bank, Malabe Branch, Branch Code 038</td><td>100380005000</td></tr>
+            <tr><td>Hatton National Bank, Malabe Branch, Branch Code 156</td><td>156010007350</td></tr>
+          </table>
+          
               <div className="form-group">
                 <label>Bank Name: </label><br/>
                 <input type="text"
@@ -184,9 +186,10 @@ export default function PlaceOrder() {
                 <input
                   required
                   minLength="9"
+                  
                   type = "tel"
                   className="form-control"
-                  //pattern = "[0-9] {3} - [0-9] {2} - [0-9] {3}"
+                  //pattern = "[0-9]{10}  "
                   value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);

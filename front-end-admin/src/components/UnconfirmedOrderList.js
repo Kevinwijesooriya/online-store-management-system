@@ -114,33 +114,36 @@ console.log(order);
                   <Link className="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" to={"/admin/confirm/" + orders._id}>Confirm Order</Link> <a className="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"  onClick={() => {deleteOrder(orders._id) }}><i className="far fa-trash-alt"></i>&nbsp; Cancel Order</a> 
                 </div>
               </div><br/>
-            <hr/><br/>
-              <div class="flex flex-wrap">
-                <div class="w-4/12 px-4">
-                  <img src={`/images/${orders.itemImage}`} class="rounded float-start" alt="Item image" width="150" height="150"/>
-                </div>
-                  <div class="w-8/12 px-4">
-                  <div class="flex flex-wrap">
-                    <div class="w-full px-4 flex-1 font-semibold text-left text-xs">
-                      <p class="font-semibold text-left text-xs">Item Name : {orders.itemName}</p>
-                    </div>
-                    <div class="w-full px-4 flex-1 font-semibold text-left text-xs">
-                      Qty: {orders.qty}
-                    </div>
-                    <div class="w-full px-4 flex-1 font-semibold text-left text-xs">
-                      Order Status : {orders.orderStatus}
-                    </div>
-                  </div>
-                  <div class="flex flex-wrap">
-                    <div class="w-full px-4 flex-1 font-semibold text-left text-xs"><br/>
-                      Address : {orders.address}
-                    </div>
-                    <div class="w-full px-4 flex-1 font-semibold text-left text-xs"><br/>
-                      Total Price : $ {orders.amount}
-                    </div> 
-                  </div>
-              </div>
-            </div>
+            <hr className="bg-lightBlue-500" /><br/>
+            <div class="flex flex-wrap">
+                        <div class="w-4/12 px-4">
+                          <img src={`/images/${orders.itemImage}`} class="rounded float-start" alt="Item image" width="150" height="150" />
+                        </div>
+                        <div class="w-8/12 px-4">
+                          <div class="flex flex-wrap">
+                            <div class="w-1/2 px-4 md:w-4/12 font-semibold text-left text-xs">
+                              <p class="font-semibold text-left text-s">Item Name : {orders.itemName}</p>
+                            </div>
+                            <div class="w-1/2 px-4 md:w-4/12 font-semibold text-left text-xs">
+                              Qty: {orders.qty}
+                            </div>
+                            <div class="w-1/2 px-4 md:w-4/12 font-semibold text-left text-xs">
+                              Customer Name : {orders.userName}
+                            </div>
+                          </div>
+                          <div class="flex flex-wrap">
+                            <div class="w-1/2 px-4 md:w-4/12 font-semibold text-left text-xs"><br />
+                              Address : {orders.address}
+                            </div>
+                            <div class="w-1/2 px-4 md:w-4/12 font-semibold text-left text-xs"><br />
+                              Total Price : $ {orders.amount}
+                            </div>
+                            <div class="w-1/2 px-4 md:w-4/12 font-semibold text-left text-xs"><br/>
+                              Order Status : {orders.orderStatus}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
             </div><br/>
             </div>
                           
